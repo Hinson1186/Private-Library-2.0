@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "Tag": {
+      "title": "Tag",
+      "description": "A global tag for books and series.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "Book": {
+      "title": "Book",
+      "description": "A book in the library.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "cover": { "type": "string" },
+        "category": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "addedAt": { "type": "number" }
+      },
+      "required": ["id", "title", "category"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "A category in the library.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string", "enum": ["folder", "series"] },
+        "cover": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "parentId": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["id", "name", "type"]
+    },
+    "Snapshot": {
+      "title": "Snapshot",
+      "description": "A snapshot of the user's library.",
+      "type": "object",
+      "properties": {
+        "books": { "type": "array", "items": { "$ref": "Book" } },
+        "categories": { "type": "array", "items": { "$ref": "Category" } },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["books", "categories", "tags", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/tags/{tagName}": {
+      "schema": "Tag",
+      "description": "User-specific tags."
+    },
+    "/users/{userId}/books/{bookId}": {
+      "schema": "Book",
+      "description": "User-specific books."
+    },
+    "/users/{userId}/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "User-specific categories."
+    },
+    "/users/{userId}/snapshots/{snapshotId}": {
+      "schema": "Snapshot",
+      "description": "User-specific snapshots."
+    }
+  }
+}
