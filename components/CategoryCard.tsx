@@ -16,9 +16,18 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, representativeBoo
     ? representativeBook.coverUrl
     : null;
 
-  const isSeries = category.type === 'series' || category.name.includes('系列');
-  const displayCount = isSeries ? seriesCount : bookCount;
-  const unit = isSeries ? ' 個系列' : ' 本藏書';
+  const isParentSeriesFolder = category.displayName === '系列' || category.name === '輕小說系列' || category.name === '漫畫系列';
+  
+  let displayCount = bookCount;
+  let unit = ' 本藏書';
+
+  if (isParentSeriesFolder) {
+      displayCount = seriesCount;
+      unit = ' 個系列';
+  } else if (category.type === 'series') {
+      displayCount = bookCount;
+      unit = ' 本藏書';
+  }
 
   return (
     <div 

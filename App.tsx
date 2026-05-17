@@ -184,30 +184,46 @@ const App: React.FC = () => {
             // Mixed search mode: search all categories and books
             const matchingBooks = books.filter(filterBook);
             
-            const matchingCategories: CategoryDef[] = [];
-            const seenCategoryIds = new Set<string>();
+            const finalMixedItems: (Book | CategoryDef)[] = [];
+            const processedSeriesNames = new Set<string>();
+            const processedBookIds = new Set<string>();
 
-            const searchCats = (nodes: CategoryDef[]) => {
+            // 1. Identify which series folders should be shown instead of individual books
+            // Strategy: For leaf series folders, if more than 1 matching book exists inside,
+            // or if the folder itself matches the search criteria, group them.
+            
+            const searchAndGroup = (nodes: CategoryDef[]) => {
                 nodes.forEach(n => {
-                    // Only include leaf series folders in search results (not the "Series" container)
-                    if (n.type === 'series' && n.displayName !== '系列') {
-                        if (filterCategory(n)) {
-                            // Add tags to displayName for visual indication in search
-                            const tagStr = n.tags && n.tags.length > 0 ? ` [${n.tags.join(', ')}]` : '';
-                            matchingCategories.push({ ...n, displayName: `${n.displayName || n.name}${tagStr}` });
-                            seenCategoryIds.add(n.id);
+                    const isLeafSeries = n.type === 'series' && n.displayName !== '系列';
+                    
+                    if (isLeafSeries) {
+                        const descendantNames = getAllDescendantNames(n);
+                        const matchingBooksInSeries = matchingBooks.filter(b => descendantNames.includes(b.category));
+                        const folderMatches = filterCategory(n);
+                        
+                        // Grouping Condition: 
+                        // - Folder itself matches the search/tags
+                        // - OR more than 1 matching book inside
+                        // - OR exactly 1 matching book but it's part of a series (collectors usually prefer folder access)
+                        if (folderMatches || matchingBooksInSeries.length > 0) {
+                            finalMixedItems.push(n);
+                            processedSeriesNames.add(n.name);
+                            matchingBooksInSeries.forEach(b => processedBookIds.add(b.id));
+                            // Once a series folder is added to mixed view, we don't go deeper
+                            return; 
                         }
                     }
-                    if (n.children) searchCats(n.children);
+                    
+                    if (n.children && n.children.length > 0) searchAndGroup(n.children);
                 });
             };
-            searchCats(categories);
+            searchAndGroup(categories);
 
-            // Process matching books
-            const finalMixedItems: (Book | CategoryDef)[] = [...matchingCategories];
-            
+            // 2. Add matching books that were NOT grouped into a series folder
             matchingBooks.forEach(b => {
-                finalMixedItems.push(b);
+                if (!processedBookIds.has(b.id)) {
+                    finalMixedItems.push(b);
+                }
             });
 
             return { type: 'mixed' as const, items: finalMixedItems };
@@ -310,6 +326,12 @@ const App: React.FC = () => {
         setSelectedTags(new Set());
     } else {
         setSelectedTags(new Set([tag]));
+    }
+  };
+
+  const handleDeleteBook = (id: string, title: string) => {
+    if (window.confirm(`【警告】\n\n您確定要永久刪除「${title}」這本書嗎？\n此動作無法復原。`)) {
+        deleteBook(id);
     }
   };
 
@@ -553,6 +575,7 @@ const App: React.FC = () => {
                         isBatchMode={isBatchMode}
                         selectedBookIds={selectedBookIds}
                         onBookClick={setSelectedBook}
+                        onDeleteBook={handleDeleteBook}
                         onBatchSelect={toggleBatchSelection}
                         onCategoryClick={setSelectedCategory}
                         onAddFirstBook={() => setIsModalOpen(true)}
@@ -583,7 +606,18 @@ const App: React.FC = () => {
         globalTags={globalTags}
         onToggleCategoryTag={toggleCategoryTag}
       />
-      <BookDetailModal isOpen={!!selectedBook} onClose={() => setSelectedBook(null)} book={selectedBook} categories={categories} globalTags={globalTags} onUpdate={updateBook} onDelete={deleteBook} />
+      <BookDetailModal 
+        isOpen={!!selectedBook} 
+        onClose={() => setSelectedBook(null)} 
+        book={selectedBook} 
+        categories={categories} 
+        globalTags={globalTags} 
+        onUpdate={updateBook} 
+        onDelete={(id) => {
+            deleteBook(id);
+            setSelectedBook(null);
+        }} 
+      />
       <SettingsModal 
         isOpen={isSettingsOpen} 
         onClose={() => setIsSettingsOpen(false)} 

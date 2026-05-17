@@ -30,6 +30,7 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
   const [isTreeOpen, setIsTreeOpen] = useState(false);
   const [expandedCatIds, setExpandedCatIds] = useState<Set<string>>(new Set());
   const [isTagSelectorOpen, setIsTagSelectorOpen] = useState(false);
+  const [isConfirmingDelete, setIsConfirmingDelete] = useState(false);
 
   const tagSelectorRef = useRef<HTMLDivElement>(null);
   const categoryTreeRef = useRef<HTMLDivElement>(null);
@@ -101,11 +102,10 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
     }
   };
 
-  const handleDelete = () => {
-    if (window.confirm(`【警告】\n\n您確定要永久刪除「${book.title}」這本書嗎？\n此動作無法復原。`)) {
-      onDelete(book.id);
-      onClose();
-    }
+  const handleDelete = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsConfirmingDelete(true);
   };
 
   // Tree Logic
@@ -182,6 +182,31 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
       )}
 
       <div className="bg-slate-900 rounded-2xl shadow-2xl w-full max-w-3xl h-[85vh] overflow-hidden flex flex-col md:flex-row border border-slate-700 animate-in fade-in zoom-in duration-200 relative">
+        {isConfirmingDelete && (
+            <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-sm animate-in fade-in">
+                <div className="bg-slate-900 border border-rose-500/30 rounded-2xl p-6 shadow-2xl max-w-sm w-full">
+                    <h3 className="text-xl font-bold text-slate-100 mb-2">確認刪除</h3>
+                    <p className="text-sm text-slate-400 mb-6">您確定要永久刪除這本書嗎？<br/><br/><span className="text-white font-bold">《{book.title}》</span><br/><br/>此動作無法復原！</p>
+                    <div className="flex gap-3 justify-end">
+                        <button 
+                            onClick={() => setIsConfirmingDelete(false)}
+                            className="px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-sm font-medium"
+                        >
+                            取消
+                        </button>
+                        <button 
+                            onClick={() => {
+                                setIsConfirmingDelete(false);
+                                onDelete(book.id);
+                            }}
+                            className="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors text-sm font-bold shadow-lg shadow-rose-600/20"
+                        >
+                            確認刪除
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )}
         <div className="w-full md:w-5/12 bg-slate-950 relative group flex items-center justify-center bg-black">
           <div 
             className="relative w-full h-64 md:h-full cursor-zoom-in"
@@ -357,14 +382,21 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                 )}
             </div>
 
-            <div className="p-4 border-t border-slate-800 bg-slate-900 flex justify-end">
+            <div className="p-4 border-t border-slate-800 bg-slate-900/50 flex justify-between items-center shrink-0">
                  <button 
                     onClick={handleDelete}
-                    className="p-2 text-slate-600 hover:text-red-500 hover:bg-slate-800 rounded-lg transition-colors flex items-center gap-2 text-xs"
+                    className="px-4 py-2 text-rose-500/60 hover:text-rose-400 hover:bg-rose-500/10 rounded-xl transition-all flex items-center gap-2 text-sm font-bold group/del"
                     title="刪除此書籍"
                  >
-                    <Trash2 size={16} /> 刪除書籍
+                    <Trash2 size={16} className="group-hover/del:scale-110 transition-transform" /> 
+                    <span>永久刪除此書</span>
                  </button>
+                 
+                 {!isEditing && (
+                    <p className="text-[10px] text-slate-500 font-medium italic">
+                        最後更新：{new Date(book.updatedAt || book.addedAt || Date.now()).toLocaleDateString()}
+                    </p>
+                 )}
             </div>
         </div>
       </div>

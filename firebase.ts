@@ -13,14 +13,16 @@ const firebaseConfig = {
   firestoreDatabaseId: import.meta.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID
 };
 
-const isValidConfig = firebaseConfig.apiKey && firebaseConfig.projectId;
+const isValidConfig = !!(firebaseConfig.apiKey && firebaseConfig.projectId);
+console.log("Firebase config found:", isValidConfig);
 
 let app;
 if (getApps().length === 0) {
   if (isValidConfig) {
+    console.log("Using real Firebase config");
     app = initializeApp(firebaseConfig);
   } else {
-    // 預防性初始化
+    console.log("Using placeholder Firebase config");
     app = initializeApp({ apiKey: "placeholder", projectId: "placeholder" });
   }
 } else {
@@ -28,5 +30,5 @@ if (getApps().length === 0) {
 }
 
 export const auth = getAuth(app);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId || '(default)');
+export const db = getFirestore(app);
 export default app;

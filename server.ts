@@ -82,6 +82,32 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
     }
   });
 
+  // API: Save state directly into initialData.ts
+  app.post('/api/save-initial-data', (req, res) => {
+    try {
+      const { books, categories } = req.body;
+      
+      const content = `import { Book, CategoryDef } from '../types';
+import { createBook, createSeries } from '../utils/bookFactory';
+
+/**
+ * 這裡是您的「永久資料庫」。
+ * 此檔案由自動儲存生成。
+ */
+
+export const initialCategories: CategoryDef[] = ${JSON.stringify(categories, null, 2)};
+
+export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
+`;
+
+      fs.writeFileSync(initialDataPath, content);
+      res.json({ message: 'Data saved to initialData.ts successfully.' });
+    } catch (error: any) {
+      console.error('Save error:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({

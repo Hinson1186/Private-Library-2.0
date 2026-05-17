@@ -51,49 +51,21 @@ const Header: React.FC<HeaderProps> = ({
   const [accessKey, setAccessKey] = React.useState('');
   const [loginError, setLoginError] = React.useState('');
   
-  const sortedTags = React.useMemo(() => [...allTags].sort((a, b) => a.localeCompare(b, 'zh-TW', { numeric: true })), [allTags]);
-  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  const sliderRef = React.useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = React.useState(0);
-  const [isDragging, setIsDragging] = React.useState(false);
+    const sortedTags = React.useMemo(() => [...allTags].sort((a, b) => a.localeCompare(b, 'zh-TW', { numeric: true })), [allTags]);
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-  const handleScroll = () => {
-    if (scrollContainerRef.current && !isDragging) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-        const maxScroll = scrollWidth - clientWidth;
-        if (maxScroll > 0) {
-            setScrollProgress((scrollLeft / maxScroll) * 100);
-        }
-    }
-  };
-
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseFloat(e.target.value);
-    setScrollProgress(value);
-    
-    if (scrollContainerRef.current) {
-        const el = scrollContainerRef.current;
-        const maxScroll = el.scrollWidth - el.clientWidth;
-        // Direct setting is often more responsive than rAF for direct input manipulation
-        el.scrollLeft = (value / 100) * maxScroll;
-    }
-  };
-
-  const handleLogin = async () => {
+    const handleLogin = async () => {
     if (isLoggingIn) return;
     setIsLoggingIn(true);
     
     const provider = new GoogleAuthProvider();
-    // 強制選擇帳號，有助於解決某些環境下的彈窗問題
     provider.setCustomParameters({ prompt: 'select_account' });
 
     try {
       await signInWithPopup(auth, provider);
     } catch (error: any) {
       if (error.code === 'auth/popup-closed-by-user') {
-        console.warn("登入視窗被關閉。請確保您已完成登入流程，且瀏覽器未封鎖彈窗。");
-      } else if (error.code === 'auth/cancelled-popup-request') {
-        console.warn("登入請求已取消。");
+        console.warn("登入視窗被關閉。");
       } else {
         console.error("Login failed", error);
       }
@@ -110,13 +82,12 @@ const Header: React.FC<HeaderProps> = ({
     setLoginError('');
     
     try {
-      // 使用您的 Email 作為帳號，Access Key 作為密碼
       await signInWithEmailAndPassword(auth, 'iamkfc1186@gmail.com', accessKey);
       setShowKeyLogin(false);
       setAccessKey('');
     } catch (error: any) {
       console.error("Key login failed", error);
-      setLoginError('密碼錯誤或尚未在 Firebase 啟用 Email 登入。');
+      setLoginError('密碼錯誤。');
     } finally {
       setIsLoggingIn(false);
     }
@@ -260,16 +231,15 @@ const Header: React.FC<HeaderProps> = ({
                     </div>
                 )}
 
-                <div className="relative group/tags-container">
-                    <div className="w-full flex items-center justify-between bg-slate-800/20 backdrop-blur-sm rounded-2xl p-1.5 border border-slate-700/40 relative group/tags">
+                <div className="relative px-2">
+                    <div className="w-full flex items-center bg-slate-800/20 backdrop-blur-sm rounded-2xl border border-slate-700/40 relative group/tags">
                         <div 
                             ref={scrollContainerRef}
-                            onScroll={handleScroll}
-                            className={`flex items-center gap-2 overflow-x-auto custom-scrollbar no-scrollbar flex-1 px-2 ${isDragging ? '' : 'scroll-smooth'}`}
+                            className="flex items-center gap-2 overflow-x-auto custom-scrollbar scroll-smooth flex-1 px-4 py-4"
                         >
                             <div className="shrink-0 flex items-center gap-1.5 text-slate-500 mr-2">
-                                <Tag size={14} className="text-slate-400" />
-                                <span className="text-[10px] font-black uppercase tracking-tighter">熱門標籤</span>
+                                <Tag size={13} className="text-slate-400" />
+                                <span className="text-[10px] font-black uppercase tracking-tighter">標籤</span>
                             </div>
                             <button
                                 onClick={() => setSelectedTag(null)}
@@ -299,47 +269,15 @@ const Header: React.FC<HeaderProps> = ({
                             })}
                         </div>
                         
-                        <div className="flex gap-1 ml-2 border-l border-slate-700/50 pl-2">
+                        <div className="flex gap-1 ml-2 border-l border-slate-700/50 pl-2 shrink-0 h-10 items-center pr-2">
                             <button 
                                 onClick={onOpenTagManager}
-                                className="shrink-0 px-3 py-1.5 text-slate-400 hover:text-rose-400 hover:bg-rose-400/10 rounded-xl transition-all flex items-center gap-1.5 border border-transparent active:scale-95"
+                                className="px-3 py-1.5 text-slate-400 hover:text-rose-400 hover:bg-rose-400/10 rounded-xl transition-all flex items-center gap-1.5 active:scale-95"
                                 title="標籤管理"
                             >
                                 <Tags size={16} />
                                 <span className="text-[10px] font-black hidden sm:inline uppercase">管理</span>
                             </button>
-                        </div>
-
-                        {/* Slider integrated INSIDE the container box at the bottom */}
-                        <div className="absolute bottom-0.5 left-4 right-16 h-1 flex items-center group/slider pointer-events-none opacity-0 group-hover/tags:opacity-100 transition-opacity">
-                            <div className="w-full h-1 bg-slate-900/40 rounded-full relative overflow-hidden ring-1 ring-slate-800/50">
-                                <div 
-                                    className="absolute inset-y-0 left-0 bg-indigo-500/20 rounded-full transition-all duration-150"
-                                    style={{ width: `${scrollProgress}%` }}
-                                />
-                            </div>
-                            <input 
-                                type="range"
-                                min="0"
-                                max="100"
-                                step="0.01"
-                                value={scrollProgress}
-                                onMouseDown={() => setIsDragging(true)}
-                                onMouseUp={() => setIsDragging(false)}
-                                onTouchStart={() => setIsDragging(true)}
-                                onTouchEnd={() => setIsDragging(false)}
-                                onChange={handleSliderChange}
-                                className="absolute inset-x-0 w-full h-6 opacity-0 cursor-pointer pointer-events-auto z-10"
-                                title="滑動瀏覽標籤"
-                            />
-                            {/* Scrollbar thumb (Modern Bean) */}
-                            <div 
-                                className={`absolute h-1.5 w-16 bg-slate-600 rounded-full transition-all duration-200 pointer-events-none shadow-[0_0_10px_rgba(0,0,0,0.5)] ${isDragging ? 'bg-indigo-500 opacity-100 scale-y-110' : 'opacity-60 lg:group-hover/slider:opacity-100 lg:group-hover/slider:bg-slate-500'}`}
-                                style={{ 
-                                    left: `calc(${scrollProgress}% - (${scrollProgress} * 64px / 100))`, 
-                                    transform: 'translateX(0)' 
-                                }}
-                            />
                         </div>
                     </div>
                 </div>
@@ -379,7 +317,7 @@ const Header: React.FC<HeaderProps> = ({
               </div>
           </div>
       )}
-      {/* Key Login Modal */}
+      
       {showKeyLogin && (
         <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 pt-32 bg-slate-950/80 backdrop-blur-sm">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-sm p-6 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200">
@@ -438,10 +376,6 @@ const Header: React.FC<HeaderProps> = ({
                 )}
               </button>
             </form>
-            
-            <p className="mt-6 text-[10px] text-slate-500 text-center leading-relaxed">
-              提示：此功能需要先在 Firebase 控制台啟用 Email/Password 登入，並為您的帳號設定密碼。
-            </p>
           </div>
         </div>
       )}

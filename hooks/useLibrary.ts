@@ -138,6 +138,15 @@ export const useLibrary = () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
       localStorage.setItem(CATEGORIES_KEY, JSON.stringify(categories));
       localStorage.setItem(TAGS_KEY, JSON.stringify(globalTags));
+
+      // 自動同步到伺服器端的 initialData.ts
+      if (!window.location.hostname.includes('github.io') && !window.location.hostname.includes('web.app')) {
+        fetch('/api/save-initial-data', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ books, categories })
+        }).catch(err => console.error('Auto sync to backend failed', err));
+      }
     }
   }, [books, categories, globalTags, isLoading]);
 
@@ -311,20 +320,52 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
       id: crypto.randomUUID(),
       addedAt: Date.now()
     };
-    // 暫時性修改
-    setBooks(prev => [newBook, ...prev]);
+    
+    setBooks(prev => {
+        const next = [newBook, ...prev];
+        if (user) {
+            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+                books: next,
+                categories,
+                tags: globalTags,
+                updatedAt: new Date().toISOString()
+            }).catch(e => console.error("Sync error:", e));
+        }
+        return next;
+    });
+    
     draft.tags?.forEach(t => addGlobalTag(t));
   };
 
   const updateBook = async (updatedBook: Book) => {
-    // 暫時性修改
-    setBooks(prev => prev.map(b => b.id === updatedBook.id ? updatedBook : b));
+    setBooks(prev => {
+        const next = prev.map(b => b.id === updatedBook.id ? updatedBook : b);
+        if (user) {
+            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+                books: next,
+                categories,
+                tags: globalTags,
+                updatedAt: new Date().toISOString()
+            }).catch(e => console.error("Sync error:", e));
+        }
+        return next;
+    });
     updatedBook.tags?.forEach(t => addGlobalTag(t));
   };
 
   const deleteBook = async (id: string) => {
-    // 暫時性修改
-    setBooks(prev => prev.filter(b => b.id !== id));
+    setBooks(prev => {
+        const next = prev.filter(b => b.id !== id);
+        if (user) {
+            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+                books: next,
+                categories,
+                tags: globalTags,
+                updatedAt: new Date().toISOString()
+            }).catch(e => console.error("Sync error:", e));
+        }
+        return next;
+    });
   };
 
   const updateCategories = async (newCats: CategoryDef[]) => {

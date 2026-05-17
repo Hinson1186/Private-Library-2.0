@@ -12,6 +12,7 @@ interface BookGridProps {
   isBatchMode: boolean;
   selectedBookIds: Set<string>;
   onBookClick: (book: Book) => void;
+  onDeleteBook: (id: string, title: string) => void;
   onBatchSelect: (id: string) => void;
   onCategoryClick: (name: string) => void;
   onAddFirstBook: () => void;
@@ -89,6 +90,7 @@ const BookGrid: React.FC<BookGridProps> = ({
   isBatchMode,
   selectedBookIds,
   onBookClick,
+  onDeleteBook,
   onBatchSelect,
   onCategoryClick,
   onAddFirstBook,

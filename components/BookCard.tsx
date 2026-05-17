@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Book } from '../types';
-import { CheckCircle2, Circle, Tag, Plus, X } from 'lucide-react';
+import { CheckCircle2, Circle, Tag, Plus, X, Trash2 } from 'lucide-react';
 
 interface BookCardProps {
   book: Book;

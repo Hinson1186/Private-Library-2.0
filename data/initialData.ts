@@ -21,151 +21,189 @@ export const initialCategories: CategoryDef[] = [
             "id": "novel-cat-sao",
             "name": "刀劍神域",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "刀劍神域",
+            "tags": [
+              "科幻",
+              "戰鬥"
+            ]
           },
           {
             "id": "novel-cat-sao-p",
             "name": "刀劍神域 Progressive",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "刀劍神域 Progressive",
+            "tags": [
+              "科幻",
+              "戰鬥",
+              "冒險"
+            ]
           },
           {
             "id": "bf9a5344-49ec-485c-9e1d-03c3f88dbe62",
             "name": "關於我在無意間被隔壁的天使變成廢柴這件事",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "關於我在無意間被隔壁的天使變成廢柴這件事"
           },
           {
             "id": "novel-cat-season",
             "name": "春夏秋冬代行者",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "春夏秋冬代行者"
           },
           {
             "id": "novel-cat-shadow",
             "name": "我想成為影之強者！",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "我想成為影之強者！"
           },
           {
             "id": "novel-cat-fiancee",
             "name": "我的不起眼未婚妻在家有夠可愛",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "我的不起眼未婚妻在家有夠可愛"
           },
           {
             "id": "novel-cat-accel",
             "name": "加速世界",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "加速世界",
+            "tags": [
+              "科幻",
+              "戰鬥"
+            ]
           },
           {
             "id": "novel-cat-haibara",
             "name": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲"
           },
           {
             "id": "novel-cat-youzitsu",
             "name": "歡迎來到實力至上主義的教室",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "歡迎來到實力至上主義的教室"
           },
           {
             "id": "novel-cat-lord",
             "name": "我是星際國家的惡德領主！",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "我是星際國家的惡德領主！"
           },
           {
             "id": "novel-cat-knight",
             "name": "我是星際國家的英雄騎士！",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "我是星際國家的英雄騎士！"
           },
           {
             "id": "novel-cat-brave",
             "name": "勇者症候群",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "勇者症候群"
           },
           {
             "id": "novel-cat-sister",
             "name": "其實是繼妹。",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "其實是繼妹。"
           },
           {
             "id": "novel-cat-backup",
             "name": "我當備胎女友也沒關係。",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "我當備胎女友也沒關係。"
           },
           {
             "id": "novel-cat-nosister",
             "name": "妹妹是不能當女友的，可是……",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "妹妹是不能當女友的，可是……"
           },
           {
             "id": "novel-cat-reincarnation",
             "name": "你以為區區轉生就逃得了嗎，哥哥？",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "你以為區區轉生就逃得了嗎，哥哥？"
           },
           {
             "id": "silent-witch-cat-001",
             "name": "沉默魔女的秘密",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "沉默魔女的秘密"
           },
           {
             "id": "kings-proposal-cat-001",
             "name": "王者的求婚",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "王者的求婚"
           },
           {
             "id": "saijo-shitsuji-cat-001",
             "name": "才女的侍從",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "才女的侍從"
           },
           {
             "id": "imo-uza-cat-001",
             "name": "朋友的妹妹只纏著我",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "朋友的妹妹只纏著我"
           },
           {
             "id": "ngnl-cat-001",
             "name": "遊戲人生",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "遊戲人生"
           },
           {
             "id": "elaina-cat-001",
             "name": "魔女之旅",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "魔女之旅"
           },
           {
             "id": "date-a-live-cat-001",
             "name": "約會大作戰",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "約會大作戰"
           },
           {
             "id": "mushoku-cat-001",
             "name": "無職轉生",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "無職轉生"
           },
           {
             "id": "86-cat-001",
             "name": "86不存在的戰區",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "86不存在的戰區"
           }
         ]
       },
@@ -193,211 +231,246 @@ export const initialCategories: CategoryDef[] = [
             "id": "manga-cat-opium",
             "name": "滿州鴉片小隊",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "滿州鴉片小隊"
           },
           {
             "id": "manga-cat-smile",
             "name": "笑魘",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "笑魘"
           },
           {
             "id": "manga-cat-slave",
             "name": "魔都精兵的奴隸",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "魔都精兵的奴隸"
           },
           {
             "id": "manga-cat-summer",
             "name": "光逝去的夏天",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "光逝去的夏天"
           },
           {
             "id": "manga-cat-25d",
             "name": "2.5次元的誘惑",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "2.5次元的誘惑"
           },
           {
             "id": "manga-cat-abyss-m",
             "name": "來自深淵",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "來自深淵"
           },
           {
             "id": "0d2176ec-22e2-4c1f-bdc7-8b0520f116a0",
             "name": "薰香花朵凛然綻放",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "薰香花朵凛然綻放"
           },
           {
             "id": "9a3b2c1d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
             "name": "咒術迴戰",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "咒術迴戰"
           },
           {
             "id": "rent-a-girlfriend-id-001",
             "name": "出租女友",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "出租女友"
           },
           {
             "id": "kick-love-cat-001",
             "name": "不踹不踩不成愛",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "不踹不踩不成愛"
           },
           {
             "id": "fuufu-cat-001",
             "name": "夫婦以上，戀人未滿",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "夫婦以上，戀人未滿"
           },
           {
             "id": "black-cat-witch-cat-001",
             "name": "黑貓與魔女的教室",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "黑貓與魔女的教室"
           },
           {
             "id": "boys-abyss-cat-001",
             "name": "少年的深淵",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "少年的深淵"
           },
           {
             "id": "edens-zero-cat-001",
             "name": "伊甸星原",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "伊甸星原"
           },
           {
             "id": "amagami-cat-001",
             "name": "結緣甘神神社",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "結緣甘神神社"
           },
           {
             "id": "kagura-cat-001",
             "name": "神樂鉢",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "神樂鉢"
           },
           {
             "id": "midnight-heart-cat-001",
             "name": "午夜的傾心旋律",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "午夜的傾心旋律"
           },
           {
             "id": "frieren-cat-001",
             "name": "葬送的芙莉蓮",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "葬送的芙莉蓮"
           },
           {
             "id": "c001d13c-c3e3-494a-9027-28f69922bda1",
             "name": "おとなしそうな男子のとんでもない秘密を知ってしまった",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "おとなしそうな男子のとんでもない秘密を知ってしまった"
           },
           {
             "id": "1853d3d1-0f08-4a52-95c1-d07cb53644e0",
             "name": "気になってる人が男じゃなかった",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "気になってる人が男じゃなかった"
           },
           {
             "id": "manga-cat-kindaichi",
             "name": "金田一少年事件簿R",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "金田一少年事件簿R"
           },
           {
             "id": "manga-cat-cuckoo",
             "name": "杜鵑婚約",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "杜鵑婚約"
           },
           {
             "id": "manga-cat-akebi",
             "name": "明日同學的水手服",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "明日同學的水手服"
           },
           {
             "id": "manga-cat-goddess",
             "name": "女神咖啡廳",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "女神咖啡廳"
           },
           {
             "id": "manga-cat-nagatoro",
             "name": "不要欺負我，長瀞同學",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "不要欺負我，長瀞同學"
           },
           {
             "id": "manga-cat-kubo",
             "name": "久保同學不放過我",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "久保同學不放過我"
           },
           {
             "id": "manga-cat-senpai-boy",
             "name": "學姐是男孩",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "學姐是男孩"
           },
           {
             "id": "manga-cat-kakegurui",
             "name": "狂賭之淵",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "狂賭之淵"
           },
           {
             "id": "manga-cat-fairy-100",
             "name": "妖精的尾巴 百年任務",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "妖精的尾巴 百年任務"
           },
           {
             "id": "manga-cat-eternity",
             "name": "致不滅的你",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "致不滅的你"
           },
           {
             "id": "manga-cat-chainsaw",
             "name": "鏈鋸人",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "鏈鋸人"
           },
           {
             "id": "manga-cat-ender",
             "name": "終之退魔師",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "終之退魔師"
           },
           {
             "id": "manga-cat-vigilante",
             "name": "非專業私刑",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "非專業私刑"
           },
           {
             "id": "manga-cat-she-beautiful",
             "name": "she is beautiful",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "she is beautiful"
           },
           {
             "id": "manga-cat-shangrila",
             "name": "香格里拉",
             "children": [],
-            "type": "series"
+            "type": "series",
+            "displayName": "香格里拉"
           }
         ]
       },
@@ -425,13 +498,22 @@ export const initialCategories: CategoryDef[] = [
             "id": "dragon-country-series",
             "name": "龍之國幻想",
             "type": "series",
-            "children": []
+            "children": [],
+            "displayName": "龍之國幻想"
           },
           {
             "id": "strange-peaks-series",
             "name": "奇峰異石傳",
             "type": "series",
-            "children": []
+            "children": [],
+            "displayName": "奇峰異石傳"
+          },
+          {
+            "id": "kings-game-series",
+            "name": "國王遊戲",
+            "type": "series",
+            "children": [],
+            "displayName": "國王遊戲"
           }
         ]
       },
@@ -629,10 +711,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662aa3c1c57db000d7badc1/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -641,10 +722,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a9b48179f8001692ec98/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -653,10 +733,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a9704ecb10001c3b6fe1/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -665,10 +744,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a92c1c57db00137babe5/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -677,10 +755,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a8fe9df6f5000d859e2f/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -689,10 +766,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a8da9ec117ad4f76597e/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -701,10 +777,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a8974ecb1000163b6fb1/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -713,10 +788,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a848d39a4c001f5976f6/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -725,10 +799,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a7f455dc2cc12808c1f8/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -737,10 +810,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a7a8b496b4001988473b/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -749,10 +821,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a780aac2c80013184e43/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -761,10 +832,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a74d8ab5d400131c591f/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -773,10 +843,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a70b7f2055b985a3a97c/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -785,10 +854,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a6d094d4ac001f0eab6c/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -797,10 +865,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a69e5044a9000da1ed71/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -809,10 +876,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a66dcf439d001f3637bd/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -821,10 +887,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a6258b49600013e0acf7/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -833,10 +898,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a5c6244ed4001c60583b/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -845,10 +909,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a583dbcfa20019d446f5/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -857,10 +920,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a53f7fc3750013b7f4bf/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -869,10 +931,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a4f069cb0d001f8103a2/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -881,10 +942,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a4accf7e4c0019f7ffca/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -893,10 +953,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域 Progressive",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662ae54cf7e4c1b56f71424/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -905,10 +964,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域 Progressive",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662ae261aeb10001c0f03f0/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -917,10 +975,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域 Progressive",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662adf73429980022abac20/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -929,10 +986,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域 Progressive",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662adc70b00cd0016fbf855/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -941,10 +997,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域 Progressive",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662ad8ffc3d7d001c784a1a/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -953,10 +1008,9 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "category": "刀劍神域 Progressive",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662ad64868307000dd76421/800x.webp?source_format=jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4131,10 +4185,9 @@ export const initialBooks: Book[] = [
     "author": "瀨尾公治",
     "category": "女神咖啡廳",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688001/KD1688001.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4143,10 +4196,9 @@ export const initialBooks: Book[] = [
     "author": "瀨尾公治",
     "category": "女神咖啡廳",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688002/KD1688002.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4155,10 +4207,9 @@ export const initialBooks: Book[] = [
     "author": "瀨尾公治",
     "category": "女神咖啡廳",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688003/KD1688003.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4167,10 +4218,9 @@ export const initialBooks: Book[] = [
     "author": "瀨尾公治",
     "category": "女神咖啡廳",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688004/KD1688004.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4179,10 +4229,9 @@ export const initialBooks: Book[] = [
     "author": "瀨尾公治",
     "category": "女神咖啡廳",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688005/KD1688005.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4191,10 +4240,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494001/KD1494001.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4203,10 +4251,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494002/KD1494002.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4215,10 +4262,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494003/KD1494003.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4227,10 +4273,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494004/KD1494004.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4239,10 +4284,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494005/KD1494005.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4251,10 +4295,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494006/KD1494006.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4263,10 +4306,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494007/KD1494007.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4275,10 +4317,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494008/KD1494008.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4287,10 +4328,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494009/KD1494009.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4299,10 +4339,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494010/KD1494010.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4311,10 +4350,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494011A/KD1494011A.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4323,10 +4361,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494012/KD1494012.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4335,10 +4372,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494013/KD1494013.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4347,10 +4383,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494014/KD1494014.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4359,10 +4394,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494015/KD1494015.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4371,10 +4405,9 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "category": "不要欺負我，長瀞同學",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494016/KD1494016.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -4683,10 +4716,9 @@ export const initialBooks: Book[] = [
     "author": "外薗健",
     "category": "神樂鉢",
     "subCategory": "",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1343/JC1343006/JC1343006.jpg",
     "addedAt": 1774621962283,
     "genre": "",
-    "tags": [],
     "type": "series"
   },
   {
@@ -6060,7 +6092,19 @@ export const initialBooks: Book[] = [
   {
     "id": "spice-merchant",
     "title": "改變歷史的香料商人",
-    "author": "傑克·特納",
+    "author": "賈爾斯·米爾頓",
+    "category": "其他單行本",
+    "subCategory": "",
+    "coverUrl": "https://pic.arkread.com/cover/ebook/f/331847642.1653693304.jpg!cover_default.jpg",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "single"
+  },
+  {
+    "id": "strange-peaks",
+    "title": "奇峰異石傳",
+    "author": "司馬中原",
     "category": "其他單行本",
     "subCategory": "",
     "coverUrl": "",
@@ -6104,5 +6148,118 @@ export const initialBooks: Book[] = [
     "genre": "",
     "tags": [],
     "type": "single"
+  },
+  {
+    "id": "kings-game-1",
+    "title": "國王遊戲",
+    "author": "金澤伸明",
+    "category": "國王遊戲",
+    "subCategory": "",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/053/35/0010533527_bc_01.jpg&v=4f156cfck&w=348&h=348",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "type": "series"
+  },
+  {
+    "id": "kings-game-2",
+    "title": "國王遊戲〈終極〉",
+    "author": "金澤伸明",
+    "category": "國王遊戲",
+    "subCategory": "",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/054/08/0010540893_bc_01.jpg&v=4f799f4bk&w=348&h=348",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "type": "series"
+  },
+  {
+    "id": "kings-game-3",
+    "title": "國王遊戲〈滅亡6.08〉",
+    "author": "金澤伸明",
+    "category": "國王遊戲",
+    "subCategory": "",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/055/52/0010555267_bc_01.jpg&v=502b8c6bk&w=348&h=348",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "type": "series"
+  },
+  {
+    "id": "akebi-sailor-9",
+    "title": "明日同學的水手服 9",
+    "author": "博",
+    "category": "明日同學的水手服",
+    "subCategory": "",
+    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682214945001/20220727033419568640.jpg",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "type": "series"
+  },
+  {
+    "id": "akebi-sailor-10",
+    "title": "明日同學的水手服 10",
+    "author": "博",
+    "category": "明日同學的水手服",
+    "subCategory": "",
+    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682325988003/20230110041048918149.jpg",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "type": "series"
+  },
+  {
+    "id": "fuufu-ijyou-12",
+    "title": "夫婦以上，戀人未滿 12",
+    "author": "金丸祐基",
+    "category": "夫婦以上，戀人未滿",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "single"
+  },
+  {
+    "id": "slave-manga-16",
+    "title": "魔都精兵的奴隸 16",
+    "author": "タカヒロ/竹村洋平",
+    "category": "魔都精兵的奴隸",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "single"
+  },
+  {
+    "id": "slave-manga-17",
+    "title": "魔都精兵的奴隸 17",
+    "author": "タカヒロ/竹村洋平",
+    "category": "魔都精兵的奴隸",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "single"
+  },
+  {
+    "id": "kagurabachi-7",
+    "title": "神樂鉢 7",
+    "author": "外薗健",
+    "category": "神樂鉢",
+    "subCategory": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1343/JC1343007/JC1343007.jpg",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "type": "series"
+  },
+  {
+    "id": "kagurabachi-8",
+    "title": "神樂鉢 8",
+    "author": "外薗健",
+    "category": "神樂鉢",
+    "subCategory": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1343/JC1343008/JC1343008.jpg",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "type": "series"
   }
 ];

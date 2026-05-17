@@ -9,6 +9,7 @@ export interface Book {
   addedAt: number;
   tags?: string[];
   type?: 'series' | 'single';
+  updatedAt?: number;
 }
 
 export type BookDraft = Omit<Book, 'id' | 'addedAt'>;
