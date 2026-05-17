@@ -13,6 +13,16 @@
         font-family: 'Inter', sans-serif;
         background-color: #0f172a;
         color: #e2e8f0;
+        margin: 0;
+      }
+      #root:empty::after {
+        content: "正在載入應用程式...";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-size: 1.25rem;
+        color: #94a3b8;
       }
       ::-webkit-scrollbar { width: 8px; height: 8px; }
       ::-webkit-scrollbar-track { background: #1e293b; }
@@ -24,7 +34,7 @@
       .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
       .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
-  <script type="module" crossorigin src="./assets/index-D0p6yQ7H.js"></script>
+  <script type="module" crossorigin src="./assets/index-CIOKPrIk.js"></script>
 </head>
   <body>
     <div id="root"></div>
