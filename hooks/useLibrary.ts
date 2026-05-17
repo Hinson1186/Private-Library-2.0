@@ -37,10 +37,20 @@ export const useLibrary = () => {
 
   // 處理使用者登入狀態
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (u) => {
-      setUser(u);
-    });
-    return () => unsubscribe();
+    let unsubscribe: (() => void) | undefined;
+    import('../firebase').then(({ auth, isValidConfig }) => {
+      if (!isValidConfig || !auth) {
+        setUser(null);
+        return;
+      }
+      unsubscribe = onAuthStateChanged(auth, (u) => {
+        setUser(u);
+      });
+    }).catch(console.error);
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
   }, []);
 
   // 載入資料 (優先從 Firestore，其次 LocalStorage 與 InitialData 合併)

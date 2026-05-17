@@ -13,22 +13,27 @@ const firebaseConfig = {
   firestoreDatabaseId: import.meta.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID
 };
 
-const isValidConfig = !!(firebaseConfig.apiKey && firebaseConfig.projectId);
+export const isValidConfig = !!(firebaseConfig.apiKey && firebaseConfig.projectId && firebaseConfig.apiKey !== "placeholder");
 console.log("Firebase config found:", isValidConfig);
 
 let app;
+export let auth;
+export let db;
+
 if (getApps().length === 0) {
   if (isValidConfig) {
     console.log("Using real Firebase config");
     app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
   } else {
-    console.log("Using placeholder Firebase config");
-    app = initializeApp({ apiKey: "placeholder", projectId: "placeholder" });
+    console.log("Using placeholder Firebase config (disabled real sdk calls)");
+    // We intentionally do not initialize getAuth and getFirestore here
   }
 } else {
   app = getApp();
+  auth = getAuth(app);
+  db = getFirestore(app);
 }
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
 export default app;
