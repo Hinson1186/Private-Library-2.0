@@ -153,9 +153,9 @@ const App: React.FC = () => {
 
         if (!searchTerm) return true;
 
-        const matchTitle = b.title.toLowerCase().includes(lowerSearch);
-        const matchAuthor = b.author.toLowerCase().includes(lowerSearch);
-        const matchTags = combinedTags.some(tag => tag.toLowerCase().includes(lowerSearch));
+        const matchTitle = (b.title || '').toLowerCase().includes(lowerSearch);
+        const matchAuthor = (b.author || '').toLowerCase().includes(lowerSearch);
+        const matchTags = combinedTags.some(tag => (tag || '').toLowerCase().includes(lowerSearch));
 
         return matchTitle || matchAuthor || matchTags;
     };
@@ -172,9 +172,9 @@ const App: React.FC = () => {
 
         if (!searchTerm) return true;
 
-        const matchName = c.name.toLowerCase().includes(lowerSearch);
-        const matchDisplayName = c.displayName?.toLowerCase().includes(lowerSearch);
-        const matchTags = catTags.some(tag => tag.toLowerCase().includes(lowerSearch));
+        const matchName = (c.name || '').toLowerCase().includes(lowerSearch);
+        const matchDisplayName = (c.displayName || '').toLowerCase().includes(lowerSearch);
+        const matchTags = catTags.some(tag => (tag || '').toLowerCase().includes(lowerSearch));
         return matchName || matchDisplayName || matchTags;
     };
 
@@ -284,8 +284,8 @@ const App: React.FC = () => {
             
             // Sort finalMixedItems: categories first, then books, sorted by name/title
             finalMixedItems.sort((a, b) => {
-                const nameA = 'title' in a ? a.title : a.name;
-                const nameB = 'title' in b ? b.title : b.name;
+                const nameA = ('title' in a ? a.title : a.name) || '';
+                const nameB = ('title' in b ? b.title : b.name) || '';
                 return nameA.localeCompare(nameB, 'zh-TW', { numeric: true });
             });
             
@@ -299,7 +299,7 @@ const App: React.FC = () => {
             // Leaf Category: Show books (sorted by title/volume)
             let result = books.filter(book => book.category === selectedCategory).filter(filterBook);
             
-            result = result.sort((a, b) => a.title.localeCompare(b.title, 'zh-TW', { numeric: true })).map(b => {
+            result = result.sort((a, b) => (a.title || '').localeCompare((b.title || ''), 'zh-TW', { numeric: true })).map(b => {
                 const isSeries = findCategoryByName(categories, b.category)?.type === 'series';
                 return isSeries ? { ...b, tags: undefined } : b;
             });

@@ -160,10 +160,12 @@ export const migrateCategories = (nodes: CategoryDef[]): CategoryDef[] => {
 export const sortCategoriesRecursive = (nodes: CategoryDef[]): CategoryDef[] => {
   return [...nodes]
     .sort((a, b) => {
-      if (a.name === '其他') return 1;
-      if (b.name === '其他') return -1;
+      const nameA = a.name || '';
+      const nameB = b.name || '';
+      if (nameA === '其他') return 1;
+      if (nameB === '其他') return -1;
       // 使用 zh-TW 進行筆劃排序
-      return a.name.localeCompare(b.name, 'zh-TW', { numeric: true });
+      return nameA.localeCompare(nameB, 'zh-TW', { numeric: true });
     })
     .map(node => ({
       ...node,

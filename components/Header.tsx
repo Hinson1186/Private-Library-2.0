@@ -56,6 +56,11 @@ const Header: React.FC<HeaderProps> = ({
 
     const handleLogin = async () => {
     if (isLoggingIn) return;
+    if (!auth) {
+      alert("Firebase 身份驗證服務尚未初始化！請確認環境變數皆已正確設定。");
+      return;
+    }
+    
     setIsLoggingIn(true);
     
     const provider = new GoogleAuthProvider();
@@ -78,6 +83,11 @@ const Header: React.FC<HeaderProps> = ({
     e.preventDefault();
     if (!accessKey.trim() || isLoggingIn) return;
     
+    if (!auth) {
+      setLoginError("Firebase 未正確載入，請確認 Vercel 環境參數設定。");
+      return;
+    }
+
     setIsLoggingIn(true);
     setLoginError('');
     

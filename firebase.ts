@@ -23,9 +23,14 @@ export let db;
 if (getApps().length === 0) {
   if (isValidConfig) {
     console.log("Using real Firebase config");
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
+    try {
+      app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getFirestore(app);
+    } catch (e) {
+      console.error("Firebase initialization failed:", e);
+      // Fallback
+    }
   } else {
     console.log("Using placeholder Firebase config (disabled real sdk calls)");
     // We intentionally do not initialize getAuth and getFirestore here
