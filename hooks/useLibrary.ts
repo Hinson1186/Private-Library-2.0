@@ -169,8 +169,8 @@ export const useLibrary = () => {
   // 下載目前資料為 initialData.ts (客戶端實現，不依賴伺服器)
   const downloadInitialData = async () => {
     try {
-      const content = `import { Book, CategoryDef } from '../src/types';
-import { createBook, createSeries } from '../src/utils/bookFactory';
+      const content = `import { Book, CategoryDef } from '../types';
+import { createBook, createSeries } from '../utils/bookFactory';
 
 /**
  * 這裡是您的「永久資料庫」。
@@ -398,43 +398,38 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
   };
 
   const batchMove = async (bookIds: Set<string>, targetCategory: string) => {
-    if (user) {
-      const batch = writeBatch(db);
-      books.forEach(b => {
-        if (bookIds.has(b.id)) {
-          batch.set(doc(db, 'users', user.uid, 'books', b.id), { ...b, category: targetCategory, tags: b.tags });
-        }
-      });
-      await batch.commit();
-    } else {
-      setBooks(prev => prev.map(b => bookIds.has(b.id) ? { ...b, category: targetCategory, tags: b.tags } : b));
-    }
+    setBooks(prev => {
+      const next = prev.map(b => bookIds.has(b.id) ? { ...b, category: targetCategory, tags: b.tags } : b);
+      if (user) {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+          books: next,
+          categories,
+          tags: globalTags,
+          updatedAt: new Date().toISOString()
+        }).catch(e => console.error("Sync error:", e));
+      }
+      return next;
+    });
   };
 
   const batchDelete = async (bookIds: Set<string>) => {
-    if (user) {
-      const batch = writeBatch(db);
-      bookIds.forEach(id => batch.delete(doc(db, 'users', user.uid, 'books', id)));
-      await batch.commit();
-    } else {
-      setBooks(prev => prev.filter(b => !bookIds.has(b.id)));
-    }
+    setBooks(prev => {
+      const next = prev.filter(b => !bookIds.has(b.id));
+      if (user) {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+          books: next,
+          categories,
+          tags: globalTags,
+          updatedAt: new Date().toISOString()
+        }).catch(e => console.error("Sync error:", e));
+      }
+      return next;
+    });
   };
 
   const batchUpdateTags = async (bookIds: Set<string>, tagsToAdd: string[], tagsToRemove: string[]) => {
-    if (user) {
-      const batch = writeBatch(db);
-      books.forEach(b => {
-        if (bookIds.has(b.id)) {
-          let newTags = [...(b.tags || [])];
-          tagsToAdd.forEach(t => { if (!newTags.includes(t)) newTags.push(t); });
-          newTags = newTags.filter(t => !tagsToRemove.includes(t));
-          batch.set(doc(db, 'users', user.uid, 'books', b.id), { ...b, tags: newTags });
-        }
-      });
-      await batch.commit();
-    } else {
-      setBooks(prev => prev.map(b => {
+    setBooks(prev => {
+      const next = prev.map(b => {
         if (bookIds.has(b.id)) {
           let newTags = [...(b.tags || [])];
           tagsToAdd.forEach(t => { if (!newTags.includes(t)) newTags.push(t); });
@@ -442,8 +437,17 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
           return { ...b, tags: newTags };
         }
         return b;
-      }));
-    }
+      });
+      if (user) {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+          books: next,
+          categories,
+          tags: globalTags,
+          updatedAt: new Date().toISOString()
+        }).catch(e => console.error("Sync error:", e));
+      }
+      return next;
+    });
   };
 
   return {
