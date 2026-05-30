@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getAuth, Auth } from 'firebase/auth';
+import { getFirestore, Firestore } from 'firebase/firestore';
 
 // 優先使用環境變數
 const firebaseConfig = {
@@ -17,8 +17,8 @@ export const isValidConfig = !!(firebaseConfig.apiKey && firebaseConfig.projectI
 console.log("Firebase config found:", isValidConfig);
 
 let app;
-export let auth;
-export let db;
+export let auth: any = undefined;
+export let db: any = undefined;
 
 if (getApps().length === 0) {
   if (isValidConfig) {
