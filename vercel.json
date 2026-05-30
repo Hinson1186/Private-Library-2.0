@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/identify-book",
+      "destination": "/api/identify-book"
+    },
+    {
+      "source": "/api/generate-initial-data",
+      "destination": "/api/generate-initial-data"
+    },
+    {
+      "source": "/api/save-initial-data",
+      "destination": "/api/save-initial-data"
+    },
+    {
+      "source": "/api/upload-initial-data",
+      "destination": "/api/upload-initial-data"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
