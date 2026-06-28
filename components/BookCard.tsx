@@ -137,17 +137,17 @@ const BookCard: React.FC<BookCardProps> = ({
 
         <div className={`p-3 flex flex-col flex-grow ${isSeriesSet ? 'bg-slate-900/90' : 'bg-slate-800'}`}>
           <div className="mb-1">
-            <div className="flex items-start gap-1.5 mb-0.5">
-              <h3 className="font-bold text-slate-100 text-sm leading-snug line-clamp-2 group-hover:text-indigo-300 transition-colors flex-1" title={book.title}>
-                {highlightText(book.title, searchTerm)}
-              </h3>
+            <h3 className="font-bold text-slate-100 text-sm leading-snug line-clamp-2 group-hover:text-indigo-300 transition-colors mb-1" title={book.title}>
+              {highlightText(book.title, searchTerm)}
+            </h3>
+            <div className="flex items-center justify-between gap-1.5">
+              <p className="text-slate-400 text-xs font-medium line-clamp-1 flex-1">{highlightText(book.author, searchTerm)}</p>
               {!isSeriesSet && book.type === 'series' && (
-                <span className="shrink-0 px-1 py-0.5 bg-indigo-500/20 text-indigo-400 text-[9px] font-bold rounded border border-indigo-500/30 leading-none">
+                <span className="shrink-0 px-1 py-0.5 bg-indigo-500/20 text-indigo-400 text-[9px] font-bold rounded border border-indigo-500/30 leading-none self-center">
                   系列
                 </span>
               )}
             </div>
-            <p className="text-slate-400 text-xs font-medium line-clamp-1">{highlightText(book.author, searchTerm)}</p>
           </div>
           {book.tags && book.tags.length > 0 && (
             <div className="mt-auto pt-2 flex flex-wrap gap-1">

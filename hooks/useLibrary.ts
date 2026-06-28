@@ -28,6 +28,12 @@ export const DEFAULT_TAGS = [
   "末日", "末世", "旅行", "人生", "職場", "獵奇", "絕症", "宮廷", "權謀"
 ];
 
+// Firestore does not allow undefined properties in objects. This utility purges them recursively.
+const cleanForFirestore = (data: any): any => {
+  if (data === undefined) return null;
+  return JSON.parse(JSON.stringify(data));
+};
+
 export const useLibrary = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [categories, setCategories] = useState<CategoryDef[]>([]);
@@ -177,12 +183,12 @@ export const useLibrary = () => {
         setCategories(finalCats);
         setGlobalTags(finalTags);
 
-        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
           books: finalBooks,
           categories: finalCats,
           tags: finalTags,
           updatedAt: new Date().toISOString()
-        }).catch(e => console.error("Initialize cloud snapshot error:", e));
+        })).catch(e => console.error("Initialize cloud snapshot error:", e));
       }
       setIsLoading(false);
     }, (error) => {
@@ -224,12 +230,12 @@ export const useLibrary = () => {
 
     try {
       await Promise.race([
-        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
           books: initialBooks,
           categories: initialMigratedCats,
           tags: DEFAULT_TAGS,
           updatedAt: new Date().toISOString()
-        }),
+        })),
         timeoutPromise
       ]);
 
@@ -254,12 +260,12 @@ export const useLibrary = () => {
     if (useLocal) {
       // 1. 將本地客端修改的資料寫入雲端
       try {
-        await setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+        await setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
           books: syncConflict.localBooks,
           categories: syncConflict.localCategories,
           tags: syncConflict.localTags,
           updatedAt: new Date().toISOString()
-        });
+        }));
         setBooks(syncConflict.localBooks);
         setCategories(syncConflict.localCategories);
         setGlobalTags(syncConflict.localTags);
@@ -438,12 +444,12 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
     setBooks(prev => {
         const next = [newBook, ...prev];
         if (user) {
-            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
                 books: next,
                 categories,
                 tags: globalTags,
                 updatedAt: new Date().toISOString()
-            }).catch(e => console.error("Sync error:", e));
+            })).catch(e => console.error("Sync error:", e));
         }
         return next;
     });
@@ -455,12 +461,12 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
     setBooks(prev => {
         const next = prev.map(b => b.id === updatedBook.id ? updatedBook : b);
         if (user) {
-            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
                 books: next,
                 categories,
                 tags: globalTags,
                 updatedAt: new Date().toISOString()
-            }).catch(e => console.error("Sync error:", e));
+            })).catch(e => console.error("Sync error:", e));
         }
         return next;
     });
@@ -471,12 +477,12 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
     setBooks(prev => {
         const next = prev.filter(b => b.id !== id);
         if (user) {
-            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+            setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
                 books: next,
                 categories,
                 tags: globalTags,
                 updatedAt: new Date().toISOString()
-            }).catch(e => console.error("Sync error:", e));
+            })).catch(e => console.error("Sync error:", e));
         }
         return next;
     });
@@ -490,10 +496,10 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
   const importData = async (newBooks: Book[], newCats: CategoryDef[]) => {
     if (user) {
       const batch = writeBatch(db);
-      newBooks.forEach(b => batch.set(doc(db, 'users', user.uid, 'books', b.id), b));
+      newBooks.forEach(b => batch.set(doc(db, 'users', user.uid, 'books', b.id), cleanForFirestore(b)));
       const flatten = (nodes: CategoryDef[]) => {
         nodes.forEach(n => {
-          batch.set(doc(db, 'users', user.uid, 'categories', n.id), n);
+          batch.set(doc(db, 'users', user.uid, 'categories', n.id), cleanForFirestore(n));
           if (n.children) flatten(n.children);
         });
       };
@@ -515,12 +521,12 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
     setBooks(prev => {
       const next = prev.map(b => bookIds.has(b.id) ? { ...b, category: targetCategory, tags: b.tags } : b);
       if (user) {
-        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
           books: next,
           categories,
           tags: globalTags,
           updatedAt: new Date().toISOString()
-        }).catch(e => console.error("Sync error:", e));
+        })).catch(e => console.error("Sync error:", e));
       }
       return next;
     });
@@ -530,12 +536,12 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
     setBooks(prev => {
       const next = prev.filter(b => !bookIds.has(b.id));
       if (user) {
-        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
           books: next,
           categories,
           tags: globalTags,
           updatedAt: new Date().toISOString()
-        }).catch(e => console.error("Sync error:", e));
+        })).catch(e => console.error("Sync error:", e));
       }
       return next;
     });
@@ -553,12 +559,12 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
         return b;
       });
       if (user) {
-        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), cleanForFirestore({
           books: next,
           categories,
           tags: globalTags,
           updatedAt: new Date().toISOString()
-        }).catch(e => console.error("Sync error:", e));
+        })).catch(e => console.error("Sync error:", e));
       }
       return next;
     });
