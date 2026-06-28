@@ -18,8 +18,8 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 
 // 當您大幅更新 initialData.ts 並希望所有人都能看到最新內容時，請提升這裡的版本號（例如 v18 -> v19）
 // 這會強制程式忽略舊的瀏覽器暫存，重新載入 initialData.ts 內的資料。
-const STORAGE_KEY = 'ai-library-books-v28'; 
-const CATEGORIES_KEY = 'ai-library-categories-tree-v28'; 
+const STORAGE_KEY = 'ai-library-books-v29'; 
+const CATEGORIES_KEY = 'ai-library-categories-tree-v29'; 
 const TAGS_KEY = 'ai-library-tags-v4';
 
 export const DEFAULT_TAGS = [
@@ -213,16 +213,34 @@ export const useLibrary = () => {
     }
   }, [books, categories, globalTags, isLoading]);
 
-  // 將目前狀態存儲為雲端快照 (手動觸發)
+  // 將目前的 initialData.ts 檔案直接覆蓋雲端現有檔案，並同步更新本機狀態 (加上 8 秒超時處理)
   const saveSnapshotToCloud = async () => {
-    if (!user) throw new Error('User not logged in');
+    if (!user) throw new Error('使用者未登入。請先登入帳號。');
+    
+    const initialMigratedCats = migrateCategories(initialCategories);
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('雲端連線逾時，請檢查您的 Firebase 資料庫是否已啟用或網路狀態。')), 8000);
+    });
+
     try {
-      await setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
-        books,
-        categories,
-        tags: globalTags,
-        updatedAt: new Date().toISOString()
-      });
+      await Promise.race([
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+          books: initialBooks,
+          categories: initialMigratedCats,
+          tags: DEFAULT_TAGS,
+          updatedAt: new Date().toISOString()
+        }),
+        timeoutPromise
+      ]);
+
+      // 同步更新本機狀態與暫存，讓使用者立即在網頁上看到最新的預設書籍
+      setBooks(initialBooks);
+      setCategories(initialMigratedCats);
+      setGlobalTags(DEFAULT_TAGS);
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(initialBooks));
+      localStorage.setItem(CATEGORIES_KEY, JSON.stringify(initialMigratedCats));
+      localStorage.setItem(TAGS_KEY, JSON.stringify(DEFAULT_TAGS));
     } catch (error) {
       console.error('Save snapshot error:', error);
       throw error;

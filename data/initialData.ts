@@ -1392,6 +1392,66 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
+    "id": "haibara-youth-3",
+    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 3",
+    "author": "雨宮和希",
+    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "series"
+  },
+  {
+    "id": "haibara-youth-4",
+    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 4",
+    "author": "雨宮和希",
+    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "series"
+  },
+  {
+    "id": "haibara-youth-5",
+    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 5",
+    "author": "雨宮和希",
+    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "series"
+  },
+  {
+    "id": "haibara-youth-6",
+    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 6",
+    "author": "雨宮和希",
+    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "series"
+  },
+  {
+    "id": "haibara-youth-7",
+    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 7",
+    "author": "雨宮和希",
+    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
+    "subCategory": "",
+    "coverUrl": "",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "tags": [],
+    "type": "series"
+  },
+  {
     "id": "haibara-youth-8",
     "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 8",
     "author": "雨宮和希",
@@ -1609,7 +1669,7 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "actually-stepsister-1",
-    "title": "其實是繼妹。 1",
+    "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 1",
     "author": "白井ムク",
     "category": "其實是繼妹。～總覺得剛來的繼弟很黏我～",
     "subCategory": "",
@@ -1621,7 +1681,7 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "actually-stepsister-2",
-    "title": "其實是繼妹。 2",
+    "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 2",
     "author": "白井ムク",
     "category": "其實是繼妹。～總覺得剛來的繼弟很黏我～",
     "subCategory": "",
@@ -1633,7 +1693,7 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "actually-stepsister-3",
-    "title": "其實是繼妹。 3",
+    "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 3",
     "author": "白井ムク",
     "category": "其實是繼妹。～總覺得剛來的繼弟很黏我～",
     "subCategory": "",
@@ -1645,7 +1705,7 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "actually-stepsister-4",
-    "title": "其實是繼妹。 4",
+    "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 4",
     "author": "白井ムク",
     "category": "其實是繼妹。～總覺得剛來的繼弟很黏我～",
     "subCategory": "",

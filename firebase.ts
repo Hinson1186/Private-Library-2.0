@@ -26,7 +26,13 @@ if (getApps().length === 0) {
     try {
       app = initializeApp(firebaseConfig);
       auth = getAuth(app);
-      db = getFirestore(app);
+      const dbId = firebaseConfig.firestoreDatabaseId;
+      if (dbId && dbId !== 'default' && dbId !== '(default)') {
+        console.log("Initializing Firestore with custom database ID:", dbId);
+        db = getFirestore(app, dbId);
+      } else {
+        db = getFirestore(app);
+      }
     } catch (e) {
       console.error("Firebase initialization failed:", e);
       // Fallback
@@ -38,7 +44,12 @@ if (getApps().length === 0) {
 } else {
   app = getApp();
   auth = getAuth(app);
-  db = getFirestore(app);
+  const dbId = firebaseConfig.firestoreDatabaseId;
+  if (dbId && dbId !== 'default' && dbId !== '(default)') {
+    db = getFirestore(app, dbId);
+  } else {
+    db = getFirestore(app);
+  }
 }
 
 export default app;
