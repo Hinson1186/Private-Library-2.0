@@ -18,14 +18,14 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 
 // 當您大幅更新 initialData.ts 並希望所有人都能看到最新內容時，請提升這裡的版本號（例如 v18 -> v19）
 // 這會強制程式忽略舊的瀏覽器暫存，重新載入 initialData.ts 內的資料。
-const STORAGE_KEY = 'ai-library-books-v22'; 
-const CATEGORIES_KEY = 'ai-library-categories-tree-v22'; 
-const TAGS_KEY = 'ai-library-tags-v2';
+const STORAGE_KEY = 'ai-library-books-v28'; 
+const CATEGORIES_KEY = 'ai-library-categories-tree-v28'; 
+const TAGS_KEY = 'ai-library-tags-v4';
 
 export const DEFAULT_TAGS = [
-  "校園", "奇幻", "戰鬥", "懸疑", "黑暗", "推理", "青春",
-  "冒險", "熱血", "戀愛", "搞笑", "科幻", "恐怖", "治癒", "歷史", "後宮", "百合", "耽美", "日常", "異世界", "魔法", "超能力", "生存",
-  "末日", "旅行", "人生", "勵志", "職場", "獵奇", "絕症", "宮廷", "靈異"
+  "校園", "奇幻", "懸疑", "黑暗", "推理", "青春",
+  "冒險", "熱血", "戀愛", "愛情", "科幻", "恐怖", "治癒", "歷史", "百合", "耽美", "日常",
+  "末日", "末世", "旅行", "人生", "職場", "獵奇", "絕症", "宮廷", "權謀"
 ];
 
 export const useLibrary = () => {
@@ -34,6 +34,14 @@ export const useLibrary = () => {
   const [globalTags, setGlobalTags] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
+  const [syncConflict, setSyncConflict] = useState<{
+    localBooks: Book[];
+    localCategories: CategoryDef[];
+    localTags: string[];
+    cloudBooks: Book[];
+    cloudCategories: CategoryDef[];
+    cloudTags: string[];
+  } | null>(null);
 
   // 處理使用者登入狀態
   useEffect(() => {
@@ -55,16 +63,17 @@ export const useLibrary = () => {
 
   // 載入資料 (優先從 Firestore，其次 LocalStorage 與 InitialData 合併)
   useEffect(() => {
+    // 讀取本地 localStorage 的資料
+    const savedBooks = localStorage.getItem(STORAGE_KEY);
+    const savedCategories = localStorage.getItem(CATEGORIES_KEY);
+    const savedTags = localStorage.getItem(TAGS_KEY);
+    
+    const localBooks: Book[] = savedBooks ? JSON.parse(savedBooks) : [];
+    const localCategories: CategoryDef[] = savedCategories ? JSON.parse(savedCategories) : [];
+    const localTags: string[] = savedTags ? JSON.parse(savedTags) : [];
+
     if (!user) {
       // 未登入時：從 LocalStorage 讀取並與 initialData.ts 對比合併
-      const savedBooks = localStorage.getItem(STORAGE_KEY);
-      const savedCategories = localStorage.getItem(CATEGORIES_KEY);
-      const savedTags = localStorage.getItem(TAGS_KEY);
-      
-      let localBooks: Book[] = savedBooks ? JSON.parse(savedBooks) : [];
-      let localCategories: CategoryDef[] = savedCategories ? JSON.parse(savedCategories) : [];
-      
-      // 智能合併書籍：以 initialBooks 為準更新，並保留本地新增的書籍
       let mergedBooks = [...localBooks];
       initialBooks.forEach(ib => {
         const index = mergedBooks.findIndex(lb => lb.id === ib.id);
@@ -120,16 +129,60 @@ export const useLibrary = () => {
         loadedCategories = migrateCategories(loadedCategories);
         const migrationResult = restoreSingleCategory(loadedCategories, loadedBooks);
         
-        setCategories(migrationResult.newCategories);
-        setBooks(migrationResult.newBooks);
-        if (data.tags) setGlobalTags(data.tags);
-      } else {
-        // 如果雲端沒快照，使用 initialData
+        const cloudBooks = migrationResult.newBooks;
+        const cloudCategories = migrationResult.newCategories;
+        const cloudTags = data.tags || DEFAULT_TAGS;
+
+        // 檢查是否有本機客端修改過的資料（比起 default/initialData 有變更過）
         const initialMigratedCats = migrateCategories(initialCategories);
-        const migrationResult = restoreSingleCategory(initialMigratedCats, initialBooks);
-        setBooks(migrationResult.newBooks);
-        setCategories(migrationResult.newCategories);
-        setGlobalTags(DEFAULT_TAGS);
+        const hasLocalChanges = (() => {
+          if (localBooks.length > 0 && JSON.stringify(localBooks) !== JSON.stringify(initialBooks)) {
+            return true;
+          }
+          if (localCategories.length > 0 && JSON.stringify(localCategories) !== JSON.stringify(initialMigratedCats)) {
+            return true;
+          }
+          return false;
+        })();
+
+        // 檢查本機客端修改是否與雲端資料不同
+        const isDifferentFromCloud = JSON.stringify(localBooks) !== JSON.stringify(cloudBooks) || 
+                                     JSON.stringify(localCategories) !== JSON.stringify(cloudCategories);
+
+        if (hasLocalChanges && isDifferentFromCloud && !syncConflict) {
+          // 有衝突：設定衝突狀態讓使用者選擇 (不直接覆蓋本機狀態)
+          setSyncConflict({
+            localBooks,
+            localCategories,
+            localTags: localTags.length > 0 ? localTags : DEFAULT_TAGS,
+            cloudBooks,
+            cloudCategories,
+            cloudTags
+          });
+        } else {
+          // 無衝突，直接套用雲端資料
+          setCategories(cloudCategories);
+          setBooks(cloudBooks);
+          setGlobalTags(cloudTags);
+        }
+      } else {
+        // 如果雲端沒快照，自動將目前本機客端的修改（如果有）或 initialData 上傳至雲端作為初始快照！
+        // 這樣能把登入前的本地修改保留並覆蓋雲端的空資料
+        const initialMigratedCats = migrateCategories(initialCategories);
+        const finalBooks = localBooks.length > 0 ? localBooks : initialBooks;
+        const finalCats = localCategories.length > 0 ? localCategories : initialMigratedCats;
+        const finalTags = localTags.length > 0 ? localTags : DEFAULT_TAGS;
+
+        setBooks(finalBooks);
+        setCategories(finalCats);
+        setGlobalTags(finalTags);
+
+        setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+          books: finalBooks,
+          categories: finalCats,
+          tags: finalTags,
+          updatedAt: new Date().toISOString()
+        }).catch(e => console.error("Initialize cloud snapshot error:", e));
       }
       setIsLoading(false);
     }, (error) => {
@@ -174,6 +227,39 @@ export const useLibrary = () => {
       console.error('Save snapshot error:', error);
       throw error;
     }
+  };
+
+  // 解決本機與雲端的同步衝突
+  const resolveConflict = async (useLocal: boolean) => {
+    if (!user || !syncConflict) return;
+    
+    if (useLocal) {
+      // 1. 將本地客端修改的資料寫入雲端
+      try {
+        await setDoc(doc(db, 'users', user.uid, 'snapshots', 'current'), {
+          books: syncConflict.localBooks,
+          categories: syncConflict.localCategories,
+          tags: syncConflict.localTags,
+          updatedAt: new Date().toISOString()
+        });
+        setBooks(syncConflict.localBooks);
+        setCategories(syncConflict.localCategories);
+        setGlobalTags(syncConflict.localTags);
+      } catch (err) {
+        console.error("Failed to overwrite cloud with local data:", err);
+      }
+    } else {
+      // 2. 載入雲端資料，並更新本機快取與狀態
+      setBooks(syncConflict.cloudBooks);
+      setCategories(syncConflict.cloudCategories);
+      setGlobalTags(syncConflict.cloudTags);
+      
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(syncConflict.cloudBooks));
+      localStorage.setItem(CATEGORIES_KEY, JSON.stringify(syncConflict.cloudCategories));
+      localStorage.setItem(TAGS_KEY, JSON.stringify(syncConflict.cloudTags));
+    }
+    
+    setSyncConflict(null);
   };
 
   // 下載目前資料為 initialData.ts (客戶端實現，不依賴伺服器)
@@ -466,6 +552,8 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
     globalTags,
     isLoading,
     user,
+    syncConflict,
+    resolveConflict,
     addBook,
     updateBook,
     deleteBook,

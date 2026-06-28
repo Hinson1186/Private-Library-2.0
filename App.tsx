@@ -15,7 +15,7 @@ import BookDetailModal from './components/BookDetailModal';
 import SettingsModal from './components/SettingsModal';
 import BatchMoveModal from './components/BatchMoveModal';
 import BatchTagsModal from './components/BatchTagsModal';
-import { Dices, X, FolderOpen, BookHeart, Plus, ArrowLeft, Tag, Settings, Tags, ChevronDown } from 'lucide-react';
+import { Dices, X, FolderOpen, BookHeart, Plus, ArrowLeft, Tag, Settings, Tags, ChevronDown, Search, ArrowRightLeft } from 'lucide-react';
 
 const App: React.FC = () => {
   const { 
@@ -24,6 +24,8 @@ const App: React.FC = () => {
     globalTags,
     isLoading, 
     user,
+    syncConflict,
+    resolveConflict,
     addBook, 
     updateBook, 
     deleteBook, 
@@ -57,6 +59,11 @@ const App: React.FC = () => {
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [randomSeed, setRandomSeed] = useState(0); 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [expandedSeries, setExpandedSeries] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    setExpandedSeries(new Set());
+  }, [searchTerm, selectedTags]);
   
   // Batch Mode
   const [isBatchMode, setIsBatchMode] = useState(false);
@@ -156,8 +163,10 @@ const App: React.FC = () => {
         const matchTitle = (b.title || '').toLowerCase().includes(lowerSearch);
         const matchAuthor = (b.author || '').toLowerCase().includes(lowerSearch);
         const matchTags = combinedTags.some(tag => (tag || '').toLowerCase().includes(lowerSearch));
+        const matchCategory = (b.category || '').toLowerCase().includes(lowerSearch) ||
+                              (cat?.displayName || '').toLowerCase().includes(lowerSearch);
 
-        return matchTitle || matchAuthor || matchTags;
+        return matchTitle || matchAuthor || matchTags || matchCategory;
     };
 
     const filterCategory = (c: CategoryDef) => {
@@ -181,47 +190,59 @@ const App: React.FC = () => {
     if (!selectedCategory) {
         // All Books Mode
         if (searchTerm || selectedTags.size > 0) {
-            // Mixed search mode: search all categories and books
+            // Mixed search mode: search all books, and group books together if they belong to a series
             const matchingBooks = books.filter(filterBook);
             
             const finalMixedItems: (Book | CategoryDef)[] = [];
-            const processedSeriesNames = new Set<string>();
-            const processedBookIds = new Set<string>();
-
-            // 1. Identify which series folders should be shown instead of individual books
-            // Strategy: For leaf series folders, if more than 1 matching book exists inside,
-            // or if the folder itself matches the search criteria, group them.
+            const seriesGroups: Record<string, Book[]> = {};
             
-            const searchAndGroup = (nodes: CategoryDef[]) => {
-                nodes.forEach(n => {
-                    const isLeafSeries = n.type === 'series' && n.displayName !== '系列';
-                    
-                    if (isLeafSeries) {
-                        const descendantNames = getAllDescendantNames(n);
-                        const matchingBooksInSeries = matchingBooks.filter(b => descendantNames.includes(b.category));
-                        const folderMatches = filterCategory(n);
-                        
-                        // Grouping Condition: 
-                        // - Folder itself matches the search/tags
-                        // - OR more than 1 matching book inside
-                        // - OR exactly 1 matching book but it's part of a series (collectors usually prefer folder access)
-                        if (folderMatches || matchingBooksInSeries.length > 0) {
-                            finalMixedItems.push(n);
-                            processedSeriesNames.add(n.name);
-                            matchingBooksInSeries.forEach(b => processedBookIds.add(b.id));
-                            // Once a series folder is added to mixed view, we don't go deeper
-                            return; 
-                        }
-                    }
-                    
-                    if (n.children && n.children.length > 0) searchAndGroup(n.children);
-                });
-            };
-            searchAndGroup(categories);
-
-            // 2. Add matching books that were NOT grouped into a series folder
+            // Group books by series category
             matchingBooks.forEach(b => {
-                if (!processedBookIds.has(b.id)) {
+                const cat = findCategoryByName(categories, b.category);
+                if (cat && cat.type === 'series') {
+                    if (!seriesGroups[cat.name]) {
+                        seriesGroups[cat.name] = [];
+                    }
+                    seriesGroups[cat.name].push(b);
+                }
+            });
+
+            const processedSeries = new Set<string>();
+
+            matchingBooks.forEach(b => {
+                const cat = findCategoryByName(categories, b.category);
+                if (cat && cat.type === 'series') {
+                    const group = seriesGroups[cat.name] || [];
+                    if (group.length > 1) {
+                        if (expandedSeries.has(cat.name)) {
+                            // If expanded, show individual books
+                            finalMixedItems.push(b);
+                        } else {
+                            // If collapsed, group into a single series bundle Book object (only once per series name)
+                            if (!processedSeries.has(cat.name)) {
+                                processedSeries.add(cat.name);
+                                const firstBook = group[0];
+                                const seriesSetBook: Book = {
+                                    id: `series_set_${cat.id || cat.name}`,
+                                    title: cat.displayName || cat.name,
+                                    author: firstBook.author,
+                                    category: cat.name,
+                                    coverUrl: firstBook.coverUrl,
+                                    addedAt: firstBook.addedAt,
+                                    tags: cat.tags || [],
+                                    type: 'series',
+                                    isSeriesSet: true,
+                                    seriesBooks: group
+                                };
+                                finalMixedItems.push(seriesSetBook);
+                            }
+                        }
+                    } else {
+                        // If only 1 book matches, show it directly
+                        finalMixedItems.push(b);
+                    }
+                } else {
+                    // Not a series category, show individually
                     finalMixedItems.push(b);
                 }
             });
@@ -250,6 +271,13 @@ const App: React.FC = () => {
         
         // Folder Logic
         if (categoryNode && categoryNode.children && categoryNode.children.length > 0) {
+            if (searchTerm) {
+                // 當有搜尋字串時，不進行資料夾多層包裹，直接顯示底下所有符合條件的書本
+                const allDescendants = getAllDescendantNames(categoryNode);
+                const matchingBooks = books.filter(b => allDescendants.includes(b.category)).filter(filterBook);
+                return { type: 'books' as const, items: matchingBooks };
+            }
+
             let subCats = categoryNode.children.filter(filterCategory);
 
             // Find all books that are descendants of categoryNode
@@ -306,7 +334,19 @@ const App: React.FC = () => {
             return { type: 'books' as const, items: result };
         }
     }
-  }, [books, searchTerm, selectedCategory, selectedTags, randomSeed, categories]);
+  }, [books, searchTerm, selectedCategory, selectedTags, randomSeed, categories, expandedSeries]);
+
+  const toggleSeriesExpand = (seriesName: string) => {
+    setExpandedSeries(prev => {
+      const next = new Set(prev);
+      if (next.has(seriesName)) {
+        next.delete(seriesName);
+      } else {
+        next.add(seriesName);
+      }
+      return next;
+    });
+  };
 
   const toggleTag = (tag: string | null) => {
     if (tag === null) {
@@ -381,6 +421,7 @@ const App: React.FC = () => {
             books={books}
             onOpenCategoryManager={() => setIsCategoryManagerOpen(true)}
             onOpenSettings={() => setIsSettingsOpen(true)}
+            globalTags={globalTags}
         />
 
         <main className="flex-1 px-4 sm:px-6 overflow-hidden flex flex-col bg-slate-950 relative">
@@ -402,7 +443,18 @@ const App: React.FC = () => {
                         <div className="flex items-center justify-between">
                             <div className="flex flex-col gap-1">
                                 <h2 className="text-xl font-bold text-slate-100 flex items-center gap-2 flex-wrap">
-                                    {selectedCategory ? (
+                                    {searchTerm ? (
+                                        <>
+                                        <span className="text-indigo-400"><Search size={22} /></span>
+                                        搜尋「<span className="text-indigo-400 font-extrabold">{searchTerm}</span>」的結果
+                                        <span className="text-xs font-normal text-slate-400 bg-slate-800/80 border border-slate-705 px-2.5 py-0.5 rounded-full ml-2">
+                                            {selectedCategory ? `分類「${findCategoryByName(categories, selectedCategory)?.displayName || selectedCategory}」內` : '全站'}
+                                        </span>
+                                        <span className="text-xs font-normal text-slate-500 ml-1">
+                                            ({viewData.items.length} 冊符合)
+                                        </span>
+                                        </>
+                                    ) : selectedCategory ? (
                                         <>
                                         <span className="text-indigo-400"><FolderOpen size={22} /></span>
                                         {findCategoryByName(categories, selectedCategory)?.displayName || selectedCategory}
@@ -466,6 +518,31 @@ const App: React.FC = () => {
                                                 清除全部
                                             </button>
                                         )}
+                                    </div>
+                                )}
+                                {searchTerm && (
+                                    <div className="flex items-center flex-wrap gap-2 ml-8 mt-1.5 animate-fade-in">
+                                        <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">搜尋範圍:</span>
+                                        {selectedCategory ? (
+                                            <button
+                                                onClick={() => setSelectedCategory(null)}
+                                                className="text-xs flex items-center gap-1.5 px-3 py-1.5 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 font-medium rounded-full border border-indigo-500/20 hover:border-indigo-400/50 transition-all shadow-sm group"
+                                                title="切換至全站搜尋"
+                                            >
+                                                <span>僅限「{findCategoryByName(categories, selectedCategory)?.displayName || selectedCategory}」內</span>
+                                                <span className="text-[9px] bg-indigo-500/20 px-2 py-0.5 rounded-full text-indigo-400 group-hover:bg-indigo-505 group-hover:text-white transition-all">點擊切換全站 ➔</span>
+                                            </button>
+                                        ) : (
+                                            <span className="text-xs text-slate-400 border border-slate-800 bg-slate-900/50 px-3 py-1 rounded-full">
+                                                全站搜尋中
+                                            </span>
+                                        )}
+                                        <button
+                                            onClick={() => setSearchTerm('')}
+                                            className="text-xs flex items-center gap-1.5 px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-full border border-slate-700/50 hover:text-white transition-all shadow-sm"
+                                        >
+                                            <X size={12} /> 清除關鍵字已輸入的搜尋
+                                        </button>
                                     </div>
                                 )}
                             </div>
@@ -565,6 +642,16 @@ const App: React.FC = () => {
                                         </button>
                                     </div>
                                 )}
+                                 {!selectedCategory && expandedSeries.size > 0 && (
+                                     <div className="flex items-center gap-2 flex-wrap justify-end">
+                                         <button 
+                                             onClick={() => setExpandedSeries(new Set())}
+                                             className="text-xs flex items-center gap-1.5 text-slate-400 hover:text-indigo-400 bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-full transition-colors border border-slate-700/50 animate-fade-in"
+                                         >
+                                             <ArrowLeft size={14} /> 回到上一層
+                                         </button>
+                                     </div>
+                                 )}
                             </div>
                         </div>
                     </div>
@@ -580,6 +667,10 @@ const App: React.FC = () => {
                         onCategoryClick={setSelectedCategory}
                         onAddFirstBook={() => setIsModalOpen(true)}
                         isLoading={isLoading}
+                        expandedSeries={expandedSeries}
+                        onToggleSeriesExpand={toggleSeriesExpand}
+                        isFiltered={!!searchTerm || selectedTags.size > 0}
+                        searchTerm={searchTerm}
                     />
                 </>
             )}
@@ -630,6 +721,66 @@ const App: React.FC = () => {
       />
       <BatchMoveModal isOpen={isBatchMoveOpen} onClose={() => setIsBatchMoveOpen(false)} selectedCount={selectedBookIds.size} categories={categories} onConfirm={handleBatchMove} />
       <BatchTagsModal isOpen={isBatchTagsOpen} onClose={() => setIsBatchTagsOpen(false)} selectedCount={selectedBookIds.size} globalTags={allTags} onConfirm={handleBatchTags} />
+
+      {/* 雲端同步衝突解決彈窗 */}
+      {syncConflict && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+          <div className="bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg border border-slate-700 p-6 space-y-6 animate-fade-in">
+            <div className="text-center space-y-2">
+              <div className="mx-auto w-12 h-12 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full flex items-center justify-center">
+                <ArrowRightLeft size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-100">檢測到資料同步衝突</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                您登入的帳號在雲端已有儲存的書籍資料，且您在本機客端也有做過修改。請選擇要如何處理：
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* 選項一：覆蓋雲端 */}
+              <button
+                onClick={() => resolveConflict(true)}
+                className="flex flex-col items-center justify-between p-5 bg-indigo-600/15 hover:bg-indigo-600/25 border border-indigo-500/30 hover:border-indigo-400 text-left rounded-xl transition-all group"
+              >
+                <div className="w-full space-y-2">
+                  <div className="font-bold text-indigo-400 flex items-center gap-2">
+                    <span>將本機覆蓋雲端</span>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-normal">
+                    以您目前在本機客端修改、新增的資料（共 {syncConflict.localBooks.length} 本書、{syncConflict.localCategories.length} 個分類）同步至雲端，覆蓋原有資料。
+                  </p>
+                </div>
+                <div className="w-full mt-4 text-xs font-bold text-indigo-300 group-hover:text-white transition-colors text-right">
+                  確定使用本機資料 →
+                </div>
+              </button>
+
+              {/* 選項二：載入雲端 */}
+              <button
+                onClick={() => resolveConflict(false)}
+                className="flex flex-col items-center justify-between p-5 bg-slate-700/30 hover:bg-slate-700/50 border border-slate-600/50 hover:border-slate-500 text-left rounded-xl transition-all group"
+              >
+                <div className="w-full space-y-2">
+                  <div className="font-bold text-slate-200 flex items-center gap-2">
+                    <span>載入雲端備份</span>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-normal">
+                    下載您在雲端保存的快照資料（共 {syncConflict.cloudBooks.length} 本書、{syncConflict.cloudCategories.length} 個分類），這將會覆蓋本機目前的資料。
+                  </p>
+                </div>
+                <div className="w-full mt-4 text-xs font-bold text-slate-300 group-hover:text-white transition-colors text-right">
+                  載入雲端備份 →
+                </div>
+              </button>
+            </div>
+
+            <div className="bg-slate-900/50 rounded-lg p-3 text-[11px] text-slate-500 text-center leading-normal">
+              提示：若不確定，建議先點選「載入雲端備份」以維持各裝置的資料一致；
+              如果您想將目前的本機圖書上傳至該帳號，請選「將本機覆蓋雲端」。
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

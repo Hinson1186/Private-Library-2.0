@@ -2,7 +2,8 @@
 import React, { useMemo, useState } from 'react';
 import { CategoryDef, Book } from '../types';
 import { sortCategoriesRecursive } from '../utils/categoryUtils';
-import { Folder, FolderOpen, ChevronRight, ChevronDown, SlidersHorizontal, BookHeart, X, Nut, Tags, Book as BookIcon } from 'lucide-react';
+import { Folder, FolderOpen, ChevronRight, ChevronDown, SlidersHorizontal, BookHeart, X, Nut, Tags, Book as BookIcon, PieChart } from 'lucide-react';
+import { LibraryInsightsModal } from './LibraryInsightsModal';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -14,6 +15,7 @@ interface SidebarProps {
   books: Book[];
   onOpenCategoryManager: () => void;
   onOpenSettings: () => void;
+  globalTags?: string[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -25,9 +27,11 @@ const Sidebar: React.FC<SidebarProps> = ({
   bookCount,
   books,
   onOpenCategoryManager,
-  onOpenSettings
+  onOpenSettings,
+  globalTags = []
 }) => {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
+  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
 
   // Use the helper to sort
   const sortedCategories = useMemo(() => {
@@ -177,8 +181,8 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const SidebarContent = () => (
-    <>
-        <div className="flex items-center justify-between p-4 pb-2 lg:mb-0 mb-4">
+    <div className="flex flex-col h-full overflow-hidden">
+        <div className="flex items-center justify-between p-4 pb-2 lg:mb-0 mb-4 shrink-0">
             <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
                 <BookHeart size={16} className="lg:hidden" />
                 書架導航
@@ -210,17 +214,33 @@ const Sidebar: React.FC<SidebarProps> = ({
                 所有書籍
                 <span className="ml-auto text-xs opacity-60 bg-black/20 px-2 py-0.5 rounded-full">{bookCount}</span>
             </button>
-            <div className="pt-2">
+
+            <div className="pt-2 border-t border-slate-800/40">
                 {sortedCategories.map(cat => renderSidebarItem(cat, 0))}
             </div>
         </nav>
-    </>
+
+        {/* Sticky Library Insights Trigger */}
+        <div className="p-3 border-t border-slate-800/50 bg-slate-950/20 shrink-0">
+            <button
+                onClick={() => {
+                    setIsInsightsOpen(true);
+                    if (window.innerWidth < 1024) onClose();
+                }}
+                className="w-full flex items-center gap-2.5 px-3 py-2.5 text-xs font-bold text-slate-400 hover:text-indigo-400 hover:bg-slate-800/60 rounded-xl transition-all border border-slate-800 hover:border-indigo-500/20 shadow-sm bg-slate-900/35 cursor-pointer group"
+            >
+                <PieChart size={16} className="text-slate-500 group-hover:text-indigo-400 transition-colors" />
+                <span>藏書統計儀表板</span>
+                <span className="ml-auto text-[9px] px-1.5 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-extrabold tracking-wider scale-95">INSIGHTS</span>
+            </button>
+        </div>
+    </div>
   );
 
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:flex w-64 flex-col border-r border-slate-800 bg-slate-950/50">
+      <aside className="hidden lg:flex w-64 flex-col border-r border-slate-800 bg-slate-950/50 h-screen lg:h-[calc(100vh-64px)] overflow-hidden shrink-0">
         <SidebarContent />
       </aside>
 
@@ -228,11 +248,20 @@ const Sidebar: React.FC<SidebarProps> = ({
       {isOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex">
             <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-            <div className="relative bg-slate-900 w-80 h-full shadow-2xl overflow-y-auto flex flex-col">
+            <div className="relative bg-slate-900 w-80 h-full shadow-2xl flex flex-col overflow-hidden">
                 <SidebarContent />
             </div>
         </div>
       )}
+
+      {/* Dedicated Stats Modal */}
+      <LibraryInsightsModal 
+        isOpen={isInsightsOpen}
+        onClose={() => setIsInsightsOpen(false)}
+        books={books}
+        categories={categories}
+        globalTags={globalTags}
+      />
     </>
   );
 };

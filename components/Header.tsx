@@ -245,22 +245,20 @@ const Header: React.FC<HeaderProps> = ({
                     <div className="w-full flex items-center bg-slate-800/20 backdrop-blur-sm rounded-2xl border border-slate-700/40 relative group/tags">
                         <div 
                             ref={scrollContainerRef}
-                            className="flex items-center gap-2 overflow-x-auto custom-scrollbar scroll-smooth flex-1 px-4 py-4"
+                            className="grid grid-flow-col grid-rows-2 auto-cols-max gap-x-2 gap-y-1.5 overflow-x-auto custom-scrollbar scroll-smooth flex-1 px-4 py-3 items-center"
                         >
-                            <div className="shrink-0 flex items-center gap-1.5 text-slate-500 mr-2">
-                                <Tag size={13} className="text-slate-400" />
-                                <span className="text-[10px] font-black uppercase tracking-tighter">標籤</span>
+                            <div className="shrink-0 flex items-center justify-center mr-3 row-span-2 h-full">
+                                <button
+                                    onClick={() => setSelectedTag(null)}
+                                    className={`px-4 py-2.5 rounded-xl text-xs font-black tracking-wide transition-all border ${
+                                        selectedTags.size === 0 
+                                        ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/30' 
+                                        : 'bg-slate-900/50 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800/85 hover:border-slate-700'
+                                    }`}
+                                >
+                                    全部
+                                </button>
                             </div>
-                            <button
-                                onClick={() => setSelectedTag(null)}
-                                className={`shrink-0 px-4 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                                    selectedTags.size === 0 
-                                    ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-600/20' 
-                                    : 'bg-slate-900/50 text-slate-500 border-slate-800 hover:text-slate-300 hover:bg-slate-800/80 hover:border-slate-700'
-                                }`}
-                            >
-                                全部
-                            </button>
                             {sortedTags.map(tag => {
                                 const isSelected = selectedTags.has(tag);
                                 return (

@@ -10,6 +10,8 @@ export interface Book {
   tags?: string[];
   type?: 'series' | 'single';
   updatedAt?: number;
+  isSeriesSet?: boolean;
+  seriesBooks?: Book[];
 }
 
 export type BookDraft = Omit<Book, 'id' | 'addedAt'>;

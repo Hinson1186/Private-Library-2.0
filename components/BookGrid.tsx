@@ -5,6 +5,7 @@ import { Book, CategoryDef } from '../types';
 import BookCard from './BookCard';
 import CategoryCard from './CategoryCard';
 import { BookOpen, Plus, Folder, BookHeart, Tag } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface BookGridProps {
   viewData: { type: 'books' | 'categories' | 'mixed', items: (Book | CategoryDef)[] };
@@ -17,6 +18,10 @@ interface BookGridProps {
   onCategoryClick: (name: string) => void;
   onAddFirstBook: () => void;
   isLoading: boolean;
+  expandedSeries?: Set<string>;
+  onToggleSeriesExpand?: (seriesName: string) => void;
+  isFiltered?: boolean;
+  searchTerm?: string;
 }
 
 // Helper to check item type
@@ -94,7 +99,11 @@ const BookGrid: React.FC<BookGridProps> = ({
   onBatchSelect,
   onCategoryClick,
   onAddFirstBook,
-  isLoading
+  isLoading,
+  expandedSeries = new Set(),
+  onToggleSeriesExpand = () => {},
+  isFiltered = false,
+  searchTerm = ''
 }) => {
 
   if (viewData.items.length === 0 && !isLoading) {
@@ -118,6 +127,61 @@ const BookGrid: React.FC<BookGridProps> = ({
                 </button>
             )}
         </div>
+    );
+  }
+
+  if (isFiltered) {
+    return (
+      <div className="flex-1 h-full pb-20 overflow-y-auto custom-scrollbar p-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 gap-[20px]">
+          <AnimatePresence mode="popLayout" initial={false}>
+            {viewData.items.map((item) => {
+              const itemId = isCategory(item) ? item.id : item.id;
+              
+              return (
+                <motion.div
+                  key={itemId}
+                  layout="position"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 400, 
+                    damping: 30,
+                    layout: { duration: 0.35, type: "spring", stiffness: 350, damping: 28 } 
+                  }}
+                  className="w-full flex flex-col h-full"
+                >
+                  {isCategory(item) ? (
+                    <CategoryCard 
+                      category={item}
+                      representativeBook={getFirstBookInDescendants(item, books)}
+                      bookCount={getBookCountInDescendants(item, books)}
+                      seriesCount={getSeriesCountInDescendants(item)}
+                      onClick={onCategoryClick}
+                    />
+                  ) : (
+                    <BookCard 
+                      book={item} 
+                      onClick={(b) => {
+                        if (b.isSeriesSet) {
+                          onToggleSeriesExpand(b.category);
+                        } else {
+                          isBatchMode ? onBatchSelect(b.id) : onBookClick(b);
+                        }
+                      }}
+                      isSelectable={isBatchMode && !item.isSeriesSet}
+                      isSelected={selectedBookIds.has(item.id)}
+                      searchTerm={searchTerm}
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
+      </div>
     );
   }
 
@@ -208,6 +272,7 @@ const BookGrid: React.FC<BookGridProps> = ({
                                     onClick={(b) => isBatchMode ? onBatchSelect(b.id) : onBookClick(b)}
                                     isSelectable={isBatchMode}
                                     isSelected={selectedBookIds.has(item.id)}
+                                    searchTerm={searchTerm}
                                />
                            )}
                         </div>
