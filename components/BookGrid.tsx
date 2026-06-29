@@ -7,6 +7,9 @@ import CategoryCard from './CategoryCard';
 import { BookOpen, Plus, Folder, BookHeart, Tag } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+import seriesIllustration from '../src/assets/images/series_ln_cover_1782709930114.jpg';
+import singleIllustration from '../src/assets/images/single_ln_cover_1782709946337.jpg';
+
 interface BookGridProps {
   viewData: { type: 'books' | 'categories' | 'mixed', items: (Book | CategoryDef)[] };
   books: Book[]; // Needed for category counts
@@ -64,27 +67,55 @@ const getSeriesCountInDescendants = (node: CategoryDef): number => {
 const LargeCategoryCard: React.FC<{ category: CategoryDef, books: Book[], onClick: (name: string) => void }> = ({ category, books, onClick }) => {
   const isSeries = category.type === 'series' || category.name.includes('系列');
   const count = isSeries ? getSeriesCountInDescendants(category) : getBookCountInDescendants(category, books);
-  const unit = isSeries ? '個系列' : '本書籍';
+  const booksCount = isSeries ? getBookCountInDescendants(category, books) : 0;
   
-  // Use Indigo for Series, Emerald for Single Volumes
-  const colorClasses = isSeries 
-    ? "from-indigo-600/30 to-indigo-950/60 border-indigo-500/50 hover:border-indigo-400 group-hover:shadow-indigo-500/30 text-indigo-400"
-    : "from-emerald-600/30 to-emerald-950/60 border-emerald-500/50 hover:border-emerald-400 group-hover:shadow-emerald-500/30 text-emerald-400";
+  const borderClasses = isSeries 
+    ? "border-indigo-500/30 hover:border-indigo-400/80"
+    : "border-emerald-500/30 hover:border-emerald-400/80";
+
+  const glowShadow = isSeries 
+    ? "group-hover:shadow-[0_0_50px_rgba(99,102,241,0.35)]"
+    : "group-hover:shadow-[0_0_50px_rgba(16,185,129,0.35)]";
+
+  const pillBorder = isSeries
+    ? "border-indigo-500/40 bg-slate-950/90 text-indigo-200 group-hover:border-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+    : "border-emerald-500/40 bg-slate-950/90 text-emerald-200 group-hover:border-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]";
 
   return (
     <div 
       onClick={() => onClick(category.name)}
-      className={`relative flex-1 flex flex-col items-center justify-center p-10 rounded-[2.5rem] border bg-gradient-to-br backdrop-blur-md cursor-pointer transition-all duration-500 hover:-translate-y-3 group ${colorClasses} shadow-2xl`}
+      className={`relative flex-1 flex flex-col items-center justify-end p-10 h-96 rounded-[2.5rem] border bg-slate-950 cursor-pointer transition-all duration-500 hover:-translate-y-3 group ${borderClasses} ${glowShadow} shadow-2xl overflow-hidden`}
     >
-      <div className={`w-32 h-32 rounded-full flex items-center justify-center mb-8 bg-slate-950/60 border-2 border-current shadow-2xl transition-transform duration-500 group-hover:scale-110`}>
-        {isSeries ? <Folder size={64} strokeWidth={1.2} /> : <BookHeart size={64} strokeWidth={1.2} />}
+      {/* Background Image filling the card */}
+      <img 
+        src={isSeries ? seriesIllustration : singleIllustration} 
+        alt={category.displayName || category.name}
+        className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover:scale-105 opacity-55 group-hover:opacity-70"
+        referrerPolicy="no-referrer"
+      />
+      
+      {/* Premium overlay gradients */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/10 z-10" />
+      
+      {/* Content wrapper */}
+      <div className="relative z-20 w-full flex flex-col items-center text-center mb-2">
+        
+        <h3 className={`text-4xl font-black mb-5 tracking-wider drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] transition-colors duration-500 ${isSeries ? 'text-indigo-100 group-hover:text-white' : 'text-emerald-100 group-hover:text-white'}`}>
+          {category.displayName || category.name}
+        </h3>
+        
+        <p className={`font-semibold text-base px-6 py-2.5 rounded-full border backdrop-blur-md transition-all duration-500 ${pillBorder}`}>
+          {isSeries ? (
+            <span className="flex items-center gap-2">
+              <span>{count} 個系列</span>
+              <span className="opacity-40 font-light">|</span>
+              <span>{booksCount} 本書籍</span>
+            </span>
+          ) : (
+            <span>{count} 本書籍</span>
+          )}
+        </p>
       </div>
-      <h3 className="text-4xl font-black text-slate-50 mb-4 tracking-tight drop-shadow-sm text-center">
-        {category.displayName || category.name}
-      </h3>
-      <p className="text-slate-300 font-bold text-xl opacity-80">
-        {count} {unit}
-      </p>
     </div>
   );
 };
@@ -196,7 +227,7 @@ const BookGrid: React.FC<BookGridProps> = ({
 
     if (isSeriesAndSingle) {
       return (
-        <div className="flex-1 h-full pb-6 flex flex-col md:flex-row gap-6 p-4 md:p-8">
+        <div className="flex-1 h-full overflow-y-auto custom-scrollbar pb-24 flex flex-col md:flex-row gap-6 p-4 md:p-8">
            <LargeCategoryCard category={cat1} books={books} onClick={onCategoryClick} />
            <LargeCategoryCard category={cat2} books={books} onClick={onCategoryClick} />
         </div>

@@ -57,6 +57,7 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+  const [isTagMultiSelect, setIsTagMultiSelect] = useState(false);
   const [randomSeed, setRandomSeed] = useState(0); 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [expandedSeries, setExpandedSeries] = useState<Set<string>>(new Set());
@@ -353,12 +354,21 @@ const App: React.FC = () => {
         setSelectedTags(new Set());
         return;
     }
-    setSelectedTags(prev => {
-        const next = new Set(prev);
-        if (next.has(tag)) next.delete(tag);
-        else next.add(tag);
-        return next;
-    });
+    if (isTagMultiSelect) {
+        setSelectedTags(prev => {
+            const next = new Set(prev);
+            if (next.has(tag)) next.delete(tag);
+            else next.add(tag);
+            return next;
+        });
+    } else {
+        setSelectedTags(prev => {
+            if (prev.has(tag) && prev.size === 1) {
+                return new Set();
+            }
+            return new Set([tag]);
+        });
+    }
   };
 
   const setSingleTag = (tag: string | null) => {
@@ -402,6 +412,8 @@ const App: React.FC = () => {
         allTags={allTags}
         selectedTags={selectedTags}
         setSelectedTag={toggleTag}
+        isTagMultiSelect={isTagMultiSelect}
+        setIsTagMultiSelect={setIsTagMultiSelect}
         onOpenTagManager={() => setIsTagManagerOpen(true)}
         isTagManagerOpen={isTagManagerOpen}
         user={user}

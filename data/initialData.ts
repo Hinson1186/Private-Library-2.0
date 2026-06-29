@@ -3,7 +3,7 @@ import { createBook, createSeries } from '../utils/bookFactory';
 
 /**
  * 這裡是您的「永久資料庫」。
- * 此檔案由網頁自動生成。
+ * 此檔案由自動儲存生成。
  */
 
 export const initialCategories: CategoryDef[] = [
@@ -415,8 +415,8 @@ export const initialCategories: CategoryDef[] = [
           },
           {
             "children": [],
-            "displayName": "學姐是男孩",
-            "name": "學姐是男孩",
+            "displayName": "學姊是男孩",
+            "name": "學姊是男孩",
             "type": "series",
             "id": "manga-cat-senpai-boy"
           },
@@ -585,6 +585,18 @@ export const initialBooks: Book[] = [
     "genre": "",
     "addedAt": 1774621962283,
     "id": "9ae9b3ba-2f5b-4ca3-9b0c-d2671040ab05"
+  },
+  {
+    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2680855454005/317898.jpg",
+    "author": "西尾維新",
+    "type": "single",
+    "category": "輕小說單行本",
+    "tags": [],
+    "subCategory": "",
+    "title": "少女不十分",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "shoujo-fushubun"
   },
   {
     "author": "曉佳奈",
@@ -1769,8 +1781,8 @@ export const initialBooks: Book[] = [
     "tags": [],
     "category": "妹妹是不能當女友的，可是……",
     "type": "series",
-    "coverUrl": "",
-    "author": "三河ごーすと"
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NB0032/NB0032001A/NB0032001A.jpg",
+    "author": "鏡遊"
   },
   {
     "subCategory": "",
@@ -1778,8 +1790,8 @@ export const initialBooks: Book[] = [
     "genre": "",
     "addedAt": 1774621962283,
     "id": "sister-not-gf-2",
-    "coverUrl": "",
-    "author": "三河ごーすと",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NB0032/NB0032002A/NB0032002A.jpg",
+    "author": "鏡遊",
     "type": "series",
     "tags": [],
     "category": "妹妹是不能當女友的，可是……"
@@ -4475,7 +4487,7 @@ export const initialBooks: Book[] = [
     "author": "Nanashi"
   },
   {
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1200/JC1200001/JC1200001.jpg",
     "author": "雪森寧寧",
     "tags": [],
     "category": "久保同學不放過我",
@@ -4491,7 +4503,7 @@ export const initialBooks: Book[] = [
     "category": "久保同學不放過我",
     "tags": [],
     "author": "雪森寧寧",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1200/JC1200002/JC1200002.jpg",
     "id": "kubo-2",
     "addedAt": 1774621962283,
     "genre": "",
@@ -4500,7 +4512,7 @@ export const initialBooks: Book[] = [
   },
   {
     "author": "雪森寧寧",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1200/JC1200003/JC1200003.jpg",
     "type": "series",
     "tags": [],
     "category": "久保同學不放過我",
@@ -4515,23 +4527,23 @@ export const initialBooks: Book[] = [
     "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
-    "title": "學姐是男孩 1",
+    "title": "學姊是男孩 1",
     "tags": [],
-    "category": "學姐是男孩",
+    "category": "學姊是男孩",
     "type": "series",
     "author": "ぽむ",
-    "coverUrl": ""
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/BM0413/BM0413001/BM0413001.jpg"
   },
   {
     "addedAt": 1774621962283,
     "id": "senpai-boy-2",
-    "title": "學姐是男孩 2",
+    "title": "學姊是男孩 2",
     "subCategory": "",
     "genre": "",
     "type": "series",
-    "category": "學姐是男孩",
+    "category": "學姊是男孩",
     "tags": [],
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/BM0413/BM0413002/BM0413002.jpg",
     "author": "ぽむ"
   },
   {
@@ -5510,7 +5522,7 @@ export const initialBooks: Book[] = [
     "tags": [],
     "type": "series",
     "author": "山田鐘人/阿部司",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108001/SC1108001.jpg",
     "id": "frieren-1",
     "addedAt": 1774621962283,
     "genre": "",
@@ -5526,11 +5538,11 @@ export const initialBooks: Book[] = [
     "tags": [],
     "category": "葬送的芙莉蓮",
     "type": "series",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108002/SC1108002.jpg",
     "author": "山田鐘人/阿部司"
   },
   {
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108003/SC1108003.jpg",
     "author": "山田鐘人/阿部司",
     "tags": [],
     "category": "葬送的芙莉蓮",
@@ -5545,7 +5557,7 @@ export const initialBooks: Book[] = [
     "tags": [],
     "category": "葬送的芙莉蓮",
     "type": "series",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108004/SC1108004.jpg",
     "author": "山田鐘人/阿部司",
     "addedAt": 1774621962283,
     "id": "frieren-4",
@@ -5555,7 +5567,7 @@ export const initialBooks: Book[] = [
   },
   {
     "author": "山田鐘人/阿部司",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108005/SC1108005.jpg",
     "tags": [],
     "category": "葬送的芙莉蓮",
     "type": "series",
@@ -5575,7 +5587,7 @@ export const initialBooks: Book[] = [
     "category": "葬送的芙莉蓮",
     "type": "series",
     "author": "山田鐘人/阿部司",
-    "coverUrl": ""
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108006/SC1108006.jpg"
   },
   {
     "id": "frieren-12",
@@ -5587,7 +5599,7 @@ export const initialBooks: Book[] = [
     "tags": [],
     "type": "series",
     "author": "山田鐘人/阿部司",
-    "coverUrl": ""
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108012/SC1108012.jpg"
   },
   {
     "addedAt": 1774621962283,
@@ -5598,7 +5610,7 @@ export const initialBooks: Book[] = [
     "category": "葬送的芙莉蓮",
     "tags": [],
     "type": "series",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108014/SC1108014.jpg",
     "author": "山田鐘人/阿部司"
   },
   {
@@ -6456,6 +6468,54 @@ export const initialBooks: Book[] = [
     "addedAt": 1774621962283,
     "genre": "",
     "title": "奇峰異石傳",
+    "subCategory": ""
+  },
+  {
+    "category": "其他單行本",
+    "tags": [],
+    "type": "single",
+    "author": "李光天",
+    "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/014/35/0010143521.jpg&v=4124cb11k&w=348&h=348",
+    "id": "journey-memories",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "title": "旅途記憶",
+    "subCategory": ""
+  },
+  {
+    "category": "小說單行本",
+    "tags": [],
+    "type": "single",
+    "author": "Peter Su",
+    "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/072/33/0010723322.jpg&v=57973719k&w=348&h=348",
+    "id": "if-simple-who-wants-complex",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "title": "如果可以簡單，誰想要複雜",
+    "subCategory": ""
+  },
+  {
+    "category": "小說單行本",
+    "tags": [],
+    "type": "single",
+    "author": "于日辰",
+    "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/058/27/0010582737.jpg&v=516a2efak&w=348&h=348",
+    "id": "one-prison-one-world",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "title": "壹獄壹世界",
+    "subCategory": ""
+  },
+  {
+    "category": "小說單行本",
+    "tags": [],
+    "type": "single",
+    "author": "嵇零",
+    "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/095/36/0010953683.jpg&v=6384a511k&w=348&h=348",
+    "id": "starvation-mings-journey",
+    "addedAt": 1774621962283,
+    "genre": "",
+    "title": "餓殍",
     "subCategory": ""
   }
 ];

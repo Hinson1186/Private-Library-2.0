@@ -20,6 +20,8 @@ interface HeaderProps {
   allTags: string[];
   selectedTags: Set<string>;
   setSelectedTag: (tag: string | null) => void;
+  isTagMultiSelect: boolean;
+  setIsTagMultiSelect: (mode: boolean) => void;
   onOpenTagManager: () => void;
   isTagManagerOpen: boolean;
   user: User | null;
@@ -42,6 +44,8 @@ const Header: React.FC<HeaderProps> = ({
   allTags,
   selectedTags,
   setSelectedTag,
+  isTagMultiSelect,
+  setIsTagMultiSelect,
   onOpenTagManager,
   isTagManagerOpen,
   user
@@ -215,48 +219,34 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Integrated Tag Filter Bar */}
         {!isTagManagerOpen && (
-            <div className="pb-3 flex flex-col gap-2 w-full animate-in fade-in slide-in-from-top-2 duration-300">
-                {/* Selected Tags Display */}
-                {selectedTags.size > 0 && (
-                    <div className="flex flex-wrap items-center gap-2 px-2">
-                        <div className="flex items-center gap-1.5 text-rose-500 mr-1 shrink-0">
-                            <span className="text-[10px] font-black uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">已選標籤</span>
-                        </div>
-                        {Array.from(selectedTags).map(tag => (
-                            <button
-                                key={`selected-${tag}`}
-                                onClick={() => setSelectedTag(tag)}
-                                className="group flex items-center gap-1.5 px-3 py-1 bg-rose-600 text-white rounded-full text-xs font-bold shadow-lg shadow-rose-600/20 border border-rose-500 hover:bg-rose-500 transition-all scale-100 hover:scale-105 active:scale-95"
-                            >
-                                {tag}
-                                <X size={12} className="opacity-60 group-hover:opacity-100" />
-                            </button>
-                        ))}
-                        <button
-                            onClick={() => setSelectedTag(null)}
-                            className="text-[10px] font-bold text-slate-500 hover:text-white underline underline-offset-4 decoration-slate-700 hover:decoration-white transition-all ml-2"
-                        >
-                            清除全部
-                        </button>
-                    </div>
-                )}
-
+            <div className="pb-3 flex flex-col gap-3.5 w-full animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="relative px-2">
                     <div className="w-full flex items-center bg-slate-800/20 backdrop-blur-sm rounded-2xl border border-slate-700/40 relative group/tags">
                         <div 
                             ref={scrollContainerRef}
                             className="grid grid-flow-col grid-rows-2 auto-cols-max gap-x-2 gap-y-1.5 overflow-x-auto custom-scrollbar scroll-smooth flex-1 px-4 py-3 items-center"
                         >
-                            <div className="shrink-0 flex items-center justify-center mr-3 row-span-2 h-full">
+                            <div className="shrink-0 flex flex-col gap-1.5 mr-3 row-span-2 justify-center h-full">
                                 <button
                                     onClick={() => setSelectedTag(null)}
-                                    className={`px-4 py-2.5 rounded-xl text-xs font-black tracking-wide transition-all border ${
+                                    className={`px-4 py-1.5 rounded-xl text-xs font-black tracking-wide transition-all border ${
                                         selectedTags.size === 0 
                                         ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/30' 
                                         : 'bg-slate-900/50 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800/85 hover:border-slate-700'
                                     }`}
                                 >
                                     全部
+                                </button>
+                                <button
+                                    onClick={() => setIsTagMultiSelect(!isTagMultiSelect)}
+                                    className={`px-4 py-1.5 rounded-xl text-xs font-black tracking-wide transition-all border ${
+                                        isTagMultiSelect 
+                                        ? 'bg-rose-600 text-white border-rose-500 shadow-md shadow-rose-600/30' 
+                                        : 'bg-slate-900/50 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800/85 hover:border-slate-700'
+                                    }`}
+                                    title={isTagMultiSelect ? "多選模式：已開啟" : "單選模式（點擊開啟多選）"}
+                                >
+                                    多選
                                 </button>
                             </div>
                             {sortedTags.map(tag => {
@@ -289,6 +279,31 @@ const Header: React.FC<HeaderProps> = ({
                         </div>
                     </div>
                 </div>
+
+                {/* Selected Tags Display */}
+                {selectedTags.size > 0 && (
+                    <div className="flex flex-wrap items-center gap-2 px-2 animate-in fade-in slide-in-from-top-1 duration-200">
+                        <div className="flex items-center gap-1.5 text-rose-500 mr-1 shrink-0">
+                            <span className="text-[10px] font-black uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">已選標籤</span>
+                        </div>
+                        {Array.from(selectedTags).map(tag => (
+                            <button
+                                key={`selected-${tag}`}
+                                onClick={() => setSelectedTag(tag)}
+                                className="group flex items-center gap-1.5 px-3 py-1 bg-rose-600 text-white rounded-full text-xs font-bold shadow-lg shadow-rose-600/20 border border-rose-500 hover:bg-rose-500 transition-all scale-100 hover:scale-105 active:scale-95"
+                            >
+                                {tag}
+                                <X size={12} className="opacity-60 group-hover:opacity-100" />
+                            </button>
+                        ))}
+                        <button
+                            onClick={() => setSelectedTag(null)}
+                            className="text-[10px] font-bold text-slate-500 hover:text-white underline underline-offset-4 decoration-slate-700 hover:decoration-white transition-all ml-2"
+                        >
+                            清除全部
+                        </button>
+                    </div>
+                )}
             </div>
         )}
       </div>

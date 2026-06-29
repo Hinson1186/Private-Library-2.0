@@ -110,9 +110,6 @@ const BookCard: React.FC<BookCardProps> = ({
                 <span className="px-2 py-1 bg-gradient-to-r from-emerald-600 to-indigo-600 text-xs sm:text-sm font-black text-white rounded-md border border-emerald-400/30 shadow-lg text-center backdrop-blur-sm self-start">
                   共 {count} 冊
                 </span>
-                <span className="text-[9px] sm:text-[10px] text-slate-300 font-extrabold tracking-wide drop-shadow bg-slate-950/80 rounded px-1.5 py-0.5 mt-0.5 max-w-fit shadow-sm">
-                  點擊就地展開 ⚡
-                </span>
               </div>
             </div>
           ) : null}
