@@ -4,7 +4,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { Book, CategoryDef } from '../types';
 import BookCard from './BookCard';
 import CategoryCard from './CategoryCard';
-import { BookOpen, Plus, Folder, BookHeart, Tag } from 'lucide-react';
+import { BookOpen, Plus, Folder, BookHeart, Tag, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 import seriesIllustration from '../src/assets/images/series_ln_cover_1782709930114.jpg';
@@ -255,7 +255,7 @@ const BookGrid: React.FC<BookGridProps> = ({
 
           // DYNAMIC HEIGHT CALCULATION:
           // Keep 2:3 Aspect Ratio for image part
-          const rowHeight = (itemWidth * 1.5) + 88;
+          const rowHeight = (itemWidth * 1.5) + 90;
 
           return (
             <List

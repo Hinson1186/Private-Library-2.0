@@ -214,7 +214,7 @@ const App: React.FC = () => {
                 const cat = findCategoryByName(categories, b.category);
                 if (cat && cat.type === 'series') {
                     const group = seriesGroups[cat.name] || [];
-                    if (group.length > 1) {
+                    if (group.length >= 1) {
                         if (expandedSeries.has(cat.name)) {
                             // If expanded, show individual books
                             finalMixedItems.push(b);
@@ -223,6 +223,7 @@ const App: React.FC = () => {
                             if (!processedSeries.has(cat.name)) {
                                 processedSeries.add(cat.name);
                                 const firstBook = group[0];
+                                const allSeriesBooks = books.filter(bk => bk.category === cat.name);
                                 const seriesSetBook: Book = {
                                     id: `series_set_${cat.id || cat.name}`,
                                     title: cat.displayName || cat.name,
@@ -233,14 +234,11 @@ const App: React.FC = () => {
                                     tags: cat.tags || [],
                                     type: 'series',
                                     isSeriesSet: true,
-                                    seriesBooks: group
+                                    seriesBooks: allSeriesBooks
                                 };
                                 finalMixedItems.push(seriesSetBook);
                             }
                         }
-                    } else {
-                        // If only 1 book matches, show it directly
-                        finalMixedItems.push(b);
                     }
                 } else {
                     // Not a series category, show individually

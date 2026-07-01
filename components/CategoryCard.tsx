@@ -54,33 +54,39 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, representativeBoo
         )}
         
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+
+        {/* Prominent dark gradient overlay at the bottom of the cover for maximum legibility */}
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pt-12 pb-1.5 px-3 z-10 flex items-center justify-between">
+          <span className="text-slate-200 text-[11px] font-medium tracking-wide drop-shadow-[0_1.5px_4px_rgba(0,0,0,0.9)] translate-y-[5px]">
+            {isParentSeriesFolder ? '共 ' : '收錄 '}
+            <span className="font-bold text-white text-sm">{displayCount}</span>
+            {isParentSeriesFolder ? ' 個系列' : ' 本書籍'}
+          </span>
+        </div>
       </div>
       
-      <div className="p-3 flex flex-col flex-grow bg-slate-800 border-t border-slate-700/50">
-        <h3 className="font-bold text-slate-100 text-sm leading-snug line-clamp-2 mb-1 group-hover:text-indigo-300 transition-colors" title={category.displayName || category.name}>
-          {category.displayName || category.name}
-        </h3>
-        
-        {category.tags && category.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-2 mt-1">
-            {category.tags.slice(0, 3).map(tag => (
-              <span key={tag} className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-medium bg-slate-700 text-slate-300 border border-slate-600">
-                {tag}
-              </span>
-            ))}
-            {category.tags.length > 3 && (
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-medium bg-slate-700 text-slate-400 border border-slate-600">
-                +{category.tags.length - 3}
-              </span>
-            )}
-          </div>
-        )}
+      <div className="p-2.5 flex flex-col justify-between h-[68px] bg-slate-800 border-t border-slate-700/50 shrink-0">
+        <div className="min-h-0">
+          <h3 className="font-bold text-slate-100 text-sm leading-snug line-clamp-1 group-hover:text-indigo-300 transition-colors" title={category.displayName || category.name}>
+            {category.displayName || category.name}
+          </h3>
+        </div>
 
-        <div className="flex items-center justify-between mt-auto pt-1">
-           <span className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">
-             {displayCount}{unit}
-           </span>
-           <div className="text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all">
+        <div className="flex items-center justify-between pt-0.5">
+           {category.tags && category.tags.length > 0 ? (
+             <div className="flex flex-wrap gap-1 items-center flex-1 mr-2 overflow-hidden max-h-[18px]">
+               {category.tags.map(tag => (
+                 <span key={tag} className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-medium bg-slate-700 text-slate-300 border border-slate-600 leading-none whitespace-nowrap">
+                   {tag}
+                 </span>
+               ))}
+             </div>
+           ) : (
+             <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">
+               {category.type === 'series' ? '系列分類' : '一般分類'}
+             </span>
+           )}
+           <div className="text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all shrink-0">
              <ChevronRight size={14} />
            </div>
         </div>

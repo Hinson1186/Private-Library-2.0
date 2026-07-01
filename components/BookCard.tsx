@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Book } from '../types';
-import { CheckCircle2, Circle, LayoutGrid, Library, Layers } from 'lucide-react';
+import { CheckCircle2, Circle, LayoutGrid, Library, Layers, ChevronRight } from 'lucide-react';
 
 interface BookCardProps {
   book: Book;
@@ -96,16 +96,16 @@ const BookCard: React.FC<BookCardProps> = ({
 
           {/* 系列套組專屬勳章 & 頁冊計數 */}
           {isSeriesSet ? (
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90 p-3 flex flex-col justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-between p-3">
               {/* 頂端標籤 */}
               <div className="flex items-center gap-1.5 self-start">
-                <span className="px-2 py-1 bg-indigo-600 text-[10px] sm:text-[11px] font-black tracking-wider text-white uppercase rounded-md shadow-lg border border-indigo-400/40 flex items-center gap-1">
+                <span className="px-2 py-0.5 bg-indigo-600/90 text-[10px] font-bold tracking-wider text-white uppercase rounded shadow border border-indigo-400/40 flex items-center gap-1">
                   <Layers size={11} strokeWidth={2.5} />
                   系列套組
                 </span>
               </div>
               
-              {/* 底端提示 */}
+              {/* 底端提示 - 綠色漸變精美徽章 */}
               <div className="flex flex-col gap-1 mt-auto">
                 <span className="px-2 py-1 bg-gradient-to-r from-emerald-600 to-indigo-600 text-xs sm:text-sm font-black text-white rounded-md border border-emerald-400/30 shadow-lg text-center backdrop-blur-sm self-start">
                   共 {count} 冊
