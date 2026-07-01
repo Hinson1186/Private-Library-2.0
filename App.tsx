@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Book, CategoryDef } from './types';
 import { useLibrary } from './hooks/useLibrary';
 import { findCategoryByName, getAllDescendantNames, findParentCategoryByName } from './utils/categoryUtils';
+import { getFilterTagStyles, getTagStyles } from './components/BookCard';
 
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
@@ -217,7 +218,7 @@ const App: React.FC = () => {
                     if (group.length >= 1) {
                         if (expandedSeries.has(cat.name)) {
                             // If expanded, show individual books
-                            finalMixedItems.push(b);
+                            finalMixedItems.push({ ...b, tags: cat.tags || [] });
                         } else {
                             // If collapsed, group into a single series bundle Book object (only once per series name)
                             if (!processedSeries.has(cat.name)) {
@@ -260,8 +261,9 @@ const App: React.FC = () => {
             }
 
             const items = result.map(b => {
-                const isSeries = findCategoryByName(categories, b.category)?.type === 'series';
-                return isSeries ? { ...b, tags: undefined } : b;
+                const cat = findCategoryByName(categories, b.category);
+                const isSeries = cat?.type === 'series';
+                return isSeries ? { ...b, tags: cat?.tags || [] } : b;
             });
             return { type: 'books' as const, items };
         }
@@ -273,7 +275,11 @@ const App: React.FC = () => {
             if (searchTerm) {
                 // 當有搜尋字串時，不進行資料夾多層包裹，直接顯示底下所有符合條件的書本
                 const allDescendants = getAllDescendantNames(categoryNode);
-                const matchingBooks = books.filter(b => allDescendants.includes(b.category)).filter(filterBook);
+                const matchingBooks = books.filter(b => allDescendants.includes(b.category)).filter(filterBook).map(b => {
+                    const cat = findCategoryByName(categories, b.category);
+                    const isSeries = cat?.type === 'series';
+                    return isSeries ? { ...b, tags: cat?.tags || [] } : b;
+                });
                 return { type: 'books' as const, items: matchingBooks };
             }
 
@@ -305,7 +311,9 @@ const App: React.FC = () => {
                 
                 // If it's a single volume (directly in categoryNode), add the book itself
                 if (isSingleVolume) {
-                    finalMixedItems.push(b);
+                    const cat = findCategoryByName(categories, b.category);
+                    const isSeries = cat?.type === 'series';
+                    finalMixedItems.push(isSeries ? { ...b, tags: cat?.tags || [] } : b);
                 }
             });
             
@@ -327,8 +335,9 @@ const App: React.FC = () => {
             let result = books.filter(book => book.category === selectedCategory).filter(filterBook);
             
             result = result.sort((a, b) => (a.title || '').localeCompare((b.title || ''), 'zh-TW', { numeric: true })).map(b => {
-                const isSeries = findCategoryByName(categories, b.category)?.type === 'series';
-                return isSeries ? { ...b, tags: undefined } : b;
+                const cat = findCategoryByName(categories, b.category);
+                const isSeries = cat?.type === 'series';
+                return isSeries ? { ...b, tags: cat?.tags || [] } : b;
             });
             return { type: 'books' as const, items: result };
         }
@@ -475,25 +484,28 @@ const App: React.FC = () => {
                                             if (!cat || !cat.tags || cat.tags.length === 0) return null;
                                             return (
                                                 <div className="flex items-center gap-1.5 ml-2">
-                                                    {cat.tags.map(tag => (
-                                                        <button
-                                                            key={tag}
-                                                            onClick={() => {
-                                                                if (isManagingCatTags) {
-                                                                    toggleCategoryTag(cat.id, tag);
-                                                                }
-                                                            }}
-                                                            className={`text-[10px] flex items-center gap-1 px-2.5 py-1 rounded-full transition-all border shadow-sm ${
-                                                                isManagingCatTags 
-                                                                ? 'bg-rose-500 text-white border-rose-400 hover:bg-rose-600 scale-105' 
-                                                                : 'bg-rose-500/20 text-rose-300 border-rose-500/30 cursor-default'
-                                                            }`}
-                                                        >
-                                                            <Tag size={10} />
-                                                            {tag}
-                                                            {isManagingCatTags && <X size={10} className="ml-0.5" />}
-                                                        </button>
-                                                    ))}
+                                                    {cat.tags.map(tag => {
+                                                        const style = getTagStyles(tag);
+                                                        return (
+                                                            <button
+                                                                key={tag}
+                                                                onClick={() => {
+                                                                    if (isManagingCatTags) {
+                                                                        toggleCategoryTag(cat.id, tag);
+                                                                    }
+                                                                }}
+                                                                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold transition-all border shadow-sm ${style.bg} ${style.text} ${style.border} ${
+                                                                    isManagingCatTags 
+                                                                    ? 'ring-2 ring-rose-500/50 hover:bg-rose-500/20 hover:text-rose-300 hover:border-rose-500 scale-105 cursor-pointer' 
+                                                                    : 'cursor-default'
+                                                                }`}
+                                                            >
+                                                                <Tag size={12} />
+                                                                {tag}
+                                                                {isManagingCatTags && <X size={12} className="ml-0.5 text-rose-400" />}
+                                                            </button>
+                                                        );
+                                                    })}
                                                 </div>
                                             );
                                         })()}
@@ -508,18 +520,21 @@ const App: React.FC = () => {
                                 {selectedTags.size > 0 && (
                                     <div className="flex items-center flex-wrap gap-2 ml-8">
                                         <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">正在篩選標籤:</span>
-                                        {Array.from(selectedTags).map(tag => (
-                                            <span key={tag} className="px-2 py-0.5 bg-rose-500/20 text-rose-300 text-xs font-bold rounded-md border border-rose-500/30 flex items-center gap-1.5">
-                                                <Tag size={10} />
-                                                {tag}
-                                                <button 
-                                                    onClick={() => toggleTag(tag)}
-                                                    className="hover:text-white transition-colors"
-                                                >
-                                                    <X size={10} />
-                                                </button>
-                                            </span>
-                                        ))}
+                                        {Array.from(selectedTags).map(tag => {
+                                            const tagStyles = getFilterTagStyles(tag, true);
+                                            return (
+                                                <span key={tag} className={`px-2.5 py-1.5 text-xs font-bold rounded-md border flex items-center gap-1.5 transition-all shadow-sm ${tagStyles.className}`}>
+                                                    <Tag size={12} />
+                                                    {tag}
+                                                    <button 
+                                                        onClick={() => toggleTag(tag)}
+                                                        className="hover:text-white transition-colors bg-black/10 hover:bg-black/20 rounded-full p-0.5"
+                                                    >
+                                                        <X size={10} />
+                                                    </button>
+                                                </span>
+                                            );
+                                        })}
                                         {selectedTags.size > 1 && (
                                             <button 
                                                 onClick={() => setSelectedTags(new Set())}

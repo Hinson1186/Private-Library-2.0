@@ -18,8 +18,8 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 
 // 當您大幅更新 initialData.ts 並希望所有人都能看到最新內容時，請提升這裡的版本號（例如 v18 -> v19）
 // 這會強制程式忽略舊的瀏覽器暫存，重新載入 initialData.ts 內的資料。
-const STORAGE_KEY = 'ai-library-books-v32'; 
-const CATEGORIES_KEY = 'ai-library-categories-tree-v32'; 
+const STORAGE_KEY = 'ai-library-books-v33'; 
+const CATEGORIES_KEY = 'ai-library-categories-tree-v33'; 
 const TAGS_KEY = 'ai-library-tags-v4';
 
 export const DEFAULT_TAGS = [
@@ -28,6 +28,24 @@ export const DEFAULT_TAGS = [
   "末日", "末世", "旅行", "人生", "職場", "獵奇", "絕症", "宮廷", "權謀"
 ];
 
+// Ensure all "關於我在無意間被隔壁的天使變成廢柴這件事" (angel-next-door) volumes have correct Tong Li cover URLs
+const ensureAngelCovers = (booksList: Book[]): Book[] => {
+  return booksList.map(book => {
+    if (book.id && book.id.startsWith('angel-next-door-')) {
+      const volNumStr = book.id.replace('angel-next-door-', '');
+      const volNum = parseInt(volNumStr, 10);
+      if (!isNaN(volNum) && volNum >= 1 && volNum <= 11) {
+        const formattedNum = String(volNum).padStart(3, '0');
+        const correctCover = `https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018${formattedNum}/NY0018${formattedNum}.jpg`;
+        if (book.coverUrl !== correctCover) {
+          return { ...book, coverUrl: correctCover };
+        }
+      }
+    }
+    return book;
+  });
+};
+
 // Firestore does not allow undefined properties in objects. This utility purges them recursively.
 const cleanForFirestore = (data: any): any => {
   if (data === undefined) return null;
@@ -35,7 +53,7 @@ const cleanForFirestore = (data: any): any => {
 };
 
 export const useLibrary = () => {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooksState] = useState<Book[]>([]);
   const [categories, setCategories] = useState<CategoryDef[]>([]);
   const [globalTags, setGlobalTags] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +66,14 @@ export const useLibrary = () => {
     cloudCategories: CategoryDef[];
     cloudTags: string[];
   } | null>(null);
+
+  const setBooks = (newBooks: Book[] | ((prev: Book[]) => Book[])) => {
+    if (typeof newBooks === 'function') {
+      setBooksState(prev => ensureAngelCovers(newBooks(prev)));
+    } else {
+      setBooksState(ensureAngelCovers(newBooks));
+    }
+  };
 
   // 處理使用者登入狀態
   useEffect(() => {

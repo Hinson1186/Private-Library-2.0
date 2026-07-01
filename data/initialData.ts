@@ -24,7 +24,8 @@ export const initialCategories: CategoryDef[] = [
             "id": "novel-cat-sao",
             "tags": [
               "科幻",
-              "戰鬥"
+              "戰鬥",
+              "冒險"
             ],
             "children": []
           },
@@ -411,7 +412,10 @@ export const initialCategories: CategoryDef[] = [
             "type": "series",
             "name": "久保同學不放過我",
             "displayName": "久保同學不放過我",
-            "children": []
+            "children": [],
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "children": [],
@@ -1053,7 +1057,7 @@ export const initialBooks: Book[] = [
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "tags": [],
     "type": "series",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018002/NY0018002.jpg",
     "author": "佐伯さん",
     "addedAt": 1774621962283,
     "id": "angel-next-door-2",
@@ -1065,7 +1069,7 @@ export const initialBooks: Book[] = [
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "tags": [],
     "type": "series",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018003/NY0018003.jpg",
     "author": "佐伯さん",
     "addedAt": 1774621962283,
     "id": "angel-next-door-3",
@@ -1074,7 +1078,7 @@ export const initialBooks: Book[] = [
     "genre": ""
   },
   {
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018004/NY0018004.jpg",
     "author": "佐伯さん",
     "tags": [],
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
@@ -1095,7 +1099,7 @@ export const initialBooks: Book[] = [
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "tags": [],
     "author": "佐伯さん",
-    "coverUrl": ""
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018005/NY0018005.jpg"
   },
   {
     "subCategory": "",
@@ -1103,14 +1107,14 @@ export const initialBooks: Book[] = [
     "genre": "",
     "addedAt": 1774621962283,
     "id": "angel-next-door-6",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018006/NY0018006.jpg",
     "author": "佐伯さん",
     "type": "series",
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "tags": []
   },
   {
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018007/NY0018007.jpg",
     "author": "佐伯さん",
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "tags": [],
@@ -1127,7 +1131,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "addedAt": 1774621962283,
     "id": "angel-next-door-8",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018008/NY0018008.jpg",
     "author": "佐伯さん",
     "type": "series",
     "tags": [],
@@ -1135,7 +1139,7 @@ export const initialBooks: Book[] = [
   },
   {
     "author": "佐伯さん",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018009/NY0018009.jpg",
     "type": "series",
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "tags": [],
@@ -1150,7 +1154,7 @@ export const initialBooks: Book[] = [
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "tags": [],
     "author": "佐伯さん",
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018010/NY0018010.jpg",
     "id": "angel-next-door-10",
     "addedAt": 1774621962283,
     "genre": "",
@@ -1158,7 +1162,7 @@ export const initialBooks: Book[] = [
     "subCategory": ""
   },
   {
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018011/NY0018011.jpg",
     "author": "佐伯さん",
     "tags": [],
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",

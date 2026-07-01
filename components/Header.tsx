@@ -1,7 +1,8 @@
 import React from 'react';
 import { Search, BookHeart, Plus, Nut, CheckSquare, ArrowRightLeft, Trash2, Menu, Tag, Tags, LogIn, LogOut, User as UserIcon, Key, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { auth } from '../firebase';
-import { signInWithPopup, GoogleAuthProvider, signOut, User, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider, signOut, User, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFilterTagStyles } from './BookCard';
 
 interface HeaderProps {
   onToggleSidebar: () => void;
@@ -101,7 +102,29 @@ const Header: React.FC<HeaderProps> = ({
       setAccessKey('');
     } catch (error: any) {
       console.error("Key login failed", error);
-      setLoginError('密碼錯誤。');
+      
+      // If sign in fails due to invalid-credential or user-not-found,
+      // it's highly likely that the account hasn't been created yet on this Firebase instance.
+      // We attempt to register the email 'iamkfc1186@gmail.com' with the specified accessKey.
+      if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found') {
+        try {
+          console.log("Attempting to auto-register user on first login...");
+          await createUserWithEmailAndPassword(auth, 'iamkfc1186@gmail.com', accessKey);
+          setShowKeyLogin(false);
+          setAccessKey('');
+        } catch (regError: any) {
+          console.error("Auto-registration also failed:", regError);
+          if (regError.code === 'auth/email-already-in-use') {
+            setLoginError('密碼錯誤。');
+          } else if (regError.code === 'auth/weak-password') {
+            setLoginError('密碼太弱（至少需 6 個字元）。');
+          } else {
+            setLoginError(`密碼錯誤或登入失敗：${regError.message || regError}`);
+          }
+        }
+      } else {
+        setLoginError('密碼錯誤。');
+      }
     } finally {
       setIsLoggingIn(false);
     }
@@ -251,15 +274,12 @@ const Header: React.FC<HeaderProps> = ({
                             </div>
                             {sortedTags.map(tag => {
                                 const isSelected = selectedTags.has(tag);
+                                const tagStyles = getFilterTagStyles(tag, isSelected);
                                 return (
                                     <button
                                         key={tag}
                                         onClick={() => setSelectedTag(tag)}
-                                        className={`shrink-0 px-4 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                                            isSelected 
-                                            ? 'bg-rose-600 text-white border-rose-500 shadow-md shadow-rose-600/10' 
-                                            : 'bg-slate-900/50 text-slate-500 border-slate-800 hover:text-slate-300 hover:bg-slate-800/80 hover:border-slate-700'
-                                        }`}
+                                        className={`shrink-0 px-4 py-1.5 rounded-xl text-xs transition-all border ${tagStyles.className}`}
                                     >
                                         {tag}
                                     </button>
@@ -286,16 +306,19 @@ const Header: React.FC<HeaderProps> = ({
                         <div className="flex items-center gap-1.5 text-rose-500 mr-1 shrink-0">
                             <span className="text-[10px] font-black uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">已選標籤</span>
                         </div>
-                        {Array.from(selectedTags).map(tag => (
-                            <button
-                                key={`selected-${tag}`}
-                                onClick={() => setSelectedTag(tag)}
-                                className="group flex items-center gap-1.5 px-3 py-1 bg-rose-600 text-white rounded-full text-xs font-bold shadow-lg shadow-rose-600/20 border border-rose-500 hover:bg-rose-500 transition-all scale-100 hover:scale-105 active:scale-95"
-                            >
-                                {tag}
-                                <X size={12} className="opacity-60 group-hover:opacity-100" />
-                            </button>
-                        ))}
+                        {Array.from(selectedTags).map(tag => {
+                            const tagStyles = getFilterTagStyles(tag, true);
+                            return (
+                                <button
+                                    key={`selected-${tag}`}
+                                    onClick={() => setSelectedTag(tag)}
+                                    className={`group flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs transition-all scale-100 hover:scale-105 active:scale-95 ${tagStyles.className}`}
+                                >
+                                    {tag}
+                                    <X size={12} className="opacity-60 group-hover:opacity-100" />
+                                </button>
+                            );
+                        })}
                         <button
                             onClick={() => setSelectedTag(null)}
                             className="text-[10px] font-bold text-slate-500 hover:text-white underline underline-offset-4 decoration-slate-700 hover:decoration-white transition-all ml-2"
