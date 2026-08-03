@@ -682,6 +682,8 @@ const App: React.FC = () => {
                     </div>
 
                     <BookGrid 
+                        selectedCategory={selectedCategory}
+                        selectedTags={selectedTags}
                         viewData={viewData}
                         books={books}
                         isBatchMode={isBatchMode}

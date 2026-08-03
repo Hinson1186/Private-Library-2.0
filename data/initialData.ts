@@ -3,7 +3,7 @@ import { createBook, createSeries } from '../utils/bookFactory';
 
 /**
  * 這裡是您的「永久資料庫」。
- * 此檔案由自動儲存生成。
+ * 此檔案由網頁自動生成。
  */
 
 export const initialCategories: CategoryDef[] = [
@@ -233,6 +233,55 @@ export const initialCategories: CategoryDef[] = [
         "displayName": "系列",
         "children": [
           {
+            "displayName": "堀與宮村",
+            "name": "堀與宮村",
+            "type": "series",
+            "id": "manga-cat-horimiya",
+            "children": []
+          },
+          {
+            "displayName": "藍色監獄",
+            "name": "藍色監獄",
+            "type": "series",
+            "id": "manga-cat-bluelock",
+            "children": []
+          },
+          {
+            "displayName": "進擊的巨人",
+            "name": "進擊的巨人",
+            "type": "series",
+            "id": "manga-cat-aot",
+            "children": []
+          },
+          {
+            "displayName": "東京外星人",
+            "name": "東京外星人",
+            "type": "series",
+            "id": "manga-cat-tokyoaliens",
+            "children": []
+          },
+          {
+            "displayName": "幼稚園WARS",
+            "name": "幼稚園WARS",
+            "type": "series",
+            "id": "manga-cat-kindergartenwars",
+            "children": []
+          },
+          {
+            "displayName": "入間黑手黨",
+            "name": "入間黑手黨",
+            "type": "series",
+            "id": "manga-cat-irumamafia",
+            "children": []
+          },
+          {
+            "displayName": "灰仭巫覡",
+            "name": "灰仭巫覡",
+            "type": "series",
+            "id": "manga-cat-kaijinfugaku",
+            "children": []
+          },
+          {
             "displayName": "滿州鴉片小隊",
             "name": "滿州鴉片小隊",
             "type": "series",
@@ -265,7 +314,10 @@ export const initialCategories: CategoryDef[] = [
             "name": "2.5次元的誘惑",
             "type": "series",
             "id": "manga-cat-25d",
-            "children": []
+            "children": [],
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "type": "series",
@@ -286,7 +338,11 @@ export const initialCategories: CategoryDef[] = [
             "id": "9a3b2c1d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
             "type": "series",
             "name": "咒術迴戰",
-            "displayName": "咒術迴戰"
+            "displayName": "咒術迴戰",
+            "tags": [
+              "奇幻",
+              "戰鬥"
+            ]
           },
           {
             "id": "rent-a-girlfriend-id-001",
@@ -307,7 +363,10 @@ export const initialCategories: CategoryDef[] = [
             "id": "fuufu-cat-001",
             "displayName": "夫婦以上，戀人未滿",
             "name": "夫婦以上，戀人未滿",
-            "children": []
+            "children": [],
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "children": [],
@@ -398,14 +457,20 @@ export const initialCategories: CategoryDef[] = [
             "displayName": "女神咖啡廳",
             "name": "女神咖啡廳",
             "type": "series",
-            "id": "manga-cat-goddess"
+            "id": "manga-cat-goddess",
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "displayName": "不要欺負我，長瀞同學",
             "name": "不要欺負我，長瀞同學",
             "type": "series",
             "id": "manga-cat-nagatoro",
-            "children": []
+            "children": [],
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "id": "manga-cat-kubo",
@@ -475,8 +540,8 @@ export const initialCategories: CategoryDef[] = [
           },
           {
             "children": [],
-            "name": "香格里拉",
-            "displayName": "香格里拉",
+            "name": "香格里拉·開拓異境~糞作獵手挑戰神作~",
+            "displayName": "香格里拉·開拓異境~糞作獵手挑戰神作~",
             "id": "manga-cat-shangrila",
             "type": "series"
           },
@@ -723,13 +788,13 @@ export const initialBooks: Book[] = [
   },
   {
     "type": "single",
-    "category": "香格里拉",
+    "category": "香格里拉·開拓異境~糞作獵手挑戰神作~",
     "tags": [],
-    "coverUrl": "",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1667/KD1667001/KD1667001.jpg",
     "author": "硬梨菜/不二涼介",
     "addedAt": 1774621962283,
     "id": "shangrila-1",
-    "title": "香格里拉 1",
+    "title": "香格里拉·開拓異境~糞作獵手挑戰神作~ 1",
     "subCategory": "",
     "genre": ""
   },
@@ -1222,173 +1287,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NW0038/NW0038004/NW0038004.jpg"
   },
   {
-    "title": "加速世界 1",
-    "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283,
-    "id": "accel-world-1",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/664005fde0514b0010f087b0/800x.webp?source_format=jpg",
-    "author": "川原礫",
-    "type": "series",
-    "category": "加速世界"
-  },
-  {
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66400817e1961f001398b4e2/800x.webp?source_format=jpg",
-    "author": "川原礫",
-    "tags": [],
-    "category": "加速世界",
-    "type": "series",
-    "title": "加速世界 2",
-    "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283,
-    "id": "accel-world-2"
-  },
-  {
-    "addedAt": 1774621962283,
-    "id": "accel-world-3",
-    "subCategory": "",
-    "title": "加速世界 3",
-    "genre": "",
-    "category": "加速世界",
-    "tags": [],
-    "type": "series",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6640048fb7445e00100b4753/800x.webp?source_format=jpg",
-    "author": "川原礫"
-  },
-  {
-    "subCategory": "",
-    "title": "加速世界 4",
-    "genre": "",
-    "addedAt": 1774621962283,
-    "id": "accel-world-4",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/664003b2074b1200220b3f66/800x.webp?source_format=jpg",
-    "author": "川原礫",
-    "category": "加速世界",
-    "tags": [],
-    "type": "series"
-  },
-  {
-    "genre": "",
-    "subCategory": "",
-    "title": "加速世界 5",
-    "id": "accel-world-5",
-    "addedAt": 1774621962283,
-    "author": "川原礫",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6640022781d8f50013cc31bb/800x.webp?source_format=jpg",
-    "type": "series",
-    "tags": [],
-    "category": "加速世界"
-  },
-  {
-    "author": "川原礫",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6640011ce0514b0019f0870a/800x.webp?source_format=jpg",
-    "category": "加速世界",
-    "tags": [],
-    "type": "series",
-    "genre": "",
-    "title": "加速世界 6",
-    "subCategory": "",
-    "id": "accel-world-6",
-    "addedAt": 1774621962283
-  },
-  {
-    "subCategory": "",
-    "title": "加速世界 7",
-    "genre": "",
-    "addedAt": 1774621962283,
-    "id": "accel-world-7",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fff54493ce80019b8c446/800x.webp?source_format=jpg",
-    "author": "川原礫",
-    "category": "加速世界",
-    "tags": [],
-    "type": "series"
-  },
-  {
-    "tags": [],
-    "category": "加速世界",
-    "type": "series",
-    "author": "川原礫",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663ffe45e1961f001f98b2ba/800x.webp?source_format=jpg",
-    "id": "accel-world-8",
-    "addedAt": 1774621962283,
-    "genre": "",
-    "title": "加速世界 8",
-    "subCategory": ""
-  },
-  {
-    "author": "川原礫",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663ffc7821eacc002209d8b6/800x.webp?source_format=jpg",
-    "type": "series",
-    "tags": [],
-    "category": "加速世界",
-    "genre": "",
-    "title": "加速世界 9",
-    "subCategory": "",
-    "id": "accel-world-9",
-    "addedAt": 1774621962283
-  },
-  {
-    "type": "series",
-    "category": "加速世界",
-    "tags": [],
-    "author": "川原礫",
-    "coverUrl": "",
-    "id": "accel-world-10",
-    "addedAt": 1774621962283,
-    "genre": "",
-    "subCategory": "",
-    "title": "加速世界 10"
-  },
-  {
-    "category": "加速世界",
-    "tags": [],
-    "type": "series",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fecb7b64daf001648094c/800x.webp?source_format=jpg",
-    "author": "川原礫",
-    "addedAt": 1774621962283,
-    "id": "accel-world-11",
-    "subCategory": "",
-    "title": "加速世界 11",
-    "genre": ""
-  },
-  {
-    "author": "川原礫",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fe897b5118f0016586408/800x.webp?source_format=jpg",
-    "type": "series",
-    "category": "加速世界",
-    "tags": [],
-    "genre": "",
-    "title": "加速世界 12",
-    "subCategory": "",
-    "id": "accel-world-12",
-    "addedAt": 1774621962283
-  },
-  {
-    "genre": "",
-    "title": "加速世界 13",
-    "subCategory": "",
-    "id": "accel-world-13",
-    "addedAt": 1774621962283,
-    "author": "川原礫",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fe06bca0478001345b711/800x.webp?source_format=jpg",
-    "type": "series",
-    "tags": [],
-    "category": "加速世界"
-  },
-  {
-    "genre": "",
-    "subCategory": "",
-    "title": "加速世界 14",
-    "id": "accel-world-14",
-    "addedAt": 1774621962283,
-    "author": "川原礫",
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fdd066595b5001f8272ab/800x.webp?source_format=jpg",
-    "type": "series",
-    "tags": [],
-    "category": "加速世界"
-  },
-  {
     "author": "雨宮和希",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/ND0125/ND0125001A/ND0125001A.jpg",
     "type": "series",
@@ -1435,42 +1333,6 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 4"
-  },
-  {
-    "coverUrl": "",
-    "author": "雨宮和希",
-    "type": "series",
-    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
-    "tags": [],
-    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 5",
-    "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283,
-    "id": "haibara-youth-5"
-  },
-  {
-    "genre": "",
-    "subCategory": "",
-    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 6",
-    "id": "haibara-youth-6",
-    "addedAt": 1774621962283,
-    "author": "雨宮和希",
-    "coverUrl": "",
-    "type": "series",
-    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
-    "tags": []
-  },
-  {
-    "author": "雨宮和希",
-    "coverUrl": "",
-    "type": "series",
-    "tags": [],
-    "category": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲",
-    "genre": "",
-    "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 7",
-    "subCategory": "",
-    "id": "haibara-youth-7",
-    "addedAt": 1774621962283
   },
   {
     "coverUrl": "",
@@ -3692,7 +3554,7 @@ export const initialBooks: Book[] = [
     "tags": [],
     "category": "給不滅的你",
     "type": "series",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399001/KD1399001.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399001A/KD1399001A.jpg",
     "author": "大今良時"
   },
   {
@@ -3705,7 +3567,7 @@ export const initialBooks: Book[] = [
     "tags": [],
     "category": "給不滅的你",
     "author": "大今良時",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399002/KD1399002.jpg"
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399002A/KD1399002A.jpg"
   },
   {
     "subCategory": "",
@@ -3713,14 +3575,14 @@ export const initialBooks: Book[] = [
     "genre": "",
     "addedAt": 1774621962283,
     "id": "eternity-3",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399003/KD1399003.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399003A/KD1399003A.jpg",
     "author": "大今良時",
     "type": "series",
     "tags": [],
     "category": "給不滅的你"
   },
   {
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399004/KD1399004.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399004A/KD1399004A.jpg",
     "author": "大今良時",
     "tags": [],
     "category": "給不滅的你",
@@ -3741,7 +3603,7 @@ export const initialBooks: Book[] = [
     "tags": [],
     "category": "給不滅的你",
     "author": "大今良時",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399005/KD1399005.jpg"
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399005A/KD1399005A.jpg"
   },
   {
     "addedAt": 1774621962283,
@@ -3752,7 +3614,7 @@ export const initialBooks: Book[] = [
     "category": "給不滅的你",
     "tags": [],
     "type": "series",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399006/KD1399006.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399006A/KD1399006A.jpg",
     "author": "大今良時"
   },
   {
@@ -3762,7 +3624,7 @@ export const initialBooks: Book[] = [
     "id": "eternity-7",
     "addedAt": 1774621962283,
     "author": "大今良時",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399007/KD1399007.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399007A/KD1399007A.jpg",
     "category": "給不滅的你",
     "tags": [],
     "type": "series"
@@ -3773,7 +3635,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "addedAt": 1774621962283,
     "id": "eternity-8",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399008/KD1399008.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399008A/KD1399008A.jpg",
     "author": "大今良時",
     "type": "series",
     "tags": [],
@@ -3784,7 +3646,7 @@ export const initialBooks: Book[] = [
     "category": "給不滅的你",
     "type": "series",
     "author": "大今良時",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399009/KD1399009.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399009A/KD1399009A.jpg",
     "id": "eternity-9",
     "addedAt": 1774621962283,
     "genre": "",
@@ -3796,7 +3658,7 @@ export const initialBooks: Book[] = [
     "category": "給不滅的你",
     "tags": [],
     "author": "大今良時",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399010/KD1399010.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399010A/KD1399010A.jpg",
     "id": "eternity-10",
     "addedAt": 1774621962283,
     "genre": "",
@@ -3808,7 +3670,7 @@ export const initialBooks: Book[] = [
     "tags": [],
     "type": "series",
     "author": "大今良時",
-    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399011/KD1399011.jpg",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399011A/KD1399011A.jpg",
     "id": "eternity-11",
     "addedAt": 1774621962283,
     "genre": "",
@@ -6521,5 +6383,881 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "餓殍",
     "subCategory": ""
+  },
+  {
+    "title": "堀與宮村 1",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-1"
+  },
+  {
+    "title": "堀與宮村 2",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-2"
+  },
+  {
+    "title": "堀與宮村 3",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-3"
+  },
+  {
+    "title": "堀與宮村 4",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-4"
+  },
+  {
+    "title": "堀與宮村 5",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-5"
+  },
+  {
+    "title": "堀與宮村 6",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-6"
+  },
+  {
+    "title": "堀與宮村 7",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-7"
+  },
+  {
+    "title": "堀與宮村 8",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-8"
+  },
+  {
+    "title": "堀與宮村 9",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-9"
+  },
+  {
+    "title": "堀與宮村 10",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-10"
+  },
+  {
+    "title": "堀與宮村 10.5",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-10-5"
+  },
+  {
+    "title": "堀與宮村 11",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-11"
+  },
+  {
+    "title": "堀與宮村 12",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-12"
+  },
+  {
+    "title": "堀與宮村 13",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-13"
+  },
+  {
+    "title": "堀與宮村 14",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-14"
+  },
+  {
+    "title": "堀與宮村 15",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-15"
+  },
+  {
+    "title": "堀與宮村 16",
+    "author": "HERO / 萩原ダイスケ",
+    "category": "堀與宮村",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "horimiya-16"
+  },
+  {
+    "title": "藍色監獄 1",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569001/KD1569001.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-1"
+  },
+  {
+    "title": "藍色監獄 2",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569002/KD1569002.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-2"
+  },
+  {
+    "title": "藍色監獄 3",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569003/KD1569003.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-3"
+  },
+  {
+    "title": "藍色監獄 4",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569004/KD1569004.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-4"
+  },
+  {
+    "title": "藍色監獄 5",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569005/KD1569005.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-5"
+  },
+  {
+    "title": "藍色監獄 6",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569006/KD1569006.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-6"
+  },
+  {
+    "title": "藍色監獄 7",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569007/KD1569007.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-7"
+  },
+  {
+    "title": "藍色監獄 8",
+    "author": "金城宗幸 / ノ村優介",
+    "category": "藍色監獄",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569008/KD1569008.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "bluelock-8"
+  },
+  {
+    "title": "進擊的巨人 1",
+    "author": "諫山創",
+    "category": "進擊的巨人",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "aot-1"
+  },
+  {
+    "title": "進擊的巨人 2",
+    "author": "諫山創",
+    "category": "進擊的巨人",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "aot-2"
+  },
+  {
+    "title": "進擊的巨人 3",
+    "author": "諫山創",
+    "category": "進擊的巨人",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "aot-3"
+  },
+  {
+    "title": "進擊的巨人 4",
+    "author": "諫山創",
+    "category": "進擊的巨人",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "aot-4"
+  },
+  {
+    "title": "進擊的巨人 5",
+    "author": "諫山創",
+    "category": "進擊的巨人",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "aot-5"
+  },
+  {
+    "title": "進擊的巨人 6",
+    "author": "諫山創",
+    "category": "進擊的巨人",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "aot-6"
+  },
+  {
+    "title": "進擊的巨人 7",
+    "author": "諫山創",
+    "category": "進擊的巨人",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "aot-7"
+  },
+  {
+    "title": "黑貓與魔女的教室 7",
+    "author": "金田陽介",
+    "category": "黑貓與魔女的教室",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "black-cat-witch-7"
+  },
+  {
+    "title": "黑貓與魔女的教室 8",
+    "author": "金田陽介",
+    "category": "黑貓與魔女的教室",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "black-cat-witch-8"
+  },
+  {
+    "title": "東京外星人 1",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348001/IC0348001.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-1"
+  },
+  {
+    "title": "東京外星人 2",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348002/IC0348002.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-2"
+  },
+  {
+    "title": "東京外星人 3",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348003/IC0348003.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-3"
+  },
+  {
+    "title": "東京外星人 4",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348004/IC0348004.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-4"
+  },
+  {
+    "title": "東京外星人 5",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348005/IC0348005.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-5"
+  },
+  {
+    "title": "東京外星人 6",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348006/IC0348006.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-6"
+  },
+  {
+    "title": "東京外星人 7",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348007/IC0348007.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-7"
+  },
+  {
+    "title": "東京外星人 8",
+    "author": "NAOE",
+    "category": "東京外星人",
+    "type": "series",
+    "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348008/IC0348008.jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "tokyo-aliens-8"
+  },
+  {
+    "title": "幼稚園WARS 1",
+    "author": "千葉侑生",
+    "category": "幼稚園WARS",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "kindergarten-wars-1"
+  },
+  {
+    "title": "幼稚園WARS 2",
+    "author": "千葉侑生",
+    "category": "幼稚園WARS",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "kindergarten-wars-2"
+  },
+  {
+    "title": "入間黑手黨 2",
+    "author": "西修 / hiro者",
+    "category": "入間黑手黨",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "iruma-mafia-2"
+  },
+  {
+    "title": "灰仭巫覡 1",
+    "author": "大久保篤",
+    "category": "灰仭巫覡",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "kaijin-fugaku-1"
+  },
+  {
+    "title": "灰仭巫覡 2",
+    "author": "大久保篤",
+    "category": "灰仭巫覡",
+    "type": "series",
+    "coverUrl": "",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "kaijin-fugaku-2"
+  },
+  {
+    "title": "與奔馳於透明之夜的你，談一場看不見的戀愛",
+    "author": "志馬なにし",
+    "category": "輕小說單行本",
+    "type": "single",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66507637ecb303001fbb74d6/800x.webp?source_format=jpg",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283,
+    "id": "transparent-night-love"
+  },
+  {
+    "id": "accel-world-1",
+    "title": "加速世界 1",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/664005fde0514b0010f087b0/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-2",
+    "title": "加速世界 2",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66400817e1961f001398b4e2/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-3",
+    "title": "加速世界 3",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6640048fb7445e00100b4753/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-4",
+    "title": "加速世界 4",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/664003b2074b1200220b3f66/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-5",
+    "title": "加速世界 5",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6640022781d8f50013cc31bb/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-6",
+    "title": "加速世界 6",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6640011ce0514b0019f0870a/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-7",
+    "title": "加速世界 7",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fff54493ce80019b8c446/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-8",
+    "title": "加速世界 8",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663ffe45e1961f001f98b2ba/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-9",
+    "title": "加速世界 9",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663ffc7821eacc002209d8b6/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-10",
+    "title": "加速世界 10",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663ff0009b88f13bfefe6217/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-11",
+    "title": "加速世界 11",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fecb7b64daf001648094c/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-12",
+    "title": "加速世界 12",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fe897b5118f0016586408/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-13",
+    "title": "加速世界 13",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fe06bca0478001345b711/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-14",
+    "title": "加速世界 14",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fdd066595b5001f8272ab/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-15",
+    "title": "加速世界 15",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fd5342f705500199fb7cb/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-16",
+    "title": "加速世界 16",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fce4d6595b500138270f4/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-17",
+    "title": "加速世界 17",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663fc0c22a20510022655f33/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-18",
+    "title": "加速世界 18",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66401444b0a0ec000d1599fc/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-19",
+    "title": "加速世界 19",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66400f88019e9b0013788277/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
+  },
+  {
+    "id": "accel-world-21",
+    "title": "加速世界 21",
+    "author": "川原礫",
+    "category": "加速世界",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/663ff9c5f41cf50019496003/800x.webp?source_format=jpg",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1774621962283
   }
 ];

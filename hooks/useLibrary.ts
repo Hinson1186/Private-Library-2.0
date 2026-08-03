@@ -18,31 +18,71 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 
 // 當您大幅更新 initialData.ts 並希望所有人都能看到最新內容時，請提升這裡的版本號（例如 v18 -> v19）
 // 這會強制程式忽略舊的瀏覽器暫存，重新載入 initialData.ts 內的資料。
-const STORAGE_KEY = 'ai-library-books-v33'; 
-const CATEGORIES_KEY = 'ai-library-categories-tree-v33'; 
-const TAGS_KEY = 'ai-library-tags-v4';
+const STORAGE_KEY = 'ai-library-books-v37'; 
+const CATEGORIES_KEY = 'ai-library-categories-tree-v37'; 
+const TAGS_KEY = 'ai-library-tags-v5';
 
 export const DEFAULT_TAGS = [
   "校園", "奇幻", "懸疑", "黑暗", "推理", "青春",
-  "冒險", "熱血", "戀愛", "愛情", "科幻", "恐怖", "治癒", "歷史", "百合", "耽美", "日常",
-  "末日", "末世", "旅行", "人生", "職場", "獵奇", "絕症", "宮廷", "權謀"
+  "冒險", "運動", "戰鬥", "戀愛", "愛情", "科幻", "恐怖", "治癒", "歷史", "百合", "耽美", "日常",
+  "末世", "旅行", "人生", "職場", "獵奇", "絕症", "宮廷", "權謀"
 ];
 
-// Ensure all "關於我在無意間被隔壁的天使變成廢柴這件事" (angel-next-door) volumes have correct Tong Li cover URLs
-const ensureAngelCovers = (booksList: Book[]): Book[] => {
+// Helper to filter out removed tags (熱血, 末日) and ensure new default tags
+export const cleanTags = (tagsList: string[]): string[] => {
+  const set = new Set(tagsList);
+  set.delete("熱血");
+  set.delete("末日");
+  set.add("運動");
+  set.add("戰鬥");
+  return Array.from(set).sort((a, b) => a.localeCompare(b, 'zh-TW', { numeric: true }));
+};
+
+// Ensure specific series have correct Tong Li cover URLs and updated names
+const ensureCoversAndNames = (booksList: Book[]): Book[] => {
   return booksList.map(book => {
-    if (book.id && book.id.startsWith('angel-next-door-')) {
-      const volNumStr = book.id.replace('angel-next-door-', '');
-      const volNum = parseInt(volNumStr, 10);
-      if (!isNaN(volNum) && volNum >= 1 && volNum <= 11) {
-        const formattedNum = String(volNum).padStart(3, '0');
-        const correctCover = `https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018${formattedNum}/NY0018${formattedNum}.jpg`;
-        if (book.coverUrl !== correctCover) {
-          return { ...book, coverUrl: correctCover };
+    let updated = book;
+    if (updated.tags && updated.tags.some(t => t === '熱血' || t === '末日')) {
+      updated = {
+        ...updated,
+        tags: updated.tags.filter(t => t !== '熱血' && t !== '末日')
+      };
+    }
+    if (updated.category === '香格里拉' || (updated.title && updated.title.startsWith('香格里拉 '))) {
+      updated = {
+        ...updated,
+        category: '香格里拉·開拓異境~糞作獵手挑戰神作~',
+        title: updated.title ? updated.title.replace('香格里拉 ', '香格里拉·開拓異境~糞作獵手挑戰神作~ ') : updated.title
+      };
+    }
+    if (updated.id) {
+      if (updated.id.startsWith('angel-next-door-')) {
+        const volNum = parseInt(updated.id.replace('angel-next-door-', ''), 10);
+        if (!isNaN(volNum) && volNum >= 1 && volNum <= 11) {
+          const formattedNum = String(volNum).padStart(3, '0');
+          const correctCover = `https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018${formattedNum}/NY0018${formattedNum}.jpg`;
+          if (updated.coverUrl !== correctCover) updated = { ...updated, coverUrl: correctCover };
         }
+      } else if (updated.id.startsWith('tokyo-aliens-')) {
+        const volNum = parseInt(updated.id.replace('tokyo-aliens-', ''), 10);
+        if (!isNaN(volNum) && volNum >= 1 && volNum <= 8) {
+          const formattedNum = String(volNum).padStart(3, '0');
+          const correctCover = `https://www.tongli.com.tw/ComicImages/Images/IC0348/IC0348${formattedNum}/IC0348${formattedNum}.jpg`;
+          if (updated.coverUrl !== correctCover) updated = { ...updated, coverUrl: correctCover };
+        }
+      } else if (updated.id.startsWith('bluelock-')) {
+        const volNum = parseInt(updated.id.replace('bluelock-', ''), 10);
+        if (!isNaN(volNum) && volNum >= 1 && volNum <= 8) {
+          const formattedNum = String(volNum).padStart(3, '0');
+          const correctCover = `https://www.tongli.com.tw/ComicImages/Images/KD1569/KD1569${formattedNum}/KD1569${formattedNum}.jpg`;
+          if (updated.coverUrl !== correctCover) updated = { ...updated, coverUrl: correctCover };
+        }
+      } else if (updated.id === 'shangrila-1') {
+        const correctCover = `https://www.tongli.com.tw/ComicImages/Images/KD1667/KD1667001/KD1667001.jpg`;
+        if (updated.coverUrl !== correctCover) updated = { ...updated, coverUrl: correctCover };
       }
     }
-    return book;
+    return updated;
   });
 };
 
@@ -69,9 +109,9 @@ export const useLibrary = () => {
 
   const setBooks = (newBooks: Book[] | ((prev: Book[]) => Book[])) => {
     if (typeof newBooks === 'function') {
-      setBooksState(prev => ensureAngelCovers(newBooks(prev)));
+      setBooksState(prev => ensureCoversAndNames(newBooks(prev)));
     } else {
-      setBooksState(ensureAngelCovers(newBooks));
+      setBooksState(ensureCoversAndNames(newBooks));
     }
   };
 
@@ -143,7 +183,7 @@ export const useLibrary = () => {
       
       setBooks(finalBooks);
       setCategories(finalCategories);
-      setGlobalTags(Array.from(tagsSet).sort((a, b) => a.localeCompare(b, 'zh-TW', { numeric: true })));
+      setGlobalTags(cleanTags(Array.from(tagsSet)));
       setIsLoading(false);
       return;
     }
@@ -186,16 +226,16 @@ export const useLibrary = () => {
           setSyncConflict({
             localBooks,
             localCategories,
-            localTags: localTags.length > 0 ? localTags : DEFAULT_TAGS,
+            localTags: cleanTags(localTags.length > 0 ? localTags : DEFAULT_TAGS),
             cloudBooks,
             cloudCategories,
-            cloudTags
+            cloudTags: cleanTags(cloudTags)
           });
         } else {
           // 無衝突，直接套用雲端資料
           setCategories(cloudCategories);
           setBooks(cloudBooks);
-          setGlobalTags(cloudTags);
+          setGlobalTags(cleanTags(cloudTags));
         }
       } else {
         // 如果雲端沒快照，自動將目前本機客端的修改（如果有）或 initialData 上傳至雲端作為初始快照！
@@ -203,7 +243,7 @@ export const useLibrary = () => {
         const initialMigratedCats = migrateCategories(initialCategories);
         const finalBooks = localBooks.length > 0 ? localBooks : initialBooks;
         const finalCats = localCategories.length > 0 ? localCategories : initialMigratedCats;
-        const finalTags = localTags.length > 0 ? localTags : DEFAULT_TAGS;
+        const finalTags = cleanTags(localTags.length > 0 ? localTags : DEFAULT_TAGS);
 
         setBooks(finalBooks);
         setCategories(finalCats);

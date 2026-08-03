@@ -4,57 +4,43 @@ import { Book } from '../types';
 import { CheckCircle2, Circle, LayoutGrid, Library, Layers, ChevronRight } from 'lucide-react';
 
 export const TAG_COLOR_MAP: Record<string, { bg: string; text: string; border: string }> = {
-  // 綠色 / 翡翠綠 (Emerald)
-  "校園": { bg: "bg-emerald-500/10", text: "text-emerald-400", border: "border-emerald-500/20" },
-  "治癒": { bg: "bg-emerald-600/15", text: "text-emerald-300", border: "border-emerald-600/30" },
-  
-  // 青色 / 藍綠 (Teal)
-  "日常": { bg: "bg-teal-500/10", text: "text-teal-400", border: "border-teal-500/20" },
-  "旅行": { bg: "bg-teal-600/15", text: "text-teal-300", border: "border-teal-600/30" },
+  // 綠色系 (Green / Emerald / Lime / Mint)
+  "青春": { bg: "bg-emerald-500/20", text: "text-emerald-300", border: "border-emerald-500/40" },
+  "日常": { bg: "bg-lime-500/20", text: "text-lime-300", border: "border-lime-500/40" },
+  "校園": { bg: "bg-teal-500/20", text: "text-teal-300", border: "border-teal-500/40" },
+  "治癒": { bg: "bg-green-500/20", text: "text-green-300", border: "border-green-500/40" },
 
-  // 橘色 / 暖橘 (Orange)
-  "熱血": { bg: "bg-orange-500/10", text: "text-orange-400", border: "border-orange-500/20" },
-  "職場": { bg: "bg-orange-600/15", text: "text-orange-300", border: "border-orange-600/30" },
-
-  // 琥珀 / 金黃 (Amber)
-  "冒險": { bg: "bg-amber-500/10", text: "text-amber-400", border: "border-amber-500/20" },
-  "歷史": { bg: "bg-amber-600/15", text: "text-amber-300", border: "border-amber-600/30" },
-
-  // 黃色 / 亮黃 (Yellow)
-  "青春": { bg: "bg-yellow-500/10", text: "text-yellow-400", border: "border-yellow-500/20" },
-  "人生": { bg: "bg-yellow-600/15", text: "text-yellow-300", border: "border-yellow-600/30" },
-
-  // 紫羅蘭 (Violet)
-  "奇幻": { bg: "bg-violet-500/10", text: "text-violet-400", border: "border-violet-500/20" },
-  "宮廷": { bg: "bg-violet-600/15", text: "text-violet-300", border: "border-violet-600/30" },
-
-  // 紫色 / 深紫 (Purple)
-  "耽美": { bg: "bg-purple-500/10", text: "text-purple-400", border: "border-purple-500/20" },
-  "愛情": { bg: "bg-purple-600/20", text: "text-purple-300", border: "border-purple-600/30" },
-
-  // 洋紅 / 紫紅 (Fuchsia)
-  "百合": { bg: "bg-fuchsia-500/10", text: "text-fuchsia-400", border: "border-fuchsia-500/20" },
+  // 粉紅/玫瑰/紫羅蘭系 (Fuchsia / Pink / Rose / Violet)
   "戀愛": { bg: "bg-fuchsia-600/20", text: "text-fuchsia-300", border: "border-fuchsia-600/30" },
+  "愛情": { bg: "bg-rose-500/20", text: "text-rose-300", border: "border-rose-500/40" },
+  "百合": { bg: "bg-pink-500/20", text: "text-pink-300", border: "border-pink-500/40" },
+  "耽美": { bg: "bg-purple-500/20", text: "text-purple-300", border: "border-purple-500/40" },
 
-  // 青石 / 天青 (Cyan)
-  "科幻": { bg: "bg-cyan-500/10", text: "text-cyan-400", border: "border-cyan-500/20" },
-  "權謀": { bg: "bg-cyan-600/15", text: "text-cyan-300", border: "border-cyan-600/30" },
+  // 熱情紅/活力橘 (Red / Orange / Amber)
+  "戰鬥": { bg: "bg-red-500/20", text: "text-red-400", border: "border-red-500/40" },
+  "運動": { bg: "bg-orange-500/20", text: "text-orange-300", border: "border-orange-500/40" },
+  "冒險": { bg: "bg-amber-500/20", text: "text-amber-300", border: "border-amber-500/40" },
 
-  // 萊姆綠 (Lime)
-  "末日": { bg: "bg-lime-500/10", text: "text-lime-400", border: "border-lime-500/20" },
-  "末世": { bg: "bg-lime-600/15", text: "text-lime-300", border: "border-lime-600/30" },
+  // 藍/天青/未來 (Cyan / Blue / Sky / Indigo)
+  "科幻": { bg: "bg-cyan-500/20", text: "text-cyan-300", border: "border-cyan-500/40" },
+  "旅行": { bg: "bg-sky-500/20", text: "text-sky-300", border: "border-sky-500/40" },
+  "奇幻": { bg: "bg-indigo-500/20", text: "text-indigo-300", border: "border-indigo-500/40" },
+  "推理": { bg: "bg-blue-600/20", text: "text-blue-300", border: "border-blue-500/40" },
 
-  // 石板色 / 灰藍 (Slate)
-  "黑暗": { bg: "bg-slate-700/40", text: "text-slate-300", border: "border-slate-600/40" },
-  "懸疑": { bg: "bg-slate-600/30", text: "text-slate-300", border: "border-slate-500/30" },
+  // 尊貴/沉穩 (Yellow / Bronze / Slate)
+  "人生": { bg: "bg-yellow-500/20", text: "text-yellow-300", border: "border-yellow-500/40" },
+  "歷史": { bg: "bg-amber-800/30", text: "text-amber-200", border: "border-amber-600/40" },
+  "宮廷": { bg: "bg-yellow-600/25", text: "text-amber-300", border: "border-yellow-500/40" },
+  "職場": { bg: "bg-slate-700/40", text: "text-blue-200", border: "border-slate-500/40" },
 
-  // 石頭色 (Stone)
-  "推理": { bg: "bg-stone-700/40", text: "text-stone-300", border: "border-stone-600/40" },
-  "獵奇": { bg: "bg-stone-800", text: "text-stone-400", border: "border-stone-700" },
-
-  // 灰色 / 炭黑 (Zinc/Neutral)
-  "恐怖": { bg: "bg-zinc-800", text: "text-zinc-300", border: "border-zinc-700" },
-  "絕症": { bg: "bg-neutral-700/50", text: "text-neutral-300", border: "border-neutral-600/50" }
+  // 黑色系 / 深色系 (Dark / Blackish shades)
+  "黑暗": { bg: "bg-zinc-950", text: "text-zinc-200", border: "border-zinc-800" },
+  "末世": { bg: "bg-neutral-900", text: "text-neutral-300", border: "border-neutral-700" },
+  "絕症": { bg: "bg-slate-950", text: "text-slate-400", border: "border-slate-800" },
+  "恐怖": { bg: "bg-gray-950", text: "text-red-400/90", border: "border-red-950" },
+  "獵奇": { bg: "bg-stone-950", text: "text-amber-400/90", border: "border-stone-800" },
+  "懸疑": { bg: "bg-slate-900", text: "text-sky-200/90", border: "border-slate-700" },
+  "權謀": { bg: "bg-emerald-950", text: "text-emerald-300/90", border: "border-emerald-800" }
 };
 
 const SAFE_COLORS = [

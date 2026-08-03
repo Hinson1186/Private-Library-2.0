@@ -11,6 +11,8 @@ import seriesIllustration from '../src/assets/images/series_ln_cover_17827099301
 import singleIllustration from '../src/assets/images/single_ln_cover_1782709946337.jpg';
 
 interface BookGridProps {
+  selectedCategory?: string | null;
+  selectedTags?: Set<string>;
   viewData: { type: 'books' | 'categories' | 'mixed', items: (Book | CategoryDef)[] };
   books: Book[]; // Needed for category counts
   isBatchMode: boolean;
@@ -121,6 +123,8 @@ const LargeCategoryCard: React.FC<{ category: CategoryDef, books: Book[], onClic
 };
 
 const BookGrid: React.FC<BookGridProps> = ({
+  selectedCategory = null,
+  selectedTags,
   viewData,
   books,
   isBatchMode,
@@ -136,6 +140,47 @@ const BookGrid: React.FC<BookGridProps> = ({
   isFiltered = false,
   searchTerm = ''
 }) => {
+  const scrollPositionsRef = React.useRef<Record<string, number>>({});
+  const listRef = React.useRef<any>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const scrollKey = React.useMemo(() => {
+    if (selectedCategory) {
+      return `cat_${selectedCategory}`;
+    }
+    if (searchTerm) {
+      return `search_${searchTerm}`;
+    }
+    if (selectedTags && selectedTags.size > 0) {
+      return `tags_${Array.from(selectedTags).sort().join(',')}`;
+    }
+    return 'root';
+  }, [selectedCategory, searchTerm, selectedTags]);
+
+  const savedOffset = scrollPositionsRef.current[scrollKey] || 0;
+
+  React.useLayoutEffect(() => {
+    const targetOffset = scrollPositionsRef.current[scrollKey] || 0;
+
+    if (containerRef.current) {
+      containerRef.current.scrollTop = targetOffset;
+    }
+
+    if (listRef.current) {
+      listRef.current.scrollTo(targetOffset);
+    }
+
+    const timer = requestAnimationFrame(() => {
+      if (listRef.current) {
+        listRef.current.scrollTo(targetOffset);
+      }
+      if (containerRef.current) {
+        containerRef.current.scrollTop = targetOffset;
+      }
+    });
+
+    return () => cancelAnimationFrame(timer);
+  }, [scrollKey]);
 
   if (viewData.items.length === 0 && !isLoading) {
     return (
@@ -163,7 +208,13 @@ const BookGrid: React.FC<BookGridProps> = ({
 
   if (isFiltered) {
     return (
-      <div className="flex-1 h-full pb-20 overflow-y-auto custom-scrollbar p-1">
+      <div 
+        ref={containerRef}
+        onScroll={(e) => {
+          scrollPositionsRef.current[scrollKey] = e.currentTarget.scrollTop;
+        }}
+        className="flex-1 h-full pb-20 overflow-y-auto custom-scrollbar p-1"
+      >
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 gap-[20px]">
           <AnimatePresence mode="popLayout" initial={false}>
             {viewData.items.map((item) => {
@@ -227,7 +278,13 @@ const BookGrid: React.FC<BookGridProps> = ({
 
     if (isSeriesAndSingle) {
       return (
-        <div className="flex-1 h-full overflow-y-auto custom-scrollbar pb-24 flex flex-col md:flex-row gap-6 p-4 md:p-8">
+        <div 
+          ref={containerRef}
+          onScroll={(e) => {
+            scrollPositionsRef.current[scrollKey] = e.currentTarget.scrollTop;
+          }}
+          className="flex-1 h-full overflow-y-auto custom-scrollbar pb-24 flex flex-col md:flex-row gap-6 p-4 md:p-8"
+        >
            <LargeCategoryCard category={cat1} books={books} onClick={onCategoryClick} />
            <LargeCategoryCard category={cat2} books={books} onClick={onCategoryClick} />
         </div>
@@ -259,10 +316,16 @@ const BookGrid: React.FC<BookGridProps> = ({
 
           return (
             <List
+              key={scrollKey}
+              ref={listRef}
               height={height}
               itemCount={rowCount}
               itemSize={rowHeight}
               width={width}
+              initialScrollOffset={savedOffset}
+              onScroll={({ scrollOffset }) => {
+                scrollPositionsRef.current[scrollKey] = scrollOffset;
+              }}
               className="custom-scrollbar"
             >
               {({ index, style }: { index: number, style: React.CSSProperties }) => {
