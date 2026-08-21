@@ -1,8 +1,8 @@
 
 import React, { useMemo, useState } from 'react';
 import { CategoryDef, Book } from '../types';
-import { sortCategoriesRecursive } from '../utils/categoryUtils';
-import { Folder, FolderOpen, ChevronRight, ChevronDown, SlidersHorizontal, BookHeart, X, Nut, Tags, Book as BookIcon, PieChart } from 'lucide-react';
+import { sortCategoriesRecursive, isArtbook } from '../utils/categoryUtils';
+import { Folder, FolderOpen, ChevronRight, ChevronDown, SlidersHorizontal, BookHeart, X, Nut, Tags, Book as BookIcon, PieChart, Palette } from 'lucide-react';
 import { LibraryInsightsModal } from './LibraryInsightsModal';
 
 interface SidebarProps {
@@ -37,6 +37,11 @@ const Sidebar: React.FC<SidebarProps> = ({
   const sortedCategories = useMemo(() => {
     return sortCategoriesRecursive(categories);
   }, [categories]);
+
+  // Exclude artbooks from normal books count displayed in All Books
+  const normalBooksCount = useMemo(() => {
+    return books.filter(b => !isArtbook(b, categories)).length;
+  }, [books, categories]);
 
   // Calculate book and series counts recursively
   const counts = useMemo(() => {
@@ -101,7 +106,9 @@ const Sidebar: React.FC<SidebarProps> = ({
 
     let textColorClass = 'text-slate-400';
     if (depth === 0) {
-        if (node.name === '其他') {
+        if (node.name === '畫集') {
+            textColorClass = isSelected ? 'text-fuchsia-400 font-bold' : 'text-fuchsia-400/85 hover:text-fuchsia-300';
+        } else if (node.name === '其他') {
             textColorClass = isSelected ? 'text-amber-400' : 'text-amber-400/80 hover:text-amber-300';
         } else {
             textColorClass = isSelected ? 'text-rose-400' : 'text-rose-400/80 hover:text-rose-300';
@@ -115,7 +122,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div key={node.id} className="select-none">
         <div className={`flex items-center justify-between pr-2 rounded-xl transition-all duration-200 cursor-pointer group ${
            isSelected 
-           ? 'bg-indigo-600/10 border border-indigo-500/20 shadow-lg shadow-indigo-500/5' 
+           ? (node.name === '畫集' ? 'bg-fuchsia-600/15 border border-fuchsia-500/30 shadow-lg shadow-fuchsia-500/10' : 'bg-indigo-600/10 border border-indigo-500/20 shadow-lg shadow-indigo-500/5')
            : 'hover:bg-slate-800/40 border border-transparent'
         } ${depth === 0 ? 'py-3 mb-2' : 'py-2 ml-4 border-l-2 border-slate-800 pl-3 mb-1'}`}>
            <button 
@@ -131,6 +138,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                         <img src={firstBook.coverUrl} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                         <div className="absolute inset-0 bg-indigo-500/10" />
                     </div>
+                ) : node.name === '畫集' ? (
+                    <Palette size={18} className={isSelected ? 'text-fuchsia-400' : 'text-fuchsia-400/80'} />
                 ) : (
                     node.type === 'series' ? (
                         isExpanded ? <FolderOpen size={18} /> : <Folder size={18} />
@@ -212,7 +221,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             >
                 <BookHeart size={18} />
                 所有書籍
-                <span className="ml-auto text-xs opacity-60 bg-black/20 px-2 py-0.5 rounded-full">{bookCount}</span>
+                <span className="ml-auto text-xs opacity-60 bg-black/20 px-2 py-0.5 rounded-full">{normalBooksCount}</span>
             </button>
 
             <div className="pt-2 border-t border-slate-800/40">

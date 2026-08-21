@@ -1,7 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Book, CategoryDef } from '../types';
-import { findCategoryByName } from '../utils/categoryUtils';
-import { X, Trash2, Edit2, Save, Tag, ZoomIn, LayoutGrid, ChevronDown, ChevronRight, Folder, FolderOpen } from 'lucide-react';
+import { findCategoryByName, isArtbook as checkIsArtbook } from '../utils/categoryUtils';
+import { getTagStyles } from './BookCard';
+import { 
+  X, 
+  Trash2, 
+  Edit2, 
+  Save, 
+  Tag, 
+  ZoomIn, 
+  LayoutGrid, 
+  ChevronDown, 
+  ChevronRight, 
+  Folder, 
+  FolderOpen,
+  Sparkles,
+  ArrowUpRight,
+  Layers,
+  Palette,
+  Brush,
+  BookOpen
+} from 'lucide-react';
 
 interface BookDetailModalProps {
   isOpen: boolean;
@@ -9,8 +28,11 @@ interface BookDetailModalProps {
   book: Book | null;
   categories: CategoryDef[];
   globalTags: string[];
+  allBooks?: Book[];
   onUpdate: (updatedBook: Book) => void;
   onDelete: (id: string) => void;
+  onNavigateToIp?: (ipName: string, domain?: string) => void;
+  onSelectBook?: (book: Book) => void;
 }
 
 const BookDetailModal: React.FC<BookDetailModalProps> = ({ 
@@ -19,8 +41,11 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
   book, 
   categories, 
   globalTags,
+  allBooks = [],
   onUpdate, 
-  onDelete
+  onDelete,
+  onNavigateToIp,
+  onSelectBook
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState<Book | null>(null);
@@ -71,6 +96,13 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
   const displayCover = book.coverUrl && book.coverUrl.length > 0 
     ? book.coverUrl 
     : `https://picsum.photos/seed/${book.id}/300/450`;
+
+  const isArtbook = checkIsArtbook(book, categories);
+
+  // Sibling volumes in the same seriesGroup
+  const siblingVolumes = isArtbook && book.seriesGroup && allBooks.length > 0
+    ? allBooks.filter(b => b.seriesGroup === book.seriesGroup).sort((a, b) => (Number(a.volume) || 0) - (Number(b.volume) || 0))
+    : [];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -166,6 +198,17 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
       });
   };
 
+  const getDomainLabel = (domain?: string) => {
+    switch (domain) {
+      case 'light_novel': return '輕小說原作關聯';
+      case 'manga': return '漫畫原作關聯';
+      case 'original': return '繪師個人原創集';
+      case 'game': return '遊戲美術設定集';
+      case 'other': return '動畫・電影・其他';
+      default: return '畫集';
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md">
       {isZoomed && (
@@ -225,7 +268,8 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
 
         <div className="w-full md:w-7/12 flex flex-col flex-1 bg-slate-900 min-h-0">
             <div className="flex items-center justify-between p-4 border-b border-slate-800 h-16 shrink-0">
-                <div className="flex-1"></div>
+                <div className="flex items-center gap-2">
+                </div>
                 <div className="flex items-center gap-2">
                     {isEditing ? (
                         <>
@@ -259,7 +303,7 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                             />
                         </div>
                         <div className="space-y-1">
-                            <label className="text-xs font-bold text-slate-500 uppercase">作者</label>
+                            <label className="text-xs font-bold text-slate-500 uppercase">繪師 / 作者</label>
                             <input 
                                 name="author"
                                 value={editData.author}
@@ -267,8 +311,8 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                                 className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:ring-2 focus:ring-indigo-500 outline-none"
                             />
                         </div>
-                        
-                        {/* Custom Tree Dropdown for Category */}
+
+                        {/* Category Selector */}
                         <div className="space-y-1 relative" ref={categoryTreeRef}>
                              <div className="flex items-center gap-2 text-indigo-400 mb-1">
                                 <LayoutGrid size={14} />
@@ -302,6 +346,49 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                                  )}
                              </div>
                         </div>
+
+                        {/* Artbook fields if category is 畫集 */}
+                        {editData.category === '畫集' && (
+                          <div className="p-3.5 bg-fuchsia-950/20 border border-fuchsia-500/20 rounded-xl space-y-3">
+                            <div className="flex items-center gap-2 text-fuchsia-400 text-xs font-bold uppercase">
+                              <Palette size={14} /> 畫集專屬屬性
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3">
+                              <div className="space-y-1">
+                                <label className="text-[11px] font-bold text-slate-400">關聯 IP 作品</label>
+                                <input 
+                                  name="relatedIp"
+                                  placeholder="例如：刀劍神域"
+                                  value={editData.relatedIp || ''}
+                                  onChange={handleInputChange}
+                                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 focus:ring-2 focus:ring-fuchsia-500 outline-none"
+                                />
+                              </div>
+                              <div className="space-y-1">
+                                <label className="text-[11px] font-bold text-slate-400">冊數 (Volume)</label>
+                                <input 
+                                  name="volume"
+                                  placeholder="例如：1"
+                                  value={editData.volume || ''}
+                                  onChange={handleInputChange}
+                                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 focus:ring-2 focus:ring-fuchsia-500 outline-none"
+                                />
+                              </div>
+                            </div>
+
+                            <div className="space-y-1">
+                              <label className="text-[11px] font-bold text-slate-400">畫集系列組名 (Series Group)</label>
+                              <input 
+                                name="seriesGroup"
+                                placeholder="例如：刀劍神域 abec畫集"
+                                value={editData.seriesGroup || ''}
+                                onChange={handleInputChange}
+                                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 focus:ring-2 focus:ring-fuchsia-500 outline-none"
+                              />
+                            </div>
+                          </div>
+                        )}
 
                         <div className="space-y-1">
                             <label className="text-xs font-bold text-slate-500 uppercase">封面 URL</label>
@@ -359,25 +446,120 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                         </div>
                     </div>
                 ) : (
-                    <div className="space-y-6 pt-4">
+                    <div className="space-y-6 pt-2">
                         <div>
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                <span className="inline-flex items-center gap-1 px-3 py-1 bg-indigo-500/10 text-indigo-400 text-sm font-medium rounded-full border border-indigo-500/20">
-                                    <Tag size={14} /> {book.category ? (findCategoryByName(categories, book.category)?.displayName || book.category) : '未分類'}
-                                </span>
-                                {book.tags && book.tags.map((tag, index) => (
-                                    <span key={index} className="inline-flex items-center gap-1 px-2.5 py-1 bg-rose-600/20 text-rose-300 text-xs font-medium rounded-full border border-rose-500/30">
-                                        {tag}
+                            {/* Badges Bar (Hidden for artbooks as requested) */}
+                            {!isArtbook && (
+                              <div className="flex flex-wrap items-center gap-2 mb-3">
+                                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-indigo-500/10 text-indigo-400 text-xs font-bold rounded-full border border-indigo-500/20">
+                                      <Tag size={13} /> {book.category ? (findCategoryByName(categories, book.category)?.displayName || book.category) : '未分類'}
+                                  </span>
+
+                                  {book.volume && (
+                                    <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-fuchsia-600 text-white text-xs font-black rounded-full shadow-sm">
+                                      Vol. {book.volume}
                                     </span>
-                                ))}
-                            </div>
-                            <h2 className="text-2xl font-bold text-slate-100 leading-tight mb-2">
+                                  )}
+
+                                  {book.tags && book.tags.map((tag, index) => {
+                                    const style = getTagStyles(tag);
+                                    return (
+                                      <span key={index} className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-full border ${style.bg} ${style.text} ${style.border}`}>
+                                        {tag}
+                                      </span>
+                                    );
+                                  })}
+                              </div>
+                            )}
+
+                            <h2 className="text-2xl font-black text-slate-100 leading-tight mb-1">
                                 {book.title}
                             </h2>
-                            <p className="text-lg text-slate-400 font-medium">
-                                {book.author}
+                            <p className="text-base text-slate-400 font-semibold flex items-center gap-1.5">
+                                <Brush size={16} className="text-fuchsia-400" />
+                                <span>繪師 / 作者：{book.author}</span>
                             </p>
                         </div>
+
+                        {/* Interactive Related IP Banner & Direct Jump */}
+                        {book.relatedIp && (
+                          <div className="p-4 rounded-2xl bg-gradient-to-r from-fuchsia-950/40 via-indigo-950/40 to-slate-900 border border-fuchsia-500/30 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-xl bg-fuchsia-600/20 border border-fuchsia-500/40 flex items-center justify-center text-fuchsia-400 shrink-0">
+                                <Sparkles size={20} />
+                              </div>
+                              <div>
+                                <span className="text-[10px] text-fuchsia-300 font-black uppercase tracking-wider">原作作品聯動</span>
+                                <h4 className="text-sm font-bold text-white">《{book.relatedIp}》</h4>
+                              </div>
+                            </div>
+
+                            {onNavigateToIp && (
+                              <button
+                                onClick={() => {
+                                  onClose();
+                                  onNavigateToIp(book.relatedIp!, book.originDomain);
+                                }}
+                                className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-fuchsia-600/25 cursor-pointer"
+                              >
+                                <span>前往《{book.relatedIp}》原作書架</span>
+                                <ArrowUpRight size={14} />
+                              </button>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Multi-Volume Series Navigation Switcher */}
+                        {siblingVolumes.length > 1 && (
+                          <div className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/70 space-y-3">
+                            <div className="flex items-center justify-between">
+                              <h4 className="text-xs font-bold text-slate-300 flex items-center gap-2">
+                                <Layers size={15} className="text-fuchsia-400" />
+                                <span>系列其他卷冊 ({siblingVolumes.length} 冊收錄)</span>
+                              </h4>
+                              <span className="text-[10px] text-slate-500">{book.seriesGroup}</span>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {siblingVolumes.map(volBook => {
+                                const isCurrent = volBook.id === book.id;
+                                return (
+                                  <button
+                                    key={volBook.id}
+                                    onClick={() => {
+                                      if (onSelectBook) onSelectBook(volBook);
+                                    }}
+                                    className={`flex items-center gap-2.5 p-2 rounded-xl text-left transition-all border ${
+                                      isCurrent
+                                        ? 'bg-fuchsia-600/20 border-fuchsia-500/60 text-white ring-1 ring-fuchsia-500/30'
+                                        : 'bg-slate-900/60 hover:bg-slate-800 border-slate-700/60 text-slate-300 hover:text-white'
+                                    }`}
+                                  >
+                                    <div className="w-8 h-11 rounded bg-slate-950 overflow-hidden shrink-0 border border-slate-700">
+                                      <img 
+                                        src={volBook.coverUrl || `https://picsum.photos/seed/${volBook.id}/100/150`} 
+                                        alt={volBook.title}
+                                        className="w-full h-full object-cover"
+                                        referrerPolicy="no-referrer"
+                                      />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-center gap-1.5">
+                                        <span className={`px-1.5 py-0.2 rounded text-[10px] font-black ${
+                                          isCurrent ? 'bg-fuchsia-500 text-white' : 'bg-slate-800 text-slate-400'
+                                        }`}>
+                                          {volBook.volume ? `Vol.${volBook.volume}` : '冊'}
+                                        </span>
+                                        {isCurrent && <span className="text-[10px] text-fuchsia-400 font-bold">當前瀏覽</span>}
+                                      </div>
+                                      <p className="text-xs font-bold truncate mt-0.5">{volBook.title}</p>
+                                    </div>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
                     </div>
                 )}
             </div>
@@ -391,12 +573,6 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                     <Trash2 size={16} className="group-hover/del:scale-110 transition-transform" /> 
                     <span>永久刪除此書</span>
                  </button>
-                 
-                 {!isEditing && (
-                    <p className="text-[10px] text-slate-500 font-medium italic">
-                        最後更新：{new Date(book.updatedAt || book.addedAt || Date.now()).toLocaleDateString()}
-                    </p>
-                 )}
             </div>
         </div>
       </div>

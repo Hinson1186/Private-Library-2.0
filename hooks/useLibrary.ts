@@ -18,9 +18,9 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 
 // 當您大幅更新 initialData.ts 並希望所有人都能看到最新內容時，請提升這裡的版本號（例如 v18 -> v19）
 // 這會強制程式忽略舊的瀏覽器暫存，重新載入 initialData.ts 內的資料。
-const STORAGE_KEY = 'ai-library-books-v38'; 
-const CATEGORIES_KEY = 'ai-library-categories-tree-v38'; 
-const TAGS_KEY = 'ai-library-tags-v5';
+const STORAGE_KEY = 'ai-library-books-v40'; 
+const CATEGORIES_KEY = 'ai-library-categories-tree-v40'; 
+const TAGS_KEY = 'ai-library-tags-v6';
 
 export const DEFAULT_TAGS = [
   "校園", "奇幻", "懸疑", "黑暗", "推理", "青春",
@@ -28,11 +28,15 @@ export const DEFAULT_TAGS = [
   "末世", "旅行", "人生", "職場", "獵奇", "絕症", "宮廷", "權謀"
 ];
 
-// Helper to filter out removed tags (熱血, 末日) and ensure new default tags
+// Helper to filter out removed tags (熱血, 末日, 畫集, 插畫, 設定集, 美術) and ensure new default tags
 export const cleanTags = (tagsList: string[]): string[] => {
   const set = new Set(tagsList);
   set.delete("熱血");
   set.delete("末日");
+  set.delete("畫集");
+  set.delete("插畫");
+  set.delete("設定集");
+  set.delete("美術");
   set.add("運動");
   set.add("戰鬥");
   return Array.from(set).sort((a, b) => a.localeCompare(b, 'zh-TW', { numeric: true }));
@@ -40,12 +44,13 @@ export const cleanTags = (tagsList: string[]): string[] => {
 
 // Ensure specific series have correct Tong Li cover URLs and updated names
 const ensureCoversAndNames = (booksList: Book[]): Book[] => {
+  const forbiddenTags = new Set(['熱血', '末日', '畫集', '插畫', '設定集', '美術']);
   return booksList.map(book => {
     let updated = book;
-    if (updated.tags && updated.tags.some(t => t === '熱血' || t === '末日')) {
+    if (updated.tags && updated.tags.some(t => forbiddenTags.has(t))) {
       updated = {
         ...updated,
-        tags: updated.tags.filter(t => t !== '熱血' && t !== '末日')
+        tags: updated.tags.filter(t => !forbiddenTags.has(t))
       };
     }
     if (updated.category === '香格里拉' || (updated.title && updated.title.startsWith('香格里拉 '))) {
@@ -146,7 +151,10 @@ export const useLibrary = () => {
 
     if (!user) {
       // 未登入時：從 LocalStorage 讀取並與 initialData.ts 對比合併
-      let mergedBooks = [...localBooks];
+      // 清除已刪除的舊遊戲美術集
+      const purgedIds = new Set(['artbook-nier-automata', 'artbook-blue-archive-1', 'artbook-genshin-vol1']);
+      let mergedBooks = localBooks.filter(lb => !purgedIds.has(lb.id));
+
       initialBooks.forEach(ib => {
         const index = mergedBooks.findIndex(lb => lb.id === ib.id);
         if (index === -1) {
@@ -503,8 +511,7 @@ export const initialBooks: Book[] = ${JSON.stringify(books, null, 2)};
   const addBook = async (draft: BookDraft) => {
     const newBook: Book = {
       ...draft,
-      id: crypto.randomUUID(),
-      addedAt: Date.now()
+      id: crypto.randomUUID()
     };
     
     setBooks(prev => {

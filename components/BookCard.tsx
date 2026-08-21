@@ -2,6 +2,7 @@
 import React from 'react';
 import { Book } from '../types';
 import { CheckCircle2, Circle, LayoutGrid, Library, Layers, ChevronRight } from 'lucide-react';
+import { isArtbook } from '../utils/categoryUtils';
 
 export const TAG_COLOR_MAP: Record<string, { bg: string; text: string; border: string }> = {
   // 綠色系 (Green / Emerald / Lime / Mint)
@@ -107,7 +108,8 @@ const BookCard: React.FC<BookCardProps> = ({
   isSelected = false,
   searchTerm = ''
 }) => {
-  const isSeriesSet = book.isSeriesSet;
+  const bookIsArtbook = isArtbook(book);
+  const isSeriesSet = !bookIsArtbook && book.isSeriesSet;
   const count = book.seriesBooks?.length || 0;
 
   // Helper function to highlight text matching search term
@@ -231,7 +233,7 @@ const BookCard: React.FC<BookCardProps> = ({
             </div>
             
             {/* If it's a series book, display the series tags under the author name, without arrow */}
-            {!isSeriesSet && book.type === 'series' && book.tags && book.tags.length > 0 && (
+            {!isSeriesSet && !bookIsArtbook && book.type === 'series' && book.tags && book.tags.length > 0 && (
               <div className="flex flex-wrap gap-1.5 items-center mt-2.5 overflow-hidden max-h-[26px] w-full">
                 {book.tags.map((tag, index) => {
                   const style = getTagStyles(tag);
@@ -247,7 +249,7 @@ const BookCard: React.FC<BookCardProps> = ({
               </div>
             )}
           </div>
-          {!isSeriesSet && book.type !== 'series' && book.tags && book.tags.length > 0 && (
+          {!isSeriesSet && !bookIsArtbook && book.type !== 'series' && book.tags && book.tags.length > 0 && (
             <div className="mt-auto pt-2.5 flex flex-wrap gap-1.5">
               {book.tags.slice(0, 3).map((tag, index) => {
                 const style = getTagStyles(tag);

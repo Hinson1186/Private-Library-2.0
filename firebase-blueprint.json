@@ -19,8 +19,7 @@
         "author": { "type": "string" },
         "cover": { "type": "string" },
         "category": { "type": "string" },
-        "tags": { "type": "array", "items": { "type": "string" } },
-        "addedAt": { "type": "number" }
+        "tags": { "type": "array", "items": { "type": "string" } }
       },
       "required": ["id", "title", "category"]
     },

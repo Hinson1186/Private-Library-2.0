@@ -28,7 +28,6 @@ export const createBook = (
   category,
   subCategory,
   coverUrl,
-  addedAt: Date.now(),
   genre,
   tags,
   type: 'single'
@@ -52,7 +51,6 @@ export const createSeries = (config: SeriesConfig): Book[] => {
       category: config.category,
       subCategory: config.subCategory || '',
       coverUrl,
-      addedAt: Date.now(),
       genre: config.genre || '',
       tags: config.tags || [],
       type: 'series'

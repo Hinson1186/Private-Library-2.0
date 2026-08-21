@@ -26,6 +26,7 @@ interface HeaderProps {
   onOpenTagManager: () => void;
   isTagManagerOpen: boolean;
   user: User | null;
+  selectedCategory?: string | null;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -49,7 +50,8 @@ const Header: React.FC<HeaderProps> = ({
   setIsTagMultiSelect,
   onOpenTagManager,
   isTagManagerOpen,
-  user
+  user,
+  selectedCategory
 }) => {
   const [isLoggingIn, setIsLoggingIn] = React.useState(false);
   const [showKeyLogin, setShowKeyLogin] = React.useState(false);
@@ -241,7 +243,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Integrated Tag Filter Bar */}
-        {!isTagManagerOpen && (
+        {!isTagManagerOpen && selectedCategory !== '畫集' && (
             <div className="pb-3 flex flex-col gap-3.5 w-full animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="relative px-2">
                     <div className="w-full flex items-center bg-slate-800/20 backdrop-blur-sm rounded-2xl border border-slate-700/40 relative group/tags">

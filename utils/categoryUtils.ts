@@ -5,7 +5,7 @@ export const restoreSingleCategory = (categories: CategoryDef[], books: Book[]):
   
   const processNodes = (nodes: CategoryDef[]): CategoryDef[] => {
     return nodes.map(node => {
-      if (node.name === '輕小說' || node.name === '漫畫' || node.name === '小說' || node.name === '其他') {
+      if (node.name === '輕小說' || node.name === '漫畫' || node.name === '小說' || node.name === '其他' || node.name === '畫集') {
         let children = node.children ? processNodes(node.children) : [];
         
         const singleName = `${node.name}單行本`;
@@ -104,7 +104,7 @@ export const migrateCategories = (nodes: CategoryDef[]): CategoryDef[] => {
       updatedNode.children = migrateCategories(updatedNode.children);
     }
 
-    if (updatedNode.name === '輕小說' || updatedNode.name === '漫畫' || updatedNode.name === '小說' || updatedNode.name === '其他') {
+    if (updatedNode.name === '輕小說' || updatedNode.name === '漫畫' || updatedNode.name === '小說' || updatedNode.name === '其他' || updatedNode.name === '畫集') {
       const seriesName = `${updatedNode.name}系列`;
       
       // Check if it already has the new prefixed series folder
@@ -158,10 +158,16 @@ export const migrateCategories = (nodes: CategoryDef[]): CategoryDef[] => {
  * 預設使用繁體中文筆劃順序 (zh-TW)，並開啟數字排序。
  */
 export const sortCategoriesRecursive = (nodes: CategoryDef[]): CategoryDef[] => {
+  const topOrder = ['輕小說', '漫畫', '小說', '畫集', '其他'];
   return [...nodes]
     .sort((a, b) => {
       const nameA = a.name || '';
       const nameB = b.name || '';
+      const idxA = topOrder.indexOf(nameA);
+      const idxB = topOrder.indexOf(nameB);
+      if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+      if (idxA !== -1) return -1;
+      if (idxB !== -1) return 1;
       if (nameA === '其他') return 1;
       if (nameB === '其他') return -1;
       // 使用 zh-TW 進行筆劃排序
@@ -214,4 +220,23 @@ export const getAllDescendantNames = (node: CategoryDef): string[] => {
         });
     }
     return names;
+};
+
+/**
+ * 判斷一本書是否屬於「畫集」分類（包含畫集根目錄、畫集系列、畫集單行本或帶有 originDomain）
+ */
+export const isArtbook = (book: Book, categories?: CategoryDef[]): boolean => {
+    if (book.originDomain) return true;
+    if (book.category === '畫集' || book.category === '畫集系列' || book.category === '畫集單行本') return true;
+    if (book.id && book.id.startsWith('artbook-')) return true;
+    if (book.category && (book.category.includes('畫集') || book.category.includes('設定集') || book.category.includes('插畫集'))) return true;
+    
+    if (categories && categories.length > 0) {
+        const artbookNode = findCategoryByName(categories, '畫集');
+        if (artbookNode) {
+            const descendants = getAllDescendantNames(artbookNode);
+            if (descendants.includes(book.category)) return true;
+        }
+    }
+    return false;
 };

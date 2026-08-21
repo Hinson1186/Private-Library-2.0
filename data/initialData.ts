@@ -3,7 +3,7 @@ import { createBook, createSeries } from '../utils/bookFactory';
 
 /**
  * 這裡是您的「永久資料庫」。
- * 此檔案由網頁自動生成。
+ * 此檔案由自動儲存生成。
  */
 
 export const initialCategories: CategoryDef[] = [
@@ -760,6 +760,65 @@ export const initialCategories: CategoryDef[] = [
     ]
   },
   {
+    "name": "畫集",
+    "displayName": "畫集",
+    "id": "cat-artbook-main",
+    "type": "default",
+    "tags": [],
+    "children": [
+      {
+        "type": "series",
+        "id": "artbook-series-container",
+        "displayName": "系列",
+        "name": "畫集系列",
+        "children": [
+          {
+            "displayName": "刀劍神域 abec畫集",
+            "name": "刀劍神域 abec畫集",
+            "type": "series",
+            "id": "artbook-cat-sao-abec",
+            "children": []
+          },
+          {
+            "displayName": "魔女之旅 あずーる畫集",
+            "name": "魔女之旅 あずーる畫集",
+            "type": "series",
+            "id": "artbook-cat-majo",
+            "children": []
+          },
+          {
+            "displayName": "五等分的新娘 畫集",
+            "name": "五等分的新娘 畫集",
+            "type": "series",
+            "id": "artbook-cat-gotobun",
+            "children": []
+          },
+          {
+            "displayName": "ELDEN RING OFFICIAL ART BOOK",
+            "name": "ELDEN RING OFFICIAL ART BOOK",
+            "type": "series",
+            "id": "artbook-cat-elden-ring",
+            "children": []
+          },
+          {
+            "displayName": "原神插畫集",
+            "name": "原神插畫集",
+            "type": "series",
+            "id": "artbook-cat-genshin",
+            "children": []
+          }
+        ]
+      },
+      {
+        "displayName": "單行本",
+        "name": "畫集單行本",
+        "type": "single",
+        "id": "artbook-single",
+        "children": []
+      }
+    ]
+  },
+  {
     "name": "其他",
     "id": "other-main",
     "children": [
@@ -783,6 +842,215 @@ export const initialCategories: CategoryDef[] = [
 
 export const initialBooks: Book[] = [
   {
+    "id": "artbook-sao-abec-1",
+    "title": "刀劍神域 abec畫集 1: Art Works",
+    "author": "abec",
+    "category": "刀劍神域 abec畫集",
+    "type": "series",
+    "relatedIp": "刀劍神域",
+    "originDomain": "light_novel",
+    "volume": 1,
+    "seriesGroup": "刀劍神域 abec畫集",
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/074/39/0010743954.jpg&v=58a1768ck&w=348&h=348",
+    "description": "收錄刀劍神域第1~9集小說插畫、宣傳圖及角色初期草稿！"
+  },
+  {
+    "id": "artbook-sao-abec-2",
+    "title": "刀劍神域 abec畫集 2: Wanderers",
+    "author": "abec",
+    "category": "刀劍神域 abec畫集",
+    "type": "series",
+    "relatedIp": "刀劍神域",
+    "originDomain": "light_novel",
+    "volume": 2,
+    "seriesGroup": "刀劍神域 abec畫集",
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/084/77/0010847712.jpg&v=5e317c24k&w=348&h=348",
+    "description": "收錄Alicization篇壯大插畫與Progressive篇角色設計！"
+  },
+  {
+    "id": "artbook-sao-abec-3",
+    "title": "刀劍神域 abec畫集 3: Prism",
+    "author": "abec",
+    "category": "刀劍神域 abec畫集",
+    "type": "series",
+    "relatedIp": "刀劍神域",
+    "originDomain": "light_novel",
+    "volume": 3,
+    "seriesGroup": "刀劍神域 abec畫集",
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/095/36/0010953683.jpg&v=64254b7ck&w=348&h=348",
+    "description": "abec十週年精選集結，Unital Ring篇完整美術呈現！"
+  },
+  {
+    "id": "artbook-majyo-azure-1",
+    "title": "魔女之旅 あずーる畫集",
+    "author": "あずーる",
+    "category": "魔女之旅 あずーる畫集",
+    "type": "series",
+    "relatedIp": "魔女之旅",
+    "originDomain": "light_novel",
+    "volume": 1,
+    "seriesGroup": "魔女之旅 あずーる畫集",
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/089/36/0010893674.jpg&v=60bf54e5k&w=348&h=348",
+    "description": "伊蕾娜踏上旅途的美麗風景與所有魔女的華麗插圖集。"
+  },
+  {
+    "id": "artbook-gotoubun-haruba",
+    "title": "五等分的新娘 春場ねぎ畫集",
+    "author": "春場ねぎ",
+    "category": "五等分的新娘 畫集",
+    "type": "series",
+    "relatedIp": "五等分的新娘",
+    "originDomain": "manga",
+    "volume": 1,
+    "seriesGroup": "五等分的新娘 畫集",
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/085/87/0010858712.jpg&v=5eccd2c4k&w=348&h=348",
+    "description": "中野家五胞胎姊妹的全彩精緻插畫與紀念原畫完整收錄！"
+  },
+  {
+    "id": "artbook-shigatsu-arakawa",
+    "title": "四月是你的謊言 新川直司畫集：繆斯之吻",
+    "author": "新川直司",
+    "category": "畫集單行本",
+    "type": "single",
+    "relatedIp": "四月是你的謊言",
+    "originDomain": "manga",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/072/12/0010721245.jpg&v=5776495ck&w=348&h=348",
+    "description": "小提琴與鋼琴共譜的奇蹟色彩，收錄大量雜誌封面與彩頁原稿。"
+  },
+  {
+    "id": "artbook-summertime-tanaka",
+    "title": "夏日時光 田中靖規畫集：影之軌跡",
+    "author": "田中靖規",
+    "category": "畫集單行本",
+    "type": "single",
+    "relatedIp": "夏日時光",
+    "originDomain": "manga",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/093/11/0010931122.jpg&v=62e7a3efk&w=348&h=348",
+    "description": "日都島的夏日謎團與影之傳說，收錄設定草圖與全彩主視覺。"
+  },
+  {
+    "id": "artbook-oshinoko-glitter",
+    "title": "我推的孩子 橫槍萌果×赤坂明 公式畫集：Glitter",
+    "author": "橫槍萌果",
+    "category": "畫集單行本",
+    "type": "single",
+    "relatedIp": "我推的孩子",
+    "originDomain": "manga",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/096/54/0010965412.jpg&v=64da0471k&w=348&h=348",
+    "description": "星野愛與B小町閃耀的舞臺瞬間，全彩華麗寫真集與設定解說！"
+  },
+  {
+    "id": "artbook-yoneyama-mai",
+    "title": "米山舞作品集：EYE OF THE ARTIST",
+    "author": "米山舞",
+    "category": "畫集單行本",
+    "type": "single",
+    "originDomain": "original",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/095/88/0010958823.jpg&v=64761066k&w=348&h=348",
+    "description": "當代頂尖插畫家米山舞原創個展精選，光影與情感的極致交融。"
+  },
+  {
+    "id": "artbook-lam-tokyo",
+    "title": "LAM畫集：白晝之夜",
+    "author": "LAM",
+    "category": "畫集單行本",
+    "type": "single",
+    "originDomain": "original",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/089/12/0010891234.jpg&v=60a28f89k&w=348&h=348",
+    "description": "以極富衝擊力的色彩與銳利眼神著稱，LAM首部個人原創大集！"
+  },
+  {
+    "id": "artbook-tiv-platinum",
+    "title": "Tiv畫集：PLATINUM",
+    "author": "Tiv",
+    "category": "畫集單行本",
+    "type": "single",
+    "originDomain": "original",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/076/54/0010765432.jpg&v=59dc6b12k&w=348&h=348",
+    "description": "細膩透明感少女畫風，收錄各大原創插圖與精選商用彩繪。"
+  },
+  {
+    "id": "artbook-elden-ring-1",
+    "title": "ELDEN RING OFFICIAL ART BOOK Volume I",
+    "author": "フロム・ソフトウェア (FromSoftware)",
+    "category": "ELDEN RING OFFICIAL ART BOOK",
+    "type": "series",
+    "originDomain": "game",
+    "volume": 1,
+    "seriesGroup": "ELDEN RING OFFICIAL ART BOOK",
+    "tags": [],
+    "coverUrl": "https://m.media-amazon.com/images/I/81N0F-2-5GL._AC_UF1000,1000_QL80_.jpg",
+    "description": "オープンワールドアクションRPG『ELDEN RING』の壮大な世界を描き出す公式画集第1巻。オープニングムービーのアート、フィールドやダンジョンのコンセプトアート、登場キャラクターや防具の設定画などを多数収録。"
+  },
+  {
+    "id": "artbook-elden-ring-2",
+    "title": "ELDEN RING OFFICIAL ART BOOK Volume II",
+    "author": "フロム・ソフトウェア (FromSoftware)",
+    "category": "ELDEN RING OFFICIAL ART BOOK",
+    "type": "series",
+    "originDomain": "game",
+    "volume": 2,
+    "seriesGroup": "ELDEN RING OFFICIAL ART BOOK",
+    "tags": [],
+    "coverUrl": "https://m.media-amazon.com/images/I/81xU9d7MhCL._AC_UF1000,1000_QL80_.jpg",
+    "description": "公式画集第2巻。プレイヤーの前に立ちはだかる脅威の敵キャラクターや多種多様な武器、アイテム、アイコン用イラストなど、過酷な狭間の地を彩る緻密なアートワークを圧倒的ボリュームで収録。"
+  },
+  {
+    "id": "artbook-genshin-1",
+    "title": "原神插畫集 Vol.1",
+    "author": "原神項目組 (miHoYo) / 台灣角川",
+    "category": "原神插畫集",
+    "type": "series",
+    "originDomain": "game",
+    "volume": 1,
+    "seriesGroup": "原神插畫集",
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/094/08/0010940846.jpg&v=636b76bfk&w=348&h=348",
+    "description": "台灣角川官方授權繁體中文版。收錄38幅人物立繪圖、超過80幅官方宣傳圖及慶典賀圖、36組角色情報與雙面拉頁海報，典藏精裝規格。"
+  },
+  {
+    "id": "artbook-genshin-2",
+    "title": "原神插畫集 Vol.2",
+    "author": "原神項目組 (miHoYo) / 台灣角川",
+    "category": "原神插畫集",
+    "type": "series",
+    "originDomain": "game",
+    "volume": 2,
+    "seriesGroup": "原神插畫集",
+    "tags": [],
+    "coverUrl": "https://cdn.kingstone.com.tw/book/images/product/20194/2019470058223/2019470058223b.jpg",
+    "description": "台灣角川官方授權繁體中文版。收錄2.0至2.8版本精彩內容，包含人物立繪、衣裝、官方宣傳圖及慶典賀圖等近200幅插畫，附雙面拉頁海報。"
+  },
+  {
+    "id": "artbook-shinkai-suzume",
+    "title": "新海誠 鈴芽之旅 官方美術畫集 (Visual Guide)",
+    "author": "新海誠 / CoMix Wave Films",
+    "category": "畫集單行本",
+    "type": "single",
+    "originDomain": "other",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/095/43/0010954321.jpg&v=64319802k&w=348&h=348",
+    "description": "新海誠導演動畫電影《鈴芽之旅》完整美術背景、光影設定與分鏡精選！"
+  },
+  {
     "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/46/0010924694_b_02.jpg&v=62886b7ck&w=348&h=348",
     "author": "阿卡蒂．馬婷",
     "type": "single",
@@ -791,7 +1059,6 @@ export const initialBooks: Book[] = [
     "title": "名為和平的荒蕪",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774623623839,
     "id": "13b4107c-df1d-4365-869a-764921e21b9a"
   },
   {
@@ -803,7 +1070,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "通往夏天的隧道，再見的出口",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "9ae9b3ba-2f5b-4ca3-9b0c-d2671040ab05"
   },
   {
@@ -815,7 +1081,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "少女不十分",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "shoujo-fushubun"
   },
   {
@@ -827,8 +1092,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "春夏秋冬代行者 春之舞 上",
-    "id": "season-spring-1",
-    "addedAt": 1774621962283
+    "id": "season-spring-1"
   },
   {
     "author": "曉佳奈",
@@ -839,14 +1103,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "春夏秋冬代行者 春之舞 下",
-    "id": "season-spring-2",
-    "addedAt": 1774621962283
+    "id": "season-spring-2"
   },
   {
     "title": "春夏秋冬代行者 曉之射手",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "season-archer",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NB0033/NB0033001A/NB0033001A.jpg",
     "author": "曉佳奈",
@@ -860,14 +1122,12 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NB0030/NB0030001A/NB0030001A.jpg",
     "author": "曉佳奈",
-    "addedAt": 1774621962283,
     "id": "season-summer-1",
     "title": "春夏秋冬代行者 夏之舞 上",
     "subCategory": "",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "season-summer-2",
     "title": "春夏秋冬代行者 夏之舞 下",
     "subCategory": "",
@@ -880,7 +1140,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "d1fea1dc-7805-4920-ac47-5a2a33f7b410",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "おとなしそうな男子のとんでもない秘密を知ってしまった 2",
@@ -891,7 +1150,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://m.media-amazon.com/images/I/81U5rVy1bxL._SY425_.jpg"
   },
   {
-    "addedAt": 1774621962283,
     "id": "eminence-shadow-2",
     "subCategory": "",
     "title": "我想成為影之強者！ 2",
@@ -903,7 +1161,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "jimokawa-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "我的不起眼未婚妻在家有夠可愛 4",
     "subCategory": "",
@@ -917,7 +1174,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "非專業私刑 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "vigilante-1",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/68fb4a68d0d50e0010860ab1/800x.webp?source_format=jpg",
     "author": "内藤光太郎/浅村壮平",
@@ -929,7 +1185,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "she is beautiful 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "she-beautiful-1",
     "coverUrl": "",
     "author": "江坂純/凸ノ高秀",
@@ -943,7 +1198,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1667/KD1667001/KD1667001.jpg",
     "author": "硬梨菜/不二涼介",
-    "addedAt": 1774621962283,
     "id": "shangrila-1",
     "title": "香格里拉·開拓異境~糞作獵手挑戰神作~ 1",
     "subCategory": "",
@@ -954,14 +1208,12 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662aa3c1c57db000d7badc1/800x.webp?source_format=jpg",
     "author": "川原礫",
-    "addedAt": 1774621962283,
     "id": "sao-1",
     "subCategory": "",
     "title": "刀劍神域 1",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "sao-2",
     "subCategory": "",
     "title": "刀劍神域 2",
@@ -976,7 +1228,6 @@ export const initialBooks: Book[] = [
     "category": "刀劍神域",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a9704ecb10001c3b6fe1/800x.webp?source_format=jpg",
     "author": "川原礫",
-    "addedAt": 1774621962283,
     "id": "sao-3",
     "subCategory": "",
     "title": "刀劍神域 3",
@@ -987,7 +1238,6 @@ export const initialBooks: Book[] = [
     "title": "刀劍神域 4",
     "subCategory": "",
     "id": "sao-4",
-    "addedAt": 1774621962283,
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a92c1c57db00137babe5/800x.webp?source_format=jpg",
     "type": "series",
@@ -999,7 +1249,6 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a8fe9df6f5000d859e2f/800x.webp?source_format=jpg",
     "id": "sao-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 5"
@@ -1008,7 +1257,6 @@ export const initialBooks: Book[] = [
     "title": "刀劍神域 6",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "sao-6",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a8da9ec117ad4f76597e/800x.webp?source_format=jpg",
     "author": "川原礫",
@@ -1021,7 +1269,6 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a8974ecb1000163b6fb1/800x.webp?source_format=jpg",
     "id": "sao-7",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "刀劍神域 7",
     "subCategory": ""
@@ -1031,7 +1278,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "刀劍神域 8",
     "id": "sao-8",
-    "addedAt": 1774621962283,
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a848d39a4c001f5976f6/800x.webp?source_format=jpg",
     "type": "series",
@@ -1045,14 +1291,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "刀劍神域 9",
     "subCategory": "",
-    "id": "sao-9",
-    "addedAt": 1774621962283
+    "id": "sao-9"
   },
   {
     "subCategory": "",
     "title": "刀劍神域 10",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "sao-10",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a7a8b496b4001988473b/800x.webp?source_format=jpg",
     "author": "川原礫",
@@ -1067,12 +1311,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 11",
-    "id": "sao-11",
-    "addedAt": 1774621962283
+    "id": "sao-11"
   },
   {
     "id": "sao-12",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "刀劍神域 12",
     "subCategory": "",
@@ -1083,7 +1325,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "sao-13",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 13",
@@ -1098,7 +1339,6 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a6d094d4ac001f0eab6c/800x.webp?source_format=jpg",
     "id": "sao-14",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 14"
@@ -1111,11 +1351,9 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 15",
-    "id": "sao-15",
-    "addedAt": 1774621962283
+    "id": "sao-15"
   },
   {
-    "addedAt": 1774621962283,
     "id": "sao-16",
     "title": "刀劍神域 16",
     "subCategory": "",
@@ -1133,7 +1371,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "刀劍神域 17",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "sao-17"
   },
   {
@@ -1144,12 +1381,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 18",
-    "id": "sao-18",
-    "addedAt": 1774621962283
+    "id": "sao-18"
   },
   {
     "id": "sao-19",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "刀劍神域 19",
     "subCategory": "",
@@ -1162,7 +1397,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "刀劍神域 20",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "sao-20",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a53f7fc3750013b7f4bf/800x.webp?source_format=jpg",
     "author": "川原礫",
@@ -1177,7 +1411,6 @@ export const initialBooks: Book[] = [
     "title": "刀劍神域 21",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "sao-21"
   },
   {
@@ -1186,7 +1419,6 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662a4accf7e4c0019f7ffca/800x.webp?source_format=jpg",
     "id": "sao-22",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 22"
@@ -1196,7 +1428,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662ae54cf7e4c1b56f71424/800x.webp?source_format=jpg",
     "author": "川原礫",
-    "addedAt": 1774621962283,
     "id": "sao-p-1",
     "subCategory": "",
     "title": "刀劍神域 Progressive 1",
@@ -1204,7 +1435,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "sao-p-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 Progressive 2",
@@ -1214,7 +1444,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662ae261aeb10001c0f03f0/800x.webp?source_format=jpg"
   },
   {
-    "addedAt": 1774621962283,
     "id": "sao-p-3",
     "subCategory": "",
     "title": "刀劍神域 Progressive 3",
@@ -1230,7 +1459,6 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662adc70b00cd0016fbf855/800x.webp?source_format=jpg",
     "id": "sao-p-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "刀劍神域 Progressive 4",
     "subCategory": ""
@@ -1241,7 +1469,6 @@ export const initialBooks: Book[] = [
     "author": "川原礫",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662ad8ffc3d7d001c784a1a/800x.webp?source_format=jpg",
     "id": "sao-p-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "刀劍神域 Progressive 5"
@@ -1254,7 +1481,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "刀劍神域 Progressive 6",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "sao-p-6"
   },
   {
@@ -1263,7 +1489,6 @@ export const initialBooks: Book[] = [
     "category": "關於我在無意間被隔壁的天使變成廢柴這件事",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018001/NY0018001.jpg",
     "author": "佐伯さん",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-1",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 1",
     "subCategory": "",
@@ -1275,7 +1500,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018002/NY0018002.jpg",
     "author": "佐伯さん",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-2",
     "subCategory": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 2",
@@ -1287,7 +1511,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018003/NY0018003.jpg",
     "author": "佐伯さん",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-3",
     "subCategory": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 3",
@@ -1302,12 +1525,10 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-4"
   },
   {
     "id": "angel-next-door-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 5",
@@ -1321,7 +1542,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 6",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-6",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018006/NY0018006.jpg",
     "author": "佐伯さん",
@@ -1338,14 +1558,12 @@ export const initialBooks: Book[] = [
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 7",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-7"
   },
   {
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 8",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-8",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018008/NY0018008.jpg",
     "author": "佐伯さん",
@@ -1362,8 +1580,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 9",
-    "id": "angel-next-door-9",
-    "addedAt": 1774621962283
+    "id": "angel-next-door-9"
   },
   {
     "type": "series",
@@ -1372,7 +1589,6 @@ export const initialBooks: Book[] = [
     "author": "佐伯さん",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0018/NY0018010/NY0018010.jpg",
     "id": "angel-next-door-10",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 10",
     "subCategory": ""
@@ -1386,7 +1602,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "關於我在無意間被隔壁的天使變成廢柴這件事 11",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "angel-next-door-11"
   },
   {
@@ -1394,7 +1609,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "我是星際國家的英雄騎士！ 1",
     "id": "heroic-knight-1",
-    "addedAt": 1774621962283,
     "author": "三嶋與夢",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NW0038/NW0038001A/NW0038001A.jpg",
     "tags": [],
@@ -1403,7 +1617,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "heroic-knight-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "我是星際國家的英雄騎士！ 2",
     "subCategory": "",
@@ -1422,12 +1635,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "我是星際國家的英雄騎士！ 3",
     "subCategory": "",
-    "id": "heroic-knight-3",
-    "addedAt": 1774621962283
+    "id": "heroic-knight-3"
   },
   {
     "id": "heroic-knight-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "我是星際國家的英雄騎士！ 4",
@@ -1446,8 +1657,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 1",
-    "id": "haibara-youth-1",
-    "addedAt": 1774621962283
+    "id": "haibara-youth-1"
   },
   {
     "coverUrl": "",
@@ -1458,7 +1668,6 @@ export const initialBooks: Book[] = [
     "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 2",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "haibara-youth-2"
   },
   {
@@ -1467,7 +1676,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "",
     "author": "雨宮和希",
-    "addedAt": 1774621962283,
     "id": "haibara-youth-3",
     "subCategory": "",
     "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 3",
@@ -1480,7 +1688,6 @@ export const initialBooks: Book[] = [
     "author": "雨宮和希",
     "coverUrl": "",
     "id": "haibara-youth-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 4"
@@ -1494,7 +1701,6 @@ export const initialBooks: Book[] = [
     "title": "灰原同學重返過去，開啟所向無敵的第二輪青春遊戲 8",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "haibara-youth-8"
   },
   {
@@ -1506,7 +1712,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "歡迎來到實力至上主義的教室 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "classroom-elite-1"
   },
   {
@@ -1516,7 +1721,6 @@ export const initialBooks: Book[] = [
     "author": "衣笠彰梧",
     "coverUrl": "",
     "id": "classroom-elite-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "歡迎來到實力至上主義的教室 2",
     "subCategory": ""
@@ -1525,7 +1729,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "歡迎來到實力至上主義的教室 3",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "classroom-elite-3",
     "coverUrl": "",
     "author": "衣笠彰梧",
@@ -1542,14 +1745,12 @@ export const initialBooks: Book[] = [
     "title": "歡迎來到實力至上主義的教室 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "classroom-elite-4"
   },
   {
     "subCategory": "",
     "title": "歡迎來到實力至上主義的教室 5",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "classroom-elite-5",
     "coverUrl": "",
     "author": "衣笠彰梧",
@@ -1559,7 +1760,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "classroom-elite-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "歡迎來到實力至上主義的教室 6",
@@ -1571,7 +1771,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "classroom-elite-7",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "歡迎來到實力至上主義的教室 7",
     "subCategory": "",
@@ -1588,13 +1787,11 @@ export const initialBooks: Book[] = [
     "author": "衣笠彰梧",
     "coverUrl": "",
     "id": "classroom-elite-8",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "歡迎來到實力至上主義的教室 8",
     "subCategory": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "classroom-elite-9",
     "subCategory": "",
     "title": "歡迎來到實力至上主義的教室 9",
@@ -1606,7 +1803,6 @@ export const initialBooks: Book[] = [
     "author": "衣笠彰梧"
   },
   {
-    "addedAt": 1774621962283,
     "id": "classroom-elite-10",
     "title": "歡迎來到實力至上主義的教室 10",
     "subCategory": "",
@@ -1626,11 +1822,9 @@ export const initialBooks: Book[] = [
     "title": "歡迎來到實力至上主義的教室 11",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "classroom-elite-11"
   },
   {
-    "addedAt": 1774621962283,
     "id": "evil-lord-2",
     "title": "我是星際國家的惡德領主！ 2",
     "subCategory": "",
@@ -1648,7 +1842,6 @@ export const initialBooks: Book[] = [
     "author": "三嶋與夢",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NW0031/NW0031003A/NW0031003A.jpg",
     "id": "evil-lord-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "我是星際國家的惡德領主！ 3"
@@ -1657,7 +1850,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "我是星際國家的惡德領主！ 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "evil-lord-4",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NW0031/NW0031004A/NW0031004A.jpg",
     "author": "三嶋與夢",
@@ -1666,7 +1858,6 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "evil-lord-5",
     "title": "我是星際國家的惡德領主！ 5",
     "subCategory": "",
@@ -1681,7 +1872,6 @@ export const initialBooks: Book[] = [
     "title": "勇者症候群 1",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "brave-syndrome-1",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NB0034/NB0034001A/NB0034001A.jpg",
     "author": "彩月レイ",
@@ -1691,7 +1881,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "brave-syndrome-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "勇者症候群 2",
     "subCategory": "",
@@ -1706,7 +1895,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 1",
     "id": "actually-stepsister-1",
-    "addedAt": 1774621962283,
     "author": "白井ムク",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66da7cb7dfd27e000d111d5d/800x.webp?source_format=jpg",
     "type": "series",
@@ -1714,7 +1902,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "actually-stepsister-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 2",
     "subCategory": "",
@@ -1731,22 +1918,19 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 3",
-    "id": "actually-stepsister-3",
-    "addedAt": 1774621962283
+    "id": "actually-stepsister-3"
   },
   {
     "genre": "",
     "title": "其實是繼妹。～總覺得剛來的繼弟很黏我～ 4",
     "subCategory": "",
     "id": "actually-stepsister-4",
-    "addedAt": 1774621962283,
     "author": "白井ムク",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66da7cb756ca55000da23582/800x.webp?source_format=jpg",
     "category": "其實是繼妹。～總覺得剛來的繼弟很黏我～",
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "fallback-gf-1",
     "subCategory": "",
     "title": "我當備胎女友也沒關係。 1",
@@ -1761,7 +1945,6 @@ export const initialBooks: Book[] = [
     "category": "我當備胎女友也沒關係。",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6698ac19bd1c3d001f8b0044/800x.webp?source_format=jpg",
     "author": "西条陽",
-    "addedAt": 1774621962283,
     "id": "fallback-gf-2",
     "subCategory": "",
     "title": "我當備胎女友也沒關係。 2",
@@ -1772,7 +1955,6 @@ export const initialBooks: Book[] = [
     "title": "我當備胎女友也沒關係。 3",
     "subCategory": "",
     "id": "fallback-gf-3",
-    "addedAt": 1774621962283,
     "author": "西条陽",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6698ac18514389001699d43c/800x.webp?source_format=jpg",
     "type": "series",
@@ -1783,14 +1965,12 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6698ac17e2b5e40010b490a3/800x.webp?source_format=jpg",
     "author": "西条陽",
-    "addedAt": 1774621962283,
     "id": "fallback-gf-4",
     "title": "我當備胎女友也沒關係。 4",
     "subCategory": "",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "sister-not-gf-1",
     "title": "妹妹是不能當女友的，可是…… 1",
     "subCategory": "",
@@ -1805,7 +1985,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "妹妹是不能當女友的，可是…… 2",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "sister-not-gf-2",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NB0032/NB0032002A/NB0032002A.jpg",
     "author": "鏡遊",
@@ -1815,7 +1994,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "reincarnation-escape-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "你以為區區轉生就逃得了嗎，哥哥？ 1",
     "subCategory": "",
@@ -1830,7 +2008,6 @@ export const initialBooks: Book[] = [
     "title": "你以為區區轉生就逃得了嗎，哥哥？ 2",
     "subCategory": "",
     "id": "reincarnation-escape-2",
-    "addedAt": 1774621962283,
     "author": "紙城境介",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NA0133/NA0133002A/NA0133002A.jpg",
     "type": "series",
@@ -1839,7 +2016,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "reincarnation-escape-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "你以為區區轉生就逃得了嗎，哥哥？ 3",
@@ -1855,7 +2031,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NA0065/NA0065001/NA0065001.jpg",
     "author": "榎宮祐",
-    "addedAt": 1774621962283,
     "id": "ngnl-1",
     "title": "遊戲人生 1",
     "subCategory": "",
@@ -1867,7 +2042,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NA0065/NA0065002/NA0065002.jpg",
     "author": "榎宮祐",
-    "addedAt": 1774621962283,
     "id": "ngnl-2",
     "subCategory": "",
     "title": "遊戲人生 2",
@@ -1880,7 +2054,6 @@ export const initialBooks: Book[] = [
     "author": "榎宮祐",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NA0065/NA0065003/NA0065003.jpg",
     "id": "ngnl-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "遊戲人生 3"
@@ -1894,7 +2067,6 @@ export const initialBooks: Book[] = [
     "title": "遊戲人生 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "ngnl-4"
   },
   {
@@ -1903,7 +2075,6 @@ export const initialBooks: Book[] = [
     "category": "遊戲人生",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NA0065/NA0065005/NA0065005.jpg",
     "author": "榎宮祐",
-    "addedAt": 1774621962283,
     "id": "ngnl-5",
     "title": "遊戲人生 5",
     "subCategory": "",
@@ -1914,7 +2085,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "遊戲人生 6",
     "id": "ngnl-6",
-    "addedAt": 1774621962283,
     "author": "榎宮祐",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NA0065/NA0065006/NA0065006.jpg",
     "category": "遊戲人生",
@@ -1923,7 +2093,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "ngnl-10",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "遊戲人生 10",
     "subCategory": "",
@@ -1942,8 +2111,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "魔女之旅 1",
     "subCategory": "",
-    "id": "elaina-1",
-    "addedAt": 1774621962283
+    "id": "elaina-1"
   },
   {
     "type": "series",
@@ -1951,7 +2119,6 @@ export const initialBooks: Book[] = [
     "category": "魔女之旅",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681541283008/750115.jpg",
     "author": "白石定規",
-    "addedAt": 1774621962283,
     "id": "elaina-2",
     "title": "魔女之旅 2",
     "subCategory": "",
@@ -1961,7 +2128,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "魔女之旅 3",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "elaina-3",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681582032009/783864.jpg",
     "author": "白石定規",
@@ -1978,7 +2144,6 @@ export const initialBooks: Book[] = [
     "title": "魔女之旅 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "elaina-4"
   },
   {
@@ -1988,7 +2153,6 @@ export const initialBooks: Book[] = [
     "author": "白石定規",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681758300000/ec1759843.jpg",
     "id": "elaina-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "魔女之旅 5"
@@ -2002,8 +2166,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "魔女之旅 6",
     "subCategory": "",
-    "id": "elaina-6",
-    "addedAt": 1774621962283
+    "id": "elaina-6"
   },
   {
     "author": "白石定規",
@@ -2014,15 +2177,13 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "魔女之旅 7",
     "subCategory": "",
-    "id": "elaina-7",
-    "addedAt": 1774621962283
+    "id": "elaina-7"
   },
   {
     "genre": "",
     "title": "魔女之旅 8",
     "subCategory": "",
     "id": "elaina-8",
-    "addedAt": 1774621962283,
     "author": "白石定規",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/Upload/Product/202008/o/637320404263072500.jpg",
     "type": "series",
@@ -2038,11 +2199,9 @@ export const initialBooks: Book[] = [
     "title": "魔女之旅 9",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "elaina-9"
   },
   {
-    "addedAt": 1774621962283,
     "id": "elaina-10",
     "title": "魔女之旅 10",
     "subCategory": "",
@@ -2055,7 +2214,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "elaina-11",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "魔女之旅 11",
@@ -2071,7 +2229,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682049095001/20210723093353866706.jpg",
     "author": "白石定規",
-    "addedAt": 1774621962283,
     "id": "elaina-12",
     "subCategory": "",
     "title": "魔女之旅 12",
@@ -2081,7 +2238,6 @@ export const initialBooks: Book[] = [
     "title": "魔女之旅 13",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "elaina-13",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682054464007/20210804035407381516.jpg",
     "author": "白石定規",
@@ -2093,7 +2249,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "魔女之旅 14",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "elaina-14",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682120579000/20220111032125520436.jpg",
     "author": "白石定規",
@@ -2110,7 +2265,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "魔女之旅 15",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "elaina-15"
   },
   {
@@ -2122,8 +2276,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "魔女之旅 16",
     "subCategory": "",
-    "id": "elaina-16",
-    "addedAt": 1774621962283
+    "id": "elaina-16"
   },
   {
     "category": "魔女之旅",
@@ -2132,7 +2285,6 @@ export const initialBooks: Book[] = [
     "author": "白石定規",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682214948002/20220727033420425643.jpg",
     "id": "elaina-17",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "魔女之旅 17",
     "subCategory": ""
@@ -2143,14 +2295,12 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fdeefff542f0010afd4be/800x.webp?source_format=jpg",
     "author": "橘公司",
-    "addedAt": 1774621962283,
     "id": "date-a-live-1",
     "subCategory": "",
     "title": "約會大作戰 1",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "date-a-live-2",
     "title": "約會大作戰 2",
     "subCategory": "",
@@ -2167,7 +2317,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fde6e36c9a600228ba21f/800x.webp?source_format=jpg",
     "author": "橘公司",
-    "addedAt": 1774621962283,
     "id": "date-a-live-3",
     "title": "約會大作戰 3",
     "subCategory": "",
@@ -2180,13 +2329,11 @@ export const initialBooks: Book[] = [
     "author": "橘公司",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fdc4e3f6608000d1e551d/800x.webp?source_format=jpg",
     "id": "date-a-live-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "約會大作戰 4"
   },
   {
-    "addedAt": 1774621962283,
     "id": "date-a-live-5",
     "subCategory": "",
     "title": "約會大作戰 5",
@@ -2204,7 +2351,6 @@ export const initialBooks: Book[] = [
     "author": "橘公司",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fdbc127c4530016fb839e/800x.webp?source_format=jpg",
     "id": "date-a-live-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "約會大作戰 6"
@@ -2214,7 +2360,6 @@ export const initialBooks: Book[] = [
     "title": "約會大作戰 7",
     "subCategory": "",
     "id": "date-a-live-7",
-    "addedAt": 1774621962283,
     "author": "橘公司",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fdb715c22c3000df1519b/800x.webp?source_format=jpg",
     "tags": [],
@@ -2225,7 +2370,6 @@ export const initialBooks: Book[] = [
     "title": "約會大作戰 8",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "date-a-live-8",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fdb39fded9d001cafb3ae/800x.webp?source_format=jpg",
     "author": "橘公司",
@@ -2239,7 +2383,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fdafaca76280010555660/800x.webp?source_format=jpg",
     "author": "橘公司",
-    "addedAt": 1774621962283,
     "id": "date-a-live-9",
     "title": "約會大作戰 9",
     "subCategory": "",
@@ -2251,7 +2394,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fdab9cd880d0019a6350c/800x.webp?source_format=jpg",
     "author": "橘公司",
-    "addedAt": 1774621962283,
     "id": "date-a-live-10",
     "title": "約會大作戰 10",
     "subCategory": "",
@@ -2259,7 +2401,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "date-a-live-11",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "約會大作戰 11",
@@ -2276,13 +2417,11 @@ export const initialBooks: Book[] = [
     "author": "橘公司",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fda1cd313900010dd8415/800x.webp?source_format=jpg",
     "id": "date-a-live-12",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "約會大作戰 12",
     "subCategory": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "date-a-live-13",
     "title": "約會大作戰 13",
     "subCategory": "",
@@ -2298,7 +2437,6 @@ export const initialBooks: Book[] = [
     "title": "約會大作戰 14",
     "subCategory": "",
     "id": "date-a-live-14",
-    "addedAt": 1774621962283,
     "author": "橘公司",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/665fd9864ff629001634b8f6/800x.webp?source_format=jpg",
     "category": "約會大作戰",
@@ -2306,7 +2444,6 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "date-a-live-15",
     "title": "約會大作戰 15",
     "subCategory": "",
@@ -2321,7 +2458,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "無職轉生 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "mushoku-1",
     "coverUrl": "",
     "author": "理不尽な孫の手",
@@ -2338,12 +2474,10 @@ export const initialBooks: Book[] = [
     "title": "無職轉生 2",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "mushoku-2"
   },
   {
     "id": "mushoku-26",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "無職轉生 26",
@@ -2354,7 +2488,6 @@ export const initialBooks: Book[] = [
     "coverUrl": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "86-1",
     "title": "86不存在的戰區 1",
     "subCategory": "",
@@ -2374,8 +2507,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "86不存在的戰區 2",
     "subCategory": "",
-    "id": "86-2",
-    "addedAt": 1774621962283
+    "id": "86-2"
   },
   {
     "category": "86不存在的戰區",
@@ -2383,7 +2515,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662c1e98179f8000d93002b/800x.webp?source_format=jpg",
     "author": "安里アサト",
-    "addedAt": 1774621962283,
     "id": "86-3",
     "subCategory": "",
     "title": "86不存在的戰區 3",
@@ -2394,7 +2525,6 @@ export const initialBooks: Book[] = [
     "title": "86不存在的戰區 4",
     "subCategory": "",
     "id": "86-4",
-    "addedAt": 1774621962283,
     "author": "安里アサト",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662c1bce10d700022a657c8/800x.webp?source_format=jpg",
     "type": "series",
@@ -2405,7 +2535,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "86不存在的戰區 5",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "86-5",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662c1853f660800191f62ea/800x.webp?source_format=jpg",
     "author": "安里アサト",
@@ -2422,8 +2551,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "86不存在的戰區 6",
-    "id": "86-6",
-    "addedAt": 1774621962283
+    "id": "86-6"
   },
   {
     "type": "series",
@@ -2432,7 +2560,6 @@ export const initialBooks: Book[] = [
     "author": "安里アサト",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662c1285c867d001981ba60/800x.webp?source_format=jpg",
     "id": "86-7",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "86不存在的戰區 7",
     "subCategory": ""
@@ -2441,7 +2568,6 @@ export const initialBooks: Book[] = [
     "title": "86不存在的戰區 8",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "86-8",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6662c0bacef4db002281ea5b/800x.webp?source_format=jpg",
     "author": "安里アサト",
@@ -2458,8 +2584,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "86不存在的戰區 9",
-    "id": "86-9",
-    "addedAt": 1774621962283
+    "id": "86-9"
   },
   {
     "author": "安里アサト",
@@ -2470,14 +2595,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "86不存在的戰區 10",
-    "id": "86-10",
-    "addedAt": 1774621962283
+    "id": "86-10"
   },
   {
     "subCategory": "",
     "title": "気になってる人が男じゃなかった 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "green-tea-1",
     "coverUrl": "https://m.media-amazon.com/images/I/81Vz14AaG4L._SY425_.jpg",
     "author": "新井 すみこ",
@@ -2485,7 +2608,6 @@ export const initialBooks: Book[] = [
     "category": "気になってる人が男じゃなかった"
   },
   {
-    "addedAt": 1774621962283,
     "id": "green-tea-2",
     "subCategory": "",
     "title": "気になってる人が男じゃなかった 2",
@@ -2501,7 +2623,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "咒術迴戰 1",
     "id": "jujutsu-1",
-    "addedAt": 1774621962283,
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116001A/JC1116001AS.jpg",
     "tags": [],
@@ -2515,7 +2636,6 @@ export const initialBooks: Book[] = [
     "author": "芥見下々",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681761107009/ec1763803.jpg",
     "id": "jujutsu-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "咒術迴戰 2",
     "subCategory": ""
@@ -2525,7 +2645,6 @@ export const initialBooks: Book[] = [
     "title": "咒術迴戰 3",
     "subCategory": "",
     "id": "jujutsu-3",
-    "addedAt": 1774621962283,
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116003/JC1116003.jpg",
     "tags": [],
@@ -2538,7 +2657,6 @@ export const initialBooks: Book[] = [
     "category": "咒術迴戰",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116004/JC1116004.jpg",
     "author": "芥見下々",
-    "addedAt": 1774621962283,
     "id": "jujutsu-4",
     "title": "咒術迴戰 4",
     "subCategory": "",
@@ -2546,7 +2664,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "jujutsu-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 5",
@@ -2563,7 +2680,6 @@ export const initialBooks: Book[] = [
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116006/JC1116006.jpg",
     "id": "jujutsu-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "咒術迴戰 6",
     "subCategory": ""
@@ -2577,12 +2693,10 @@ export const initialBooks: Book[] = [
     "title": "咒術迴戰 7",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "jujutsu-7"
   },
   {
     "id": "jujutsu-8",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 8",
@@ -2601,12 +2715,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "咒術迴戰 9",
     "subCategory": "",
-    "id": "jujutsu-9",
-    "addedAt": 1774621962283
+    "id": "jujutsu-9"
   },
   {
     "id": "jujutsu-10",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 10",
@@ -2625,15 +2737,13 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "咒術迴戰 11",
     "subCategory": "",
-    "id": "jujutsu-11",
-    "addedAt": 1774621962283
+    "id": "jujutsu-11"
   },
   {
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 12",
     "id": "jujutsu-12",
-    "addedAt": 1774621962283,
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116012/JC1116012.jpg",
     "type": "series",
@@ -2646,7 +2756,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116013/JC1116013.jpg",
     "author": "芥見下々",
-    "addedAt": 1774621962283,
     "id": "jujutsu-13",
     "title": "咒術迴戰 13",
     "subCategory": "",
@@ -2661,8 +2770,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 14",
-    "id": "jujutsu-14",
-    "addedAt": 1774621962283
+    "id": "jujutsu-14"
   },
   {
     "type": "series",
@@ -2671,7 +2779,6 @@ export const initialBooks: Book[] = [
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116015/JC1116015.jpg",
     "id": "jujutsu-15",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "咒術迴戰 15",
     "subCategory": ""
@@ -2683,7 +2790,6 @@ export const initialBooks: Book[] = [
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116016/JC1116016.jpg",
     "id": "jujutsu-16",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 16"
@@ -2695,7 +2801,6 @@ export const initialBooks: Book[] = [
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116017/JC1116017.jpg",
     "id": "jujutsu-17",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "咒術迴戰 17",
     "subCategory": ""
@@ -2709,8 +2814,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "咒術迴戰 18",
     "subCategory": "",
-    "id": "jujutsu-18",
-    "addedAt": 1774621962283
+    "id": "jujutsu-18"
   },
   {
     "author": "芥見下々",
@@ -2721,11 +2825,9 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "咒術迴戰 19",
     "subCategory": "",
-    "id": "jujutsu-19",
-    "addedAt": 1774621962283
+    "id": "jujutsu-19"
   },
   {
-    "addedAt": 1774621962283,
     "id": "jujutsu-20",
     "subCategory": "",
     "title": "咒術迴戰 20",
@@ -2745,14 +2847,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 21",
-    "id": "jujutsu-21",
-    "addedAt": 1774621962283
+    "id": "jujutsu-21"
   },
   {
     "subCategory": "",
     "title": "咒術迴戰 22",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "jujutsu-22",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116022/JC1116022.jpg",
     "author": "芥見下々",
@@ -2764,7 +2864,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "咒術迴戰 23",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "jujutsu-23",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116023/JC1116023.jpg",
     "author": "芥見下々",
@@ -2776,7 +2875,6 @@ export const initialBooks: Book[] = [
     "title": "咒術迴戰 24",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "jujutsu-24",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116024/JC1116024.jpg",
     "author": "芥見下々",
@@ -2789,7 +2887,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "咒術迴戰 25",
     "id": "jujutsu-25",
-    "addedAt": 1774621962283,
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116025/JC1116025.jpg",
     "type": "series",
@@ -2797,7 +2894,6 @@ export const initialBooks: Book[] = [
     "category": "咒術迴戰"
   },
   {
-    "addedAt": 1774621962283,
     "id": "jujutsu-26",
     "subCategory": "",
     "title": "咒術迴戰 26",
@@ -2810,7 +2906,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "jujutsu-27",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 27",
@@ -2822,7 +2917,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "jujutsu-28",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "咒術迴戰 28",
     "subCategory": "",
@@ -2833,7 +2927,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116028/JC1116028.jpg"
   },
   {
-    "addedAt": 1774621962283,
     "id": "jujutsu-29",
     "subCategory": "",
     "title": "咒術迴戰 29",
@@ -2851,13 +2944,11 @@ export const initialBooks: Book[] = [
     "author": "芥見下々",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1116/JC1116030/JC1116030.jpg",
     "id": "jujutsu-30",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "咒術迴戰 30"
   },
   {
-    "addedAt": 1774621962283,
     "id": "kick-love-1",
     "subCategory": "",
     "title": "不踹不踩不成愛 1",
@@ -2877,7 +2968,6 @@ export const initialBooks: Book[] = [
     "title": "不踹不踩不成愛 2",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kick-love-2"
   },
   {
@@ -2886,7 +2976,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/67f73aea851df9000efb9858/800x.webp?source_format=jpg",
     "author": "壱屋すみ",
-    "addedAt": 1774621962283,
     "id": "kick-love-3",
     "title": "不踹不踩不成愛 3",
     "subCategory": "",
@@ -2901,7 +2990,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "不踹不踩不成愛 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kick-love-4"
   },
   {
@@ -2913,7 +3001,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "夫婦以上，戀人未滿 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fuufu-1"
   },
   {
@@ -2925,12 +3012,10 @@ export const initialBooks: Book[] = [
     "title": "夫婦以上，戀人未滿 2",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fuufu-2"
   },
   {
     "id": "fuufu-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "夫婦以上，戀人未滿 3",
@@ -2949,8 +3034,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "夫婦以上，戀人未滿 4",
     "subCategory": "",
-    "id": "fuufu-4",
-    "addedAt": 1774621962283
+    "id": "fuufu-4"
   },
   {
     "tags": [],
@@ -2959,7 +3043,6 @@ export const initialBooks: Book[] = [
     "author": "金丸祐基",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66a0b092d28abc000db5aad4/800x.webp?source_format=jpg",
     "id": "fuufu-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "夫婦以上，戀人未滿 5"
@@ -2970,7 +3053,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66a0b092f378ef001f47a3e3/800x.webp?source_format=jpg",
     "author": "金丸祐基",
-    "addedAt": 1774621962283,
     "id": "fuufu-6",
     "title": "夫婦以上，戀人未滿 6",
     "subCategory": "",
@@ -2980,7 +3062,6 @@ export const initialBooks: Book[] = [
     "title": "夫婦以上，戀人未滿 7",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fuufu-7",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66a0b0934940014e778e7726/800x.webp?source_format=jpg",
     "author": "金丸祐基",
@@ -2997,8 +3078,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "夫婦以上，戀人未滿 8",
-    "id": "fuufu-8",
-    "addedAt": 1774621962283
+    "id": "fuufu-8"
   },
   {
     "type": "series",
@@ -3007,7 +3087,6 @@ export const initialBooks: Book[] = [
     "author": "金丸祐基",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66a0b092b1c3e00022c4b8f7/800x.webp?source_format=jpg",
     "id": "fuufu-9",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "夫婦以上，戀人未滿 9"
@@ -3021,7 +3100,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "夫婦以上，戀人未滿 10",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fuufu-10"
   },
   {
@@ -3029,7 +3107,6 @@ export const initialBooks: Book[] = [
     "title": "夫婦以上，戀人未滿 11",
     "subCategory": "",
     "id": "fuufu-11",
-    "addedAt": 1774621962283,
     "author": "金丸祐基",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/680ee1c1b3cc9d000dcb4e07/800x.webp?source_format=jpg",
     "tags": [],
@@ -3042,7 +3119,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1749/KD1749001A/KD1749001A.jpg",
     "author": "金田陽介",
-    "addedAt": 1774621962283,
     "id": "black-cat-1",
     "subCategory": "",
     "title": "黑貓與魔女的教室 1",
@@ -3057,12 +3133,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "黑貓與魔女的教室 2",
     "subCategory": "",
-    "id": "black-cat-2",
-    "addedAt": 1774621962283
+    "id": "black-cat-2"
   },
   {
     "id": "black-cat-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "黑貓與魔女的教室 3",
     "subCategory": "",
@@ -3076,7 +3150,6 @@ export const initialBooks: Book[] = [
     "title": "黑貓與魔女的教室 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "black-cat-4",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1749/KD1749004/KD1749004.jpg",
     "author": "金田陽介",
@@ -3089,7 +3162,6 @@ export const initialBooks: Book[] = [
     "title": "黑貓與魔女的教室 5",
     "subCategory": "",
     "id": "black-cat-5",
-    "addedAt": 1774621962283,
     "author": "金田陽介",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1749/KD1749005/KD1749005.jpg",
     "type": "series",
@@ -3098,7 +3170,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "black-cat-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "黑貓與魔女的教室 6",
@@ -3113,7 +3184,6 @@ export const initialBooks: Book[] = [
     "title": "沉默魔女的秘密 1",
     "subCategory": "",
     "id": "silent-witch-1",
-    "addedAt": 1774621962283,
     "author": "依空まつり",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6699e1a1b9c78b0016ecd18c/800x.webp?source_format=jpg",
     "type": "series",
@@ -3127,7 +3197,6 @@ export const initialBooks: Book[] = [
     "author": "依空まつり",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6699e1a23fab53000d627355/800x.webp?source_format=jpg",
     "id": "silent-witch-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "沉默魔女的秘密 2"
@@ -3141,12 +3210,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "沉默魔女的秘密 3",
     "subCategory": "",
-    "id": "silent-witch-3",
-    "addedAt": 1774621962283
+    "id": "silent-witch-3"
   },
   {
     "id": "silent-witch-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "沉默魔女的秘密 4",
@@ -3161,7 +3228,6 @@ export const initialBooks: Book[] = [
     "title": "沉默魔女的秘密 5",
     "subCategory": "",
     "id": "silent-witch-5",
-    "addedAt": 1774621962283,
     "author": "依空まつり",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6699e1a116a9f7001927e526/800x.webp?source_format=jpg",
     "tags": [],
@@ -3172,7 +3238,6 @@ export const initialBooks: Book[] = [
     "title": "沉默魔女的秘密 6",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "silent-witch-6",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6699e1373cb5290016a57ebf/800x.webp?source_format=jpg",
     "author": "依空まつり",
@@ -3186,7 +3251,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66403c469b88f10022fee1d0/800x.webp?source_format=jpg",
     "author": "橘公司",
-    "addedAt": 1774621962283,
     "id": "kings-prop-1",
     "title": "王者的求婚 1",
     "subCategory": "",
@@ -3197,7 +3261,6 @@ export const initialBooks: Book[] = [
     "title": "王者的求婚 2",
     "subCategory": "",
     "id": "kings-prop-2",
-    "addedAt": 1774621962283,
     "author": "橘公司",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/664028eac851b60013fff368/800x.webp?source_format=jpg",
     "category": "王者的求婚",
@@ -3208,7 +3271,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "才女的侍從 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "saijo-1",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/ND0117/ND0117001A/ND0117001A.jpg",
     "author": "坂石遊",
@@ -3222,14 +3284,12 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/ND0117/ND0117002B/ND0117002B.jpg",
     "author": "坂石遊",
-    "addedAt": 1774621962283,
     "id": "saijo-2",
     "title": "才女的侍從 2",
     "subCategory": "",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "saijo-3",
     "title": "才女的侍從 3",
     "subCategory": "",
@@ -3242,7 +3302,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "saijo-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "才女的侍從 4",
@@ -3257,7 +3316,6 @@ export const initialBooks: Book[] = [
     "title": "朋友的妹妹只纏著我 2",
     "subCategory": "",
     "id": "imo-uza-2",
-    "addedAt": 1774621962283,
     "author": "三河ごーすと",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0016/NY0016002/NY0016002.jpg",
     "tags": [],
@@ -3270,7 +3328,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0016/NY0016003/NY0016003.jpg",
     "author": "三河ごーすと",
-    "addedAt": 1774621962283,
     "id": "imo-uza-3",
     "title": "朋友的妹妹只纏著我 3",
     "subCategory": "",
@@ -3280,7 +3337,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "朋友的妹妹只纏著我 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "imo-uza-4",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/NY0016/NY0016004/NY0016004.jpg",
     "author": "三河ごーすと",
@@ -3297,12 +3353,10 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "狂賭之淵 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kakegurui-1"
   },
   {
     "id": "kakegurui-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "狂賭之淵 2",
@@ -3319,7 +3373,6 @@ export const initialBooks: Book[] = [
     "author": "河本焰/尚村透",
     "coverUrl": "",
     "id": "kakegurui-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "狂賭之淵 3",
     "subCategory": ""
@@ -3331,7 +3384,6 @@ export const initialBooks: Book[] = [
     "author": "河本焰/尚村透",
     "coverUrl": "",
     "id": "kakegurui-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "狂賭之淵 4"
@@ -3345,7 +3397,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "狂賭之淵 5",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kakegurui-5"
   },
   {
@@ -3353,7 +3404,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "狂賭之淵 6",
     "id": "kakegurui-6",
-    "addedAt": 1774621962283,
     "author": "河本焰/尚村透",
     "coverUrl": "",
     "type": "series",
@@ -3361,7 +3411,6 @@ export const initialBooks: Book[] = [
     "tags": []
   },
   {
-    "addedAt": 1774621962283,
     "id": "kakegurui-7",
     "subCategory": "",
     "title": "狂賭之淵 7",
@@ -3379,7 +3428,6 @@ export const initialBooks: Book[] = [
     "author": "河本焰/尚村透",
     "coverUrl": "",
     "id": "kakegurui-8",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "狂賭之淵 8"
@@ -3388,7 +3436,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "狂賭之淵 9",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kakegurui-9",
     "coverUrl": "",
     "author": "河本焰/尚村透",
@@ -3403,7 +3450,6 @@ export const initialBooks: Book[] = [
     "author": "河本焰/尚村透",
     "coverUrl": "",
     "id": "kakegurui-10",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "狂賭之淵 10"
@@ -3412,7 +3458,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "狂賭之淵 11",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kakegurui-11",
     "coverUrl": "",
     "author": "河本焰/尚村透",
@@ -3425,7 +3470,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "狂賭之淵 12",
     "id": "kakegurui-12",
-    "addedAt": 1774621962283,
     "author": "河本焰/尚村透",
     "coverUrl": "",
     "tags": [],
@@ -3441,12 +3485,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "狂賭之淵 13",
     "subCategory": "",
-    "id": "kakegurui-13",
-    "addedAt": 1774621962283
+    "id": "kakegurui-13"
   },
   {
     "id": "kakegurui-14",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "狂賭之淵 14",
     "subCategory": "",
@@ -3465,8 +3507,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "狂賭之淵 15",
-    "id": "kakegurui-15",
-    "addedAt": 1774621962283
+    "id": "kakegurui-15"
   },
   {
     "author": "河本焰/尚村透",
@@ -3477,8 +3518,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "狂賭之淵 16",
-    "id": "kakegurui-16",
-    "addedAt": 1774621962283
+    "id": "kakegurui-16"
   },
   {
     "coverUrl": "",
@@ -3489,7 +3529,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "狂賭之淵 17",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kakegurui-17"
   },
   {
@@ -3499,7 +3538,6 @@ export const initialBooks: Book[] = [
     "author": "河本焰/尚村透",
     "coverUrl": "",
     "id": "kakegurui-18",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "狂賭之淵 18"
@@ -3511,13 +3549,11 @@ export const initialBooks: Book[] = [
     "author": "真島浩/上田敦夫",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551001/KD1551001.jpg",
     "id": "fairy-tail-100-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 1"
   },
   {
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-2",
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 2",
@@ -3535,7 +3571,6 @@ export const initialBooks: Book[] = [
     "author": "真島浩/上田敦夫",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551003/KD1551003.jpg",
     "id": "fairy-tail-100-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "妖精的尾巴 百年任務 3",
     "subCategory": ""
@@ -3544,7 +3579,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-4",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551004/KD1551004.jpg",
     "author": "真島浩/上田敦夫",
@@ -3554,7 +3588,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "fairy-tail-100-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 5",
@@ -3569,7 +3602,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 6",
     "id": "fairy-tail-100-6",
-    "addedAt": 1774621962283,
     "author": "真島浩/上田敦夫",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551006/KD1551006.jpg",
     "type": "series",
@@ -3582,7 +3614,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551007/KD1551007.jpg",
     "author": "真島浩/上田敦夫",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-7",
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 7",
@@ -3597,14 +3628,12 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 8",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-8"
   },
   {
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 9",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-9",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551009/KD1551009.jpg",
     "author": "真島浩/上田敦夫",
@@ -3618,7 +3647,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551010/KD1551010.jpg",
     "author": "真島浩/上田敦夫",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-10",
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 10",
@@ -3633,14 +3661,12 @@ export const initialBooks: Book[] = [
     "title": "妖精的尾巴 百年任務 11",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-11"
   },
   {
     "title": "妖精的尾巴 百年任務 12",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-12",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551012/KD1551012.jpg",
     "author": "真島浩/上田敦夫",
@@ -3655,7 +3681,6 @@ export const initialBooks: Book[] = [
     "author": "真島浩/上田敦夫",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551013/KD1551013.jpg",
     "id": "fairy-tail-100-13",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "妖精的尾巴 百年任務 13",
     "subCategory": ""
@@ -3669,7 +3694,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "妖精的尾巴 百年任務 14",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-14"
   },
   {
@@ -3678,7 +3702,6 @@ export const initialBooks: Book[] = [
     "category": "妖精的尾巴 百年任務",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1551/KD1551015/KD1551015.jpg",
     "author": "真島浩/上田敦夫",
-    "addedAt": 1774621962283,
     "id": "fairy-tail-100-15",
     "title": "妖精的尾巴 百年任務 15",
     "subCategory": "",
@@ -3693,11 +3716,9 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "妖精的尾巴 百年任務 16",
     "subCategory": "",
-    "id": "fairy-tail-100-16",
-    "addedAt": 1774621962283
+    "id": "fairy-tail-100-16"
   },
   {
-    "addedAt": 1774621962283,
     "id": "eternity-1",
     "subCategory": "",
     "title": "給不滅的你 1",
@@ -3710,7 +3731,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "eternity-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "給不滅的你 2",
     "subCategory": "",
@@ -3724,7 +3744,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "給不滅的你 3",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "eternity-3",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399003A/KD1399003A.jpg",
     "author": "大今良時",
@@ -3741,12 +3760,10 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "給不滅的你 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "eternity-4"
   },
   {
     "id": "eternity-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "給不滅的你 5",
@@ -3757,7 +3774,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399005A/KD1399005A.jpg"
   },
   {
-    "addedAt": 1774621962283,
     "id": "eternity-6",
     "subCategory": "",
     "title": "給不滅的你 6",
@@ -3773,7 +3789,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "給不滅的你 7",
     "id": "eternity-7",
-    "addedAt": 1774621962283,
     "author": "大今良時",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399007A/KD1399007A.jpg",
     "category": "給不滅的你",
@@ -3784,7 +3799,6 @@ export const initialBooks: Book[] = [
     "title": "給不滅的你 8",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "eternity-8",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399008A/KD1399008A.jpg",
     "author": "大今良時",
@@ -3799,7 +3813,6 @@ export const initialBooks: Book[] = [
     "author": "大今良時",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399009A/KD1399009A.jpg",
     "id": "eternity-9",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "給不滅的你 9",
     "subCategory": ""
@@ -3811,7 +3824,6 @@ export const initialBooks: Book[] = [
     "author": "大今良時",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399010A/KD1399010A.jpg",
     "id": "eternity-10",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "給不滅的你 10",
     "subCategory": ""
@@ -3823,7 +3835,6 @@ export const initialBooks: Book[] = [
     "author": "大今良時",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399011A/KD1399011A.jpg",
     "id": "eternity-11",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "給不滅的你 11"
@@ -3837,7 +3848,6 @@ export const initialBooks: Book[] = [
     "title": "給不滅的你 12",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "eternity-12"
   },
   {
@@ -3846,7 +3856,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399013/KD1399013.jpg",
     "author": "大今良時",
-    "addedAt": 1774621962283,
     "id": "eternity-13",
     "subCategory": "",
     "title": "給不滅的你 13",
@@ -3861,8 +3870,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "給不滅的你 14",
-    "id": "eternity-14",
-    "addedAt": 1774621962283
+    "id": "eternity-14"
   },
   {
     "author": "大今良時",
@@ -3873,14 +3881,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "給不滅的你 15",
     "subCategory": "",
-    "id": "eternity-15",
-    "addedAt": 1774621962283
+    "id": "eternity-15"
   },
   {
     "subCategory": "",
     "title": "給不滅的你 16",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "eternity-16",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1399/KD1399016/KD1399016.jpg",
     "author": "大今良時",
@@ -3897,11 +3903,9 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "給不滅的你 17",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "eternity-17"
   },
   {
-    "addedAt": 1774621962283,
     "id": "chainsaw-1",
     "subCategory": "",
     "title": "鏈鋸人 1",
@@ -3921,14 +3925,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "鏈鋸人 2",
     "subCategory": "",
-    "id": "chainsaw-2",
-    "addedAt": 1774621962283
+    "id": "chainsaw-2"
   },
   {
     "subCategory": "",
     "title": "鏈鋸人 3",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "chainsaw-3",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1146/JC1146003/JC1146003.jpg",
     "author": "藤本樹",
@@ -3945,8 +3947,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "鏈鋸人 4",
-    "id": "chainsaw-4",
-    "addedAt": 1774621962283
+    "id": "chainsaw-4"
   },
   {
     "type": "series",
@@ -3954,7 +3955,6 @@ export const initialBooks: Book[] = [
     "category": "鏈鋸人",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1146/JC1146005/JC1146005.jpg",
     "author": "藤本樹",
-    "addedAt": 1774621962283,
     "id": "chainsaw-5",
     "subCategory": "",
     "title": "鏈鋸人 5",
@@ -3969,8 +3969,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "鏈鋸人 6",
     "subCategory": "",
-    "id": "chainsaw-6",
-    "addedAt": 1774621962283
+    "id": "chainsaw-6"
   },
   {
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1146/JC1146007/JC1146007.jpg",
@@ -3981,7 +3980,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "鏈鋸人 7",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "chainsaw-7"
   },
   {
@@ -3993,12 +3991,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "鏈鋸人 8",
-    "id": "chainsaw-8",
-    "addedAt": 1774621962283
+    "id": "chainsaw-8"
   },
   {
     "id": "chainsaw-9",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "鏈鋸人 9",
@@ -4013,7 +4009,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "鏈鋸人 10",
     "id": "chainsaw-10",
-    "addedAt": 1774621962283,
     "author": "藤本樹",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1146/JC1146010/JC1146010.jpg",
     "category": "鏈鋸人",
@@ -4029,11 +4024,9 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "鏈鋸人 11",
     "subCategory": "",
-    "id": "chainsaw-11",
-    "addedAt": 1774621962283
+    "id": "chainsaw-11"
   },
   {
-    "addedAt": 1774621962283,
     "id": "ender-geister-1",
     "subCategory": "",
     "title": "終之退魔師 1",
@@ -4046,7 +4039,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "ender-geister-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "終之退魔師 2",
     "subCategory": "",
@@ -4061,7 +4053,6 @@ export const initialBooks: Book[] = [
     "title": "終之退魔師 3",
     "subCategory": "",
     "id": "ender-geister-3",
-    "addedAt": 1774621962283,
     "author": "四方山 貴史",
     "coverUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/10567362/0/638892407635470000?v=1",
     "tags": [],
@@ -4077,8 +4068,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "金田一少年事件簿R 1",
-    "id": "kindaichi-r-1",
-    "addedAt": 1774621962283
+    "id": "kindaichi-r-1"
   },
   {
     "author": "天樹征丸/佐藤文也",
@@ -4089,8 +4079,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "金田一少年事件簿R 2",
     "subCategory": "",
-    "id": "kindaichi-r-2",
-    "addedAt": 1774621962283
+    "id": "kindaichi-r-2"
   },
   {
     "tags": [],
@@ -4099,7 +4088,6 @@ export const initialBooks: Book[] = [
     "author": "天樹征丸/佐藤文也",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD0494/KD0494003/KD0494003.jpg",
     "id": "kindaichi-r-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "金田一少年事件簿R 3"
@@ -4109,7 +4097,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "金田一少年事件簿R 4",
     "id": "kindaichi-r-4",
-    "addedAt": 1774621962283,
     "author": "天樹征丸/佐藤文也",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD0494/KD0494004/KD0494004.jpg",
     "type": "series",
@@ -4122,14 +4109,12 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD0494/KD0494005/KD0494005.jpg",
     "author": "天樹征丸/佐藤文也",
-    "addedAt": 1774621962283,
     "id": "kindaichi-r-5",
     "title": "金田一少年事件簿R 5",
     "subCategory": "",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "kindaichi-r-6",
     "title": "金田一少年事件簿R 6",
     "subCategory": "",
@@ -4144,7 +4129,6 @@ export const initialBooks: Book[] = [
     "title": "金田一少年事件簿R 7",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kindaichi-r-7",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD0494/KD0494007/KD0494007.jpg",
     "author": "天樹征丸/佐藤文也",
@@ -4154,7 +4138,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "cuckoo-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "杜鵑婚約 1",
@@ -4166,7 +4149,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "cuckoo-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "杜鵑婚約 2",
     "subCategory": "",
@@ -4182,14 +4164,12 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681682046005/20190422115211730233.jpg",
     "author": "博",
-    "addedAt": 1774621962283,
     "id": "akebi-1",
     "subCategory": "",
     "title": "明日同學的水手服 1",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "akebi-2",
     "subCategory": "",
     "title": "明日同學的水手服 2",
@@ -4202,7 +4182,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "akebi-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "明日同學的水手服 3",
@@ -4218,14 +4197,12 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681825025003/20191102052832689736.jpg",
     "author": "博",
-    "addedAt": 1774621962283,
     "id": "akebi-4",
     "title": "明日同學的水手服 4",
     "subCategory": "",
     "genre": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "akebi-5",
     "title": "明日同學的水手服 5",
     "subCategory": "",
@@ -4245,12 +4222,10 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "明日同學的水手服 6",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "akebi-6"
   },
   {
     "id": "akebi-7",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "明日同學的水手服 7",
@@ -4269,14 +4244,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "明日同學的水手服 8",
-    "id": "akebi-8",
-    "addedAt": 1774621962283
+    "id": "akebi-8"
   },
   {
     "subCategory": "",
     "title": "女神咖啡廳 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "goddess-cafe-1",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688001/KD1688001.jpg",
     "author": "瀨尾公治",
@@ -4291,7 +4264,6 @@ export const initialBooks: Book[] = [
     "title": "女神咖啡廳 2",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "goddess-cafe-2"
   },
   {
@@ -4299,7 +4271,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688003/KD1688003.jpg",
     "author": "瀨尾公治",
-    "addedAt": 1774621962283,
     "id": "goddess-cafe-3",
     "title": "女神咖啡廳 3",
     "subCategory": "",
@@ -4310,7 +4281,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "女神咖啡廳 4",
     "id": "goddess-cafe-4",
-    "addedAt": 1774621962283,
     "author": "瀨尾公治",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1688/KD1688004/KD1688004.jpg",
     "type": "series",
@@ -4324,15 +4294,13 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "女神咖啡廳 5",
     "subCategory": "",
-    "id": "goddess-cafe-5",
-    "addedAt": 1774621962283
+    "id": "goddess-cafe-5"
   },
   {
     "genre": "",
     "subCategory": "",
     "title": "不要欺負我，長瀞同學 1",
     "id": "nagatoro-1",
-    "addedAt": 1774621962283,
     "author": "Nanashi",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494001/KD1494001.jpg",
     "type": "series",
@@ -4344,7 +4312,6 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494002/KD1494002.jpg",
     "id": "nagatoro-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "不要欺負我，長瀞同學 2",
     "subCategory": ""
@@ -4357,14 +4324,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "不要欺負我，長瀞同學 3",
-    "id": "nagatoro-3",
-    "addedAt": 1774621962283
+    "id": "nagatoro-3"
   },
   {
     "title": "不要欺負我，長瀞同學 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "nagatoro-4",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494004/KD1494004.jpg",
     "author": "Nanashi",
@@ -4376,7 +4341,6 @@ export const initialBooks: Book[] = [
     "title": "不要欺負我，長瀞同學 5",
     "subCategory": "",
     "id": "nagatoro-5",
-    "addedAt": 1774621962283,
     "author": "Nanashi",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494005/KD1494005.jpg",
     "category": "不要欺負我，長瀞同學",
@@ -4390,11 +4354,9 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "不要欺負我，長瀞同學 6",
     "subCategory": "",
-    "id": "nagatoro-6",
-    "addedAt": 1774621962283
+    "id": "nagatoro-6"
   },
   {
-    "addedAt": 1774621962283,
     "id": "nagatoro-7",
     "title": "不要欺負我，長瀞同學 7",
     "subCategory": "",
@@ -4412,7 +4374,6 @@ export const initialBooks: Book[] = [
     "title": "不要欺負我，長瀞同學 8",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "nagatoro-8"
   },
   {
@@ -4423,7 +4384,6 @@ export const initialBooks: Book[] = [
     "title": "不要欺負我，長瀞同學 9",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "nagatoro-9"
   },
   {
@@ -4434,8 +4394,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "不要欺負我，長瀞同學 10",
-    "id": "nagatoro-10",
-    "addedAt": 1774621962283
+    "id": "nagatoro-10"
   },
   {
     "author": "Nanashi",
@@ -4445,8 +4404,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "不要欺負我，長瀞同學 11",
-    "id": "nagatoro-11",
-    "addedAt": 1774621962283
+    "id": "nagatoro-11"
   },
   {
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494012/KD1494012.jpg",
@@ -4456,7 +4414,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "不要欺負我，長瀞同學 12",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "nagatoro-12"
   },
   {
@@ -4465,7 +4422,6 @@ export const initialBooks: Book[] = [
     "author": "Nanashi",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494013/KD1494013.jpg",
     "id": "nagatoro-13",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "不要欺負我，長瀞同學 13",
     "subCategory": ""
@@ -4475,7 +4431,6 @@ export const initialBooks: Book[] = [
     "category": "不要欺負我，長瀞同學",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494014/KD1494014.jpg",
     "author": "Nanashi",
-    "addedAt": 1774621962283,
     "id": "nagatoro-14",
     "title": "不要欺負我，長瀞同學 14",
     "subCategory": "",
@@ -4486,14 +4441,12 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "不要欺負我，長瀞同學 15",
     "id": "nagatoro-15",
-    "addedAt": 1774621962283,
     "author": "Nanashi",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1494/KD1494015/KD1494015.jpg",
     "category": "不要欺負我，長瀞同學",
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "nagatoro-16",
     "subCategory": "",
     "title": "不要欺負我，長瀞同學 16",
@@ -4512,7 +4465,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "久保同學不放過我 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kubo-1"
   },
   {
@@ -4522,7 +4474,6 @@ export const initialBooks: Book[] = [
     "author": "雪森寧寧",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1200/JC1200002/JC1200002.jpg",
     "id": "kubo-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "久保同學不放過我 2",
     "subCategory": ""
@@ -4536,12 +4487,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "久保同學不放過我 3",
     "subCategory": "",
-    "id": "kubo-3",
-    "addedAt": 1774621962283
+    "id": "kubo-3"
   },
   {
     "id": "senpai-boy-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "學姊是男孩 1",
@@ -4552,7 +4501,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/BM0413/BM0413001/BM0413001.jpg"
   },
   {
-    "addedAt": 1774621962283,
     "id": "senpai-boy-2",
     "title": "學姊是男孩 2",
     "subCategory": "",
@@ -4569,7 +4517,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552001/KD1552001.jpg",
     "author": "宮島禮吏",
-    "addedAt": 1774621962283,
     "id": "rent-gf-1",
     "title": "出租女友 1",
     "subCategory": "",
@@ -4577,7 +4524,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "rent-gf-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "出租女友 2",
     "subCategory": "",
@@ -4591,7 +4537,6 @@ export const initialBooks: Book[] = [
     "title": "出租女友 3",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "rent-gf-3",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552003/KD1552003.jpg",
     "author": "宮島禮吏",
@@ -4608,8 +4553,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "出租女友 4",
-    "id": "rent-gf-4",
-    "addedAt": 1774621962283
+    "id": "rent-gf-4"
   },
   {
     "author": "宮島禮吏",
@@ -4620,15 +4564,13 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "出租女友 5",
-    "id": "rent-gf-5",
-    "addedAt": 1774621962283
+    "id": "rent-gf-5"
   },
   {
     "genre": "",
     "title": "出租女友 6",
     "subCategory": "",
     "id": "rent-gf-6",
-    "addedAt": 1774621962283,
     "author": "宮島禮吏",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552006/KD1552006.jpg",
     "category": "出租女友",
@@ -4640,7 +4582,6 @@ export const initialBooks: Book[] = [
     "title": "出租女友 10",
     "subCategory": "",
     "id": "rent-gf-10",
-    "addedAt": 1774621962283,
     "author": "宮島禮吏",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552010/KD1552010.jpg",
     "category": "出租女友",
@@ -4654,7 +4595,6 @@ export const initialBooks: Book[] = [
     "author": "宮島禮吏",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552011/KD1552011.jpg",
     "id": "rent-gf-11",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "出租女友 11",
     "subCategory": ""
@@ -4668,15 +4608,13 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "出租女友 22",
-    "id": "rent-gf-22",
-    "addedAt": 1774621962283
+    "id": "rent-gf-22"
   },
   {
     "genre": "",
     "subCategory": "",
     "title": "出租女友 23",
     "id": "rent-gf-23",
-    "addedAt": 1774621962283,
     "author": "宮島禮吏",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552023/KD1552023.jpg",
     "category": "出租女友",
@@ -4689,7 +4627,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552024/KD1552024.jpg",
     "author": "宮島禮吏",
-    "addedAt": 1774621962283,
     "id": "rent-gf-24",
     "title": "出租女友 24",
     "subCategory": "",
@@ -4701,7 +4638,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552025/KD1552025.jpg",
     "author": "宮島禮吏",
-    "addedAt": 1774621962283,
     "id": "rent-gf-25",
     "subCategory": "",
     "title": "出租女友 25",
@@ -4716,8 +4652,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "出租女友 26",
     "subCategory": "",
-    "id": "rent-gf-26",
-    "addedAt": 1774621962283
+    "id": "rent-gf-26"
   },
   {
     "category": "出租女友",
@@ -4725,7 +4660,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552027/KD1552027.jpg",
     "author": "宮島禮吏",
-    "addedAt": 1774621962283,
     "id": "rent-gf-27",
     "subCategory": "",
     "title": "出租女友 27",
@@ -4738,14 +4672,12 @@ export const initialBooks: Book[] = [
     "author": "宮島禮吏",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1552/KD1552028/KD1552028.jpg",
     "id": "rent-gf-28",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "出租女友 28"
   },
   {
     "id": "kagura-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "神樂鉢 1",
     "subCategory": "",
@@ -4762,7 +4694,6 @@ export const initialBooks: Book[] = [
     "author": "外薗健",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1343/JC1343002/JC1343002.jpg",
     "id": "kagura-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "神樂鉢 2",
     "subCategory": ""
@@ -4776,7 +4707,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "神樂鉢 3",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kagura-3"
   },
   {
@@ -4786,7 +4716,6 @@ export const initialBooks: Book[] = [
     "author": "外薗健",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1343/JC1343004/JC1343004.jpg",
     "id": "kagura-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "神樂鉢 4"
@@ -4797,7 +4726,6 @@ export const initialBooks: Book[] = [
     "category": "神樂鉢",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1343/JC1343005/JC1343005.jpg",
     "author": "外薗健",
-    "addedAt": 1774621962283,
     "id": "kagura-5",
     "title": "神樂鉢 5",
     "subCategory": "",
@@ -4805,7 +4733,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "kagura-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "神樂鉢 6",
@@ -4823,7 +4750,6 @@ export const initialBooks: Book[] = [
     "title": "午夜的傾心旋律 1",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "midnight-1"
   },
   {
@@ -4835,7 +4761,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "午夜的傾心旋律 2",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "midnight-2"
   },
   {
@@ -4844,7 +4769,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/10793138/0/638840312429970000?v=1",
     "author": "五十嵐正邦",
-    "addedAt": 1774621962283,
     "id": "midnight-3",
     "subCategory": "",
     "title": "午夜的傾心旋律 3",
@@ -4859,12 +4783,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "午夜的傾心旋律 4",
-    "id": "midnight-4",
-    "addedAt": 1774621962283
+    "id": "midnight-4"
   },
   {
     "id": "midnight-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "午夜的傾心旋律 5",
     "subCategory": "",
@@ -4883,15 +4805,13 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "午夜的傾心旋律 6",
     "subCategory": "",
-    "id": "midnight-6",
-    "addedAt": 1774621962283
+    "id": "midnight-6"
   },
   {
     "genre": "",
     "title": "來自深淵 1",
     "subCategory": "",
     "id": "abyss-manga-1",
-    "addedAt": 1774621962283,
     "author": "土筆章人",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681479515004/702742.jpg",
     "type": "series",
@@ -4904,7 +4824,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681479517008/702740.jpg",
     "author": "土筆章人",
-    "addedAt": 1774621962283,
     "id": "abyss-manga-2",
     "title": "來自深淵 2",
     "subCategory": "",
@@ -4914,7 +4833,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "來自深淵 3",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "abyss-manga-3",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681488480003/709718.jpg",
     "author": "土筆章人",
@@ -4924,7 +4842,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "abyss-manga-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "來自深淵 4",
     "subCategory": "",
@@ -4938,7 +4855,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "來自深淵 5",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "abyss-manga-5",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681513177007/726581.jpg",
     "author": "土筆章人",
@@ -4955,12 +4871,10 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "來自深淵 6",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "abyss-manga-6"
   },
   {
     "id": "abyss-manga-7",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "來自深淵 7",
@@ -4979,8 +4893,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "來自深淵 8",
     "subCategory": "",
-    "id": "abyss-manga-8",
-    "addedAt": 1774621962283
+    "id": "abyss-manga-8"
   },
   {
     "type": "series",
@@ -4988,7 +4901,6 @@ export const initialBooks: Book[] = [
     "category": "來自深淵",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681975418007/20210126033700976857.jpg",
     "author": "土筆章人",
-    "addedAt": 1774621962283,
     "id": "abyss-manga-9",
     "title": "來自深淵 9",
     "subCategory": "",
@@ -5003,15 +4915,13 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "來自深淵 10",
-    "id": "abyss-manga-10",
-    "addedAt": 1774621962283
+    "id": "abyss-manga-10"
   },
   {
     "genre": "",
     "title": "來自深淵 11",
     "subCategory": "",
     "id": "abyss-manga-11",
-    "addedAt": 1774621962283,
     "author": "土筆章人",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682325977007/20230110041046291139.jpg",
     "tags": [],
@@ -5020,7 +4930,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "abyss-manga-12",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "來自深淵 12",
@@ -5034,7 +4943,6 @@ export const initialBooks: Book[] = [
     "title": "來自深淵 13",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "abyss-manga-13",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/b2b/vendor/vendor175271991661020250717103838/mainCoverImage1_1478251.jpg",
     "author": "土筆章人",
@@ -5043,7 +4951,6 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "ririsa-1",
     "subCategory": "",
     "title": "2.5次元的誘惑 1",
@@ -5059,7 +4966,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "2.5次元的誘惑 2",
     "id": "ririsa-2",
-    "addedAt": 1774621962283,
     "author": "橋本悠",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518902.jpg",
     "tags": [],
@@ -5071,7 +4977,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "2.5次元的誘惑 3",
     "id": "ririsa-3",
-    "addedAt": 1774621962283,
     "author": "橋本悠",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518903.jpg",
     "type": "series",
@@ -5082,7 +4987,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "2.5次元的誘惑 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "ririsa-4",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518904.jpg",
     "author": "橋本悠",
@@ -5091,7 +4995,6 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "ririsa-5",
     "subCategory": "",
     "title": "2.5次元的誘惑 5",
@@ -5106,7 +5009,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "2.5次元的誘惑 6",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "ririsa-6",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518906.jpg",
     "author": "橋本悠",
@@ -5119,7 +5021,6 @@ export const initialBooks: Book[] = [
     "title": "2.5次元的誘惑 7",
     "subCategory": "",
     "id": "ririsa-7",
-    "addedAt": 1774621962283,
     "author": "橋本悠",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518907.jpg",
     "type": "series",
@@ -5133,13 +5034,11 @@ export const initialBooks: Book[] = [
     "author": "橋本悠",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518908.jpg",
     "id": "ririsa-8",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "2.5次元的誘惑 8",
     "subCategory": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "ririsa-9",
     "subCategory": "",
     "title": "2.5次元的誘惑 9",
@@ -5154,7 +5053,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "2.5次元的誘惑 10",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "ririsa-10",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518910.jpg",
     "author": "橋本悠",
@@ -5168,7 +5066,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518911.jpg",
     "author": "橋本悠",
-    "addedAt": 1774621962283,
     "id": "ririsa-11",
     "title": "2.5次元的誘惑 11",
     "subCategory": "",
@@ -5180,7 +5077,6 @@ export const initialBooks: Book[] = [
     "category": "2.5次元的誘惑",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518912.jpg",
     "author": "橋本悠",
-    "addedAt": 1774621962283,
     "id": "ririsa-12",
     "title": "2.5次元的誘惑 12",
     "subCategory": "",
@@ -5188,7 +5084,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "ririsa-13",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "2.5次元的誘惑 13",
@@ -5205,7 +5100,6 @@ export const initialBooks: Book[] = [
     "author": "橋本悠",
     "coverUrl": "https://www.ching-win.com.tw//upload_files/fonlego-rwd/prodpic/D_10518914.jpg",
     "id": "ririsa-14",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "2.5次元的誘惑 14",
     "subCategory": ""
@@ -5219,12 +5113,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "2.5次元的誘惑 15",
-    "id": "ririsa-15",
-    "addedAt": 1774621962283
+    "id": "ririsa-15"
   },
   {
     "id": "ririsa-16",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "2.5次元的誘惑 16",
     "subCategory": "",
@@ -5238,7 +5130,6 @@ export const initialBooks: Book[] = [
     "title": "2.5次元的誘惑 17",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "ririsa-17",
     "coverUrl": "",
     "author": "橋本悠",
@@ -5255,14 +5146,12 @@ export const initialBooks: Book[] = [
     "title": "2.5次元的誘惑 18",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "ririsa-18"
   },
   {
     "subCategory": "",
     "title": "結緣甘神神社 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "amagami-1",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1706/KD1706001/KD1706001.jpg",
     "author": "內藤Marcey",
@@ -5276,7 +5165,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1706/KD1706002/KD1706002.jpg",
     "author": "內藤Marcey",
-    "addedAt": 1774621962283,
     "id": "amagami-2",
     "title": "結緣甘神神社 2",
     "subCategory": "",
@@ -5288,7 +5176,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1706/KD1706003/KD1706003.jpg",
     "author": "內藤Marcey",
-    "addedAt": 1774621962283,
     "id": "amagami-3",
     "subCategory": "",
     "title": "結緣甘神神社 3",
@@ -5298,7 +5185,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "結緣甘神神社 4",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "amagami-4",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1706/KD1706004/KD1706004.jpg",
     "author": "內藤Marcey",
@@ -5315,12 +5201,10 @@ export const initialBooks: Book[] = [
     "title": "結緣甘神神社 5",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "amagami-5"
   },
   {
     "id": "amagami-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "結緣甘神神社 6",
@@ -5337,14 +5221,12 @@ export const initialBooks: Book[] = [
     "author": "內藤Marcey",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1706/KD1706007/KD1706007.jpg",
     "id": "amagami-7",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "結緣甘神神社 7"
   },
   {
     "id": "amagami-8",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "結緣甘神神社 8",
@@ -5363,14 +5245,12 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "滿州鴉片小隊 1",
-    "id": "manchuria-opium-1",
-    "addedAt": 1774621962283
+    "id": "manchuria-opium-1"
   },
   {
     "subCategory": "",
     "title": "滿州鴉片小隊 2",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "manchuria-opium-2",
     "coverUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/10239615/0/638681233556700000?v=1",
     "author": "門馬司/鹿子",
@@ -5382,7 +5262,6 @@ export const initialBooks: Book[] = [
     "title": "滿州鴉片小隊 3",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "manchuria-opium-3",
     "coverUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/10239616/0/638681233558470000?v=1",
     "author": "門馬司/鹿子",
@@ -5392,7 +5271,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "manchuria-opium-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "滿州鴉片小隊 4",
     "subCategory": "",
@@ -5403,7 +5281,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/10410254/0/638744319591730000?v=1"
   },
   {
-    "addedAt": 1774621962283,
     "id": "manchuria-opium-5",
     "title": "滿州鴉片小隊 5",
     "subCategory": "",
@@ -5416,7 +5293,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "manchuria-opium-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "滿州鴉片小隊 6",
@@ -5431,7 +5307,6 @@ export const initialBooks: Book[] = [
     "title": "滿州鴉片小隊 7",
     "subCategory": "",
     "id": "manchuria-opium-7",
-    "addedAt": 1774621962283,
     "author": "門馬司/鹿子",
     "coverUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/10561721/0/638890464257570000?v=1",
     "type": "series",
@@ -5440,7 +5315,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "manchuria-opium-8",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "滿州鴉片小隊 8",
@@ -5454,7 +5328,6 @@ export const initialBooks: Book[] = [
     "title": "滿州鴉片小隊 9",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "manchuria-opium-9",
     "coverUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/10606681/0/638905868175330000?v=1",
     "author": "門馬司/鹿子",
@@ -5468,7 +5341,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "",
     "author": "門馬司/鹿子",
-    "addedAt": 1774621962283,
     "id": "manchuria-opium-10",
     "subCategory": "",
     "title": "滿州鴉片小隊 10",
@@ -5476,7 +5348,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "manchuria-opium-11",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "滿州鴉片小隊 11",
@@ -5495,8 +5366,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "滿州鴉片小隊 12",
     "subCategory": "",
-    "id": "manchuria-opium-12",
-    "addedAt": 1774621962283
+    "id": "manchuria-opium-12"
   },
   {
     "type": "series",
@@ -5504,7 +5374,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1735/KD1735001/KD1735001.jpg",
     "author": "三香見SAKA",
-    "addedAt": 1774621962283,
     "id": "kaoru-hana-1",
     "title": "薰香花朵凛然綻放 1",
     "subCategory": "",
@@ -5519,8 +5388,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "薰香花朵凛然綻放 7",
     "subCategory": "",
-    "id": "kaoru-hana-7",
-    "addedAt": 1774621962283
+    "id": "kaoru-hana-7"
   },
   {
     "type": "series",
@@ -5528,7 +5396,6 @@ export const initialBooks: Book[] = [
     "category": "薰香花朵凛然綻放",
     "coverUrl": "",
     "author": "三香見SAKA",
-    "addedAt": 1774621962283,
     "id": "kaoru-hana-8",
     "title": "薰香花朵凛然綻放 8",
     "subCategory": "",
@@ -5541,13 +5408,11 @@ export const initialBooks: Book[] = [
     "author": "山田鐘人/阿部司",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108001/SC1108001.jpg",
     "id": "frieren-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "葬送的芙莉蓮 1",
     "subCategory": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "frieren-2",
     "subCategory": "",
     "title": "葬送的芙莉蓮 2",
@@ -5567,7 +5432,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "葬送的芙莉蓮 3",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "frieren-3"
   },
   {
@@ -5576,7 +5440,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108004/SC1108004.jpg",
     "author": "山田鐘人/阿部司",
-    "addedAt": 1774621962283,
     "id": "frieren-4",
     "title": "葬送的芙莉蓮 4",
     "subCategory": "",
@@ -5591,12 +5454,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "葬送的芙莉蓮 5",
     "subCategory": "",
-    "id": "frieren-5",
-    "addedAt": 1774621962283
+    "id": "frieren-5"
   },
   {
     "id": "frieren-6",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "葬送的芙莉蓮 6",
     "subCategory": "",
@@ -5608,7 +5469,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "frieren-12",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "葬送的芙莉蓮 12",
     "subCategory": "",
@@ -5619,7 +5479,6 @@ export const initialBooks: Book[] = [
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/SC1108/SC1108012/SC1108012.jpg"
   },
   {
-    "addedAt": 1774621962283,
     "id": "frieren-14",
     "title": "葬送的芙莉蓮 14",
     "subCategory": "",
@@ -5635,7 +5494,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "伊甸星原 1",
     "id": "edens-1",
-    "addedAt": 1774621962283,
     "author": "真島浩",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1514/KD1514001/KD1514001.jpg",
     "type": "series",
@@ -5649,7 +5507,6 @@ export const initialBooks: Book[] = [
     "author": "真島浩",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1514/KD1514002/KD1514002.jpg",
     "id": "edens-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "伊甸星原 2"
@@ -5660,7 +5517,6 @@ export const initialBooks: Book[] = [
     "type": "series",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1514/KD1514003/KD1514003.jpg",
     "author": "真島浩",
-    "addedAt": 1774621962283,
     "id": "edens-3",
     "title": "伊甸星原 3",
     "subCategory": "",
@@ -5675,14 +5531,12 @@ export const initialBooks: Book[] = [
     "title": "伊甸星原 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "edens-4"
   },
   {
     "title": "伊甸星原 5",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "edens-5",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1514/KD1514005/KD1514005.jpg",
     "author": "真島浩",
@@ -5695,7 +5549,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "少年的深淵 1",
     "id": "abyss-1",
-    "addedAt": 1774621962283,
     "author": "峰浪律",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682167885003/20220503034152155143.jpg",
     "type": "series",
@@ -5704,7 +5557,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "abyss-2",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "少年的深淵 2",
     "subCategory": "",
@@ -5718,7 +5570,6 @@ export const initialBooks: Book[] = [
     "title": "少年的深淵 5",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "abyss-5",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682358981002/20230325033658421785.jpg",
     "author": "峰浪律",
@@ -5735,11 +5586,9 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "少年的深淵 6",
-    "id": "abyss-6",
-    "addedAt": 1774621962283
+    "id": "abyss-6"
   },
   {
-    "addedAt": 1774621962283,
     "id": "abyss-7",
     "title": "少年的深淵 7",
     "subCategory": "",
@@ -5759,12 +5608,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "少年的深淵 10",
     "subCategory": "",
-    "id": "abyss-10",
-    "addedAt": 1774621962283
+    "id": "abyss-10"
   },
   {
     "id": "abyss-12",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "少年的深淵 12",
@@ -5778,7 +5625,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "少年的深淵 14",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "abyss-14",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/b2b/vendor/vendor175153491546220250703172840/mainCoverImage1_1470325.jpg",
     "author": "峰浪律",
@@ -5795,8 +5641,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "少年的深淵 15",
-    "id": "abyss-15",
-    "addedAt": 1774621962283
+    "id": "abyss-15"
   },
   {
     "category": "笑魘",
@@ -5805,7 +5650,6 @@ export const initialBooks: Book[] = [
     "author": "根本安巳",
     "coverUrl": "",
     "id": "smile-manga-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "笑魘 1",
     "subCategory": ""
@@ -5819,11 +5663,9 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "笑魘 2",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "smile-manga-2"
   },
   {
-    "addedAt": 1774621962283,
     "id": "smile-manga-3",
     "subCategory": "",
     "title": "笑魘 3",
@@ -5841,7 +5683,6 @@ export const initialBooks: Book[] = [
     "author": "根本安巳",
     "coverUrl": "",
     "id": "smile-manga-4",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "笑魘 4",
     "subCategory": ""
@@ -5853,7 +5694,6 @@ export const initialBooks: Book[] = [
     "author": "根本安巳",
     "coverUrl": "",
     "id": "smile-manga-5",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "笑魘 5"
@@ -5862,7 +5702,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "魔都精兵的奴隸 1",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-1",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152001/JC1152001.jpg",
     "author": "タカヒロ/竹村洋平",
@@ -5871,7 +5710,6 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "matoi-2",
     "title": "魔都精兵的奴隸 2",
     "subCategory": "",
@@ -5891,8 +5729,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "魔都精兵的奴隸 3",
-    "id": "matoi-3",
-    "addedAt": 1774621962283
+    "id": "matoi-3"
   },
   {
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152004/JC1152004.jpg",
@@ -5903,7 +5740,6 @@ export const initialBooks: Book[] = [
     "title": "魔都精兵的奴隸 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-4"
   },
   {
@@ -5915,11 +5751,9 @@ export const initialBooks: Book[] = [
     "title": "魔都精兵的奴隸 5",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-5"
   },
   {
-    "addedAt": 1774621962283,
     "id": "matoi-6",
     "title": "魔都精兵的奴隸 6",
     "subCategory": "",
@@ -5931,7 +5765,6 @@ export const initialBooks: Book[] = [
     "author": "タカヒロ/竹村洋平"
   },
   {
-    "addedAt": 1774621962283,
     "id": "matoi-7",
     "subCategory": "",
     "title": "魔都精兵的奴隸 7",
@@ -5949,7 +5782,6 @@ export const initialBooks: Book[] = [
     "author": "タカヒロ/竹村洋平",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152008/JC1152008.jpg",
     "id": "matoi-8",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "魔都精兵的奴隸 8"
@@ -5963,7 +5795,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "魔都精兵的奴隸 9",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-9"
   },
   {
@@ -5972,7 +5803,6 @@ export const initialBooks: Book[] = [
     "category": "魔都精兵的奴隸",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152010/JC1152010.jpg",
     "author": "タカヒロ/竹村洋平",
-    "addedAt": 1774621962283,
     "id": "matoi-10",
     "title": "魔都精兵的奴隸 10",
     "subCategory": "",
@@ -5982,7 +5812,6 @@ export const initialBooks: Book[] = [
     "title": "魔都精兵的奴隸 11",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-11",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152011/JC1152011.jpg",
     "author": "タカヒロ/竹村洋平",
@@ -5992,7 +5821,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "matoi-12",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "魔都精兵的奴隸 12",
     "subCategory": "",
@@ -6006,7 +5834,6 @@ export const initialBooks: Book[] = [
     "title": "魔都精兵的奴隸 13",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-13",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152013/JC1152013.jpg",
     "author": "タカヒロ/竹村洋平",
@@ -6021,7 +5848,6 @@ export const initialBooks: Book[] = [
     "author": "タカヒロ/竹村洋平",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152014/JC1152014.jpg",
     "id": "matoi-14",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "魔都精兵的奴隸 14",
     "subCategory": ""
@@ -6035,11 +5861,9 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "魔都精兵的奴隸 15",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-15"
   },
   {
-    "addedAt": 1774621962283,
     "id": "hikaru-1",
     "subCategory": "",
     "title": "光逝去的夏天 1",
@@ -6056,7 +5880,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66555b62724233001caf79ac/800x.webp?source_format=jpg",
     "author": "モクモクれん",
-    "addedAt": 1774621962283,
     "id": "hikaru-2",
     "title": "光逝去的夏天 2",
     "subCategory": "",
@@ -6066,7 +5889,6 @@ export const initialBooks: Book[] = [
     "title": "光逝去的夏天 3",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "hikaru-3",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66555b6ae9a87100194368d3/800x.webp?source_format=jpg",
     "author": "モクモクれん",
@@ -6079,7 +5901,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "光逝去的夏天 4",
     "id": "hikaru-4",
-    "addedAt": 1774621962283,
     "author": "モクモクれん",
     "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66e0f8fb0971c60013815922/800x.webp?source_format=jpg",
     "category": "光逝去的夏天",
@@ -6090,7 +5911,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "光逝去的夏天 6",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "hikaru-6",
     "coverUrl": "",
     "author": "モクモクれん",
@@ -6107,8 +5927,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "title": "法律的悖論",
     "subCategory": "",
-    "id": "law-paradox",
-    "addedAt": 1774621962283
+    "id": "law-paradox"
   },
   {
     "type": "single",
@@ -6117,7 +5936,6 @@ export const initialBooks: Book[] = [
     "author": "羅翔",
     "coverUrl": "https://m.media-amazon.com/images/I/51NSFn+oqlL._SY425_.jpg",
     "id": "law-details",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "法治的細節",
     "subCategory": ""
@@ -6129,13 +5947,11 @@ export const initialBooks: Book[] = [
     "author": "米澤穗信",
     "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/093/68/0010936850_bc_04.jpg&v=632ae7c8k&w=348&h=348",
     "id": "kokurou-jou",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "黑牢城",
     "subCategory": ""
   },
   {
-    "addedAt": 1774621962283,
     "id": "memory-empire",
     "title": "名為帝國的記憶",
     "subCategory": "",
@@ -6155,8 +5971,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "龍之國幻想 1",
-    "id": "dragon-country-1",
-    "addedAt": 1774621962283
+    "id": "dragon-country-1"
   },
   {
     "author": "赫爾曼·梅爾維爾",
@@ -6167,8 +5982,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "白鯨 (江蘇鳳凰文藝)",
-    "id": "moby-dick-phoenix",
-    "addedAt": 1774621962283
+    "id": "moby-dick-phoenix"
   },
   {
     "tags": [],
@@ -6176,7 +5990,6 @@ export const initialBooks: Book[] = [
     "type": "single",
     "coverUrl": "",
     "author": "葛瑞姆·漢卡克",
-    "addedAt": 1774621962283,
     "id": "truth-gods",
     "title": "諸神的真相",
     "subCategory": "",
@@ -6191,12 +6004,10 @@ export const initialBooks: Book[] = [
     "title": "改變歷史的香料商人",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "spice-merchant"
   },
   {
     "id": "strange-peaks-1",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "奇峰異石傳 1",
     "subCategory": "",
@@ -6215,8 +6026,7 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "奇峰異石傳 2",
-    "id": "strange-peaks-2",
-    "addedAt": 1774621962283
+    "id": "strange-peaks-2"
   },
   {
     "category": "奇峰異石傳",
@@ -6225,7 +6035,6 @@ export const initialBooks: Book[] = [
     "author": "司馬中原",
     "coverUrl": "",
     "id": "strange-peaks-3",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "奇峰異石傳 3",
     "subCategory": ""
@@ -6235,7 +6044,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "國王遊戲",
     "id": "kings-game-1",
-    "addedAt": 1774621962283,
     "author": "金澤伸明",
     "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/053/35/0010533527_bc_01.jpg&v=4f156cfck&w=348&h=348",
     "category": "國王遊戲",
@@ -6246,7 +6054,6 @@ export const initialBooks: Book[] = [
     "title": "國王遊戲〈終極〉",
     "subCategory": "",
     "id": "kings-game-2",
-    "addedAt": 1774621962283,
     "author": "金澤伸明",
     "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/054/08/0010540893_bc_01.jpg&v=4f799f4bk&w=348&h=348",
     "category": "國王遊戲",
@@ -6256,7 +6063,6 @@ export const initialBooks: Book[] = [
     "title": "國王遊戲〈滅亡6.08〉",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kings-game-3",
     "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/055/52/0010555267_bc_01.jpg&v=502b8c6bk&w=348&h=348",
     "author": "金澤伸明",
@@ -6269,7 +6075,6 @@ export const initialBooks: Book[] = [
     "author": "博",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682214945001/20220727033419568640.jpg",
     "id": "akebi-sailor-9",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "明日同學的水手服 9"
@@ -6279,7 +6084,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "明日同學的水手服 10",
     "id": "akebi-sailor-10",
-    "addedAt": 1774621962283,
     "author": "博",
     "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682325988003/20230110041048918149.jpg",
     "category": "明日同學的水手服",
@@ -6292,14 +6096,12 @@ export const initialBooks: Book[] = [
     "author": "金丸祐基",
     "coverUrl": "",
     "id": "fuufu-ijyou-12",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "夫婦以上，戀人未滿 12"
   },
   {
     "id": "matoi-16",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "魔都精兵的奴隸 16",
     "subCategory": "",
@@ -6313,7 +6115,6 @@ export const initialBooks: Book[] = [
     "title": "魔都精兵的奴隸 17",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "matoi-17",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/JC1152/JC1152017/JC1152017.jpg",
     "author": "タカヒロ/竹村洋平",
@@ -6322,7 +6123,6 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "matoi-18",
     "subCategory": "",
     "title": "魔都精兵的奴隸 18",
@@ -6342,12 +6142,10 @@ export const initialBooks: Book[] = [
     "genre": "",
     "subCategory": "",
     "title": "魔都精兵的奴隸 19",
-    "id": "matoi-19",
-    "addedAt": 1774621962283
+    "id": "matoi-19"
   },
   {
     "id": "matoi-20",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "魔都精兵的奴隸 20",
     "subCategory": "",
@@ -6362,7 +6160,6 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "title": "2.5次元的誘惑 19",
     "id": "ririsa-19",
-    "addedAt": 1774621962283,
     "author": "橋本悠",
     "coverUrl": "",
     "type": "series",
@@ -6373,7 +6170,6 @@ export const initialBooks: Book[] = [
     "title": "2.5次元的誘惑 20",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "ririsa-20",
     "coverUrl": "",
     "author": "橋本悠",
@@ -6385,7 +6181,6 @@ export const initialBooks: Book[] = [
     "title": "小鼠的初戀 1",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "nesumi-1",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1846/KD1846001/KD1846001.jpg",
     "author": "雪本愁二",
@@ -6394,7 +6189,6 @@ export const initialBooks: Book[] = [
     "type": "series"
   },
   {
-    "addedAt": 1774621962283,
     "id": "nesumi-2",
     "subCategory": "",
     "title": "小鼠的初戀 2",
@@ -6411,7 +6205,6 @@ export const initialBooks: Book[] = [
     "category": "小鼠的初戀",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1846/KD1846003/KD1846003.jpg",
     "author": "雪本愁二",
-    "addedAt": 1774621962283,
     "id": "nesumi-3",
     "title": "小鼠的初戀 3",
     "subCategory": "",
@@ -6421,7 +6214,6 @@ export const initialBooks: Book[] = [
     "title": "小鼠的初戀 4",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "nesumi-4",
     "coverUrl": "https://www.tongli.com.tw/ComicImages/Images/KD1846/KD1846004/KD1846004.jpg",
     "author": "雪本愁二",
@@ -6431,7 +6223,6 @@ export const initialBooks: Book[] = [
   },
   {
     "id": "smile-manga-7",
-    "addedAt": 1774621962283,
     "genre": "",
     "subCategory": "",
     "title": "笑魘 7",
@@ -6446,7 +6237,6 @@ export const initialBooks: Book[] = [
     "title": "笑魘 8",
     "subCategory": "",
     "id": "smile-manga-8",
-    "addedAt": 1774621962283,
     "author": "根本安巳",
     "coverUrl": "",
     "tags": [],
@@ -6461,11 +6251,9 @@ export const initialBooks: Book[] = [
     "title": "神樂鉢 7",
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kagurabachi-7"
   },
   {
-    "addedAt": 1774621962283,
     "id": "kagurabachi-8",
     "title": "神樂鉢 8",
     "subCategory": "",
@@ -6482,7 +6270,6 @@ export const initialBooks: Book[] = [
     "author": "司馬中原",
     "coverUrl": "",
     "id": "strange-peaks",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "奇峰異石傳",
     "subCategory": ""
@@ -6494,7 +6281,6 @@ export const initialBooks: Book[] = [
     "author": "李光天",
     "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/014/35/0010143521.jpg&v=4124cb11k&w=348&h=348",
     "id": "journey-memories",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "旅途記憶",
     "subCategory": ""
@@ -6506,7 +6292,6 @@ export const initialBooks: Book[] = [
     "author": "Peter Su",
     "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/072/33/0010723322.jpg&v=57973719k&w=348&h=348",
     "id": "if-simple-who-wants-complex",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "如果可以簡單，誰想要複雜",
     "subCategory": ""
@@ -6518,7 +6303,6 @@ export const initialBooks: Book[] = [
     "author": "于日辰",
     "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/058/27/0010582737.jpg&v=516a2efak&w=348&h=348",
     "id": "one-prison-one-world",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "壹獄壹世界",
     "subCategory": ""
@@ -6530,7 +6314,6 @@ export const initialBooks: Book[] = [
     "author": "嵇零",
     "coverUrl": "https://img1.books.com.tw/image/getImage?i=https://www.books.com.tw/img/001/095/36/0010953683.jpg&v=6384a511k&w=348&h=348",
     "id": "starvation-mings-journey",
-    "addedAt": 1774621962283,
     "genre": "",
     "title": "餓殍",
     "subCategory": ""
@@ -6544,7 +6327,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-1"
   },
   {
@@ -6556,7 +6338,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-2"
   },
   {
@@ -6568,7 +6349,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-3"
   },
   {
@@ -6580,7 +6360,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-4"
   },
   {
@@ -6592,7 +6371,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-5"
   },
   {
@@ -6604,7 +6382,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-6"
   },
   {
@@ -6616,7 +6393,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-7"
   },
   {
@@ -6628,7 +6404,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-8"
   },
   {
@@ -6640,7 +6415,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-9"
   },
   {
@@ -6652,7 +6426,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-10"
   },
   {
@@ -6664,7 +6437,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-10-5"
   },
   {
@@ -6676,7 +6448,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-11"
   },
   {
@@ -6688,7 +6459,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-12"
   },
   {
@@ -6700,7 +6470,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-13"
   },
   {
@@ -6712,7 +6481,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-14"
   },
   {
@@ -6724,7 +6492,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-15"
   },
   {
@@ -6736,7 +6503,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "horimiya-16"
   },
   {
@@ -6748,7 +6514,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-1"
   },
   {
@@ -6760,7 +6525,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-2"
   },
   {
@@ -6772,7 +6536,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-3"
   },
   {
@@ -6784,7 +6547,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-4"
   },
   {
@@ -6796,7 +6558,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-5"
   },
   {
@@ -6808,7 +6569,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-6"
   },
   {
@@ -6820,7 +6580,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-7"
   },
   {
@@ -6832,7 +6591,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "bluelock-8"
   },
   {
@@ -6844,7 +6602,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "aot-1"
   },
   {
@@ -6856,7 +6613,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "aot-2"
   },
   {
@@ -6868,7 +6624,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "aot-3"
   },
   {
@@ -6880,7 +6635,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "aot-4"
   },
   {
@@ -6892,7 +6646,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "aot-5"
   },
   {
@@ -6904,7 +6657,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "aot-6"
   },
   {
@@ -6916,7 +6668,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "aot-7"
   },
   {
@@ -6928,7 +6679,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "black-cat-witch-7"
   },
   {
@@ -6940,7 +6690,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "black-cat-witch-8"
   },
   {
@@ -6952,7 +6701,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-1"
   },
   {
@@ -6964,7 +6712,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-2"
   },
   {
@@ -6976,7 +6723,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-3"
   },
   {
@@ -6988,7 +6734,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-4"
   },
   {
@@ -7000,7 +6745,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-5"
   },
   {
@@ -7012,7 +6756,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-6"
   },
   {
@@ -7024,7 +6767,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-7"
   },
   {
@@ -7036,7 +6778,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "tokyo-aliens-8"
   },
   {
@@ -7048,7 +6789,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kindergarten-wars-1"
   },
   {
@@ -7060,7 +6800,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kindergarten-wars-2"
   },
   {
@@ -7072,7 +6811,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "iruma-mafia-2"
   },
   {
@@ -7084,7 +6822,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kaijin-fugaku-1"
   },
   {
@@ -7096,7 +6833,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "kaijin-fugaku-2"
   },
   {
@@ -7108,7 +6844,6 @@ export const initialBooks: Book[] = [
     "tags": [],
     "subCategory": "",
     "genre": "",
-    "addedAt": 1774621962283,
     "id": "transparent-night-love"
   },
   {
@@ -7123,8 +6858,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-2",
@@ -7138,8 +6872,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-3",
@@ -7153,8 +6886,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-4",
@@ -7168,8 +6900,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-5",
@@ -7183,8 +6914,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-6",
@@ -7198,8 +6928,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-7",
@@ -7213,8 +6942,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-8",
@@ -7228,8 +6956,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-9",
@@ -7243,8 +6970,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-10",
@@ -7258,8 +6984,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-11",
@@ -7273,8 +6998,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-12",
@@ -7288,8 +7012,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-13",
@@ -7303,8 +7026,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-14",
@@ -7318,8 +7040,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-15",
@@ -7333,8 +7054,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-16",
@@ -7348,8 +7068,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-17",
@@ -7363,8 +7082,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-18",
@@ -7378,8 +7096,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-19",
@@ -7393,8 +7110,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "accel-world-21",
@@ -7408,8 +7124,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1774621962283
+    "genre": ""
   },
   {
     "id": "shigatsu-shinsou-1",
@@ -7423,8 +7138,7 @@ export const initialBooks: Book[] = [
       "青春"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shigatsu-shinsou-2",
@@ -7438,8 +7152,7 @@ export const initialBooks: Book[] = [
       "青春"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shigatsu-shinsou-3",
@@ -7453,8 +7166,7 @@ export const initialBooks: Book[] = [
       "青春"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-1",
@@ -7468,8 +7180,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-2",
@@ -7483,8 +7194,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-3",
@@ -7498,8 +7208,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-4",
@@ -7513,8 +7222,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-5",
@@ -7528,8 +7236,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-6",
@@ -7543,8 +7250,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-7",
@@ -7558,8 +7264,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-8",
@@ -7573,8 +7278,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-9",
@@ -7588,8 +7292,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-10",
@@ -7603,8 +7306,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-11",
@@ -7618,8 +7320,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-12",
@@ -7633,8 +7334,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-13",
@@ -7648,8 +7348,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "gotoubun-14",
@@ -7663,8 +7362,7 @@ export const initialBooks: Book[] = [
       "戀愛"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "manga-ruby-all",
@@ -7678,8 +7376,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "inutokuzu-1",
@@ -7693,8 +7390,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "inutokuzu-2",
@@ -7708,8 +7404,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "inutokuzu-3",
@@ -7723,8 +7418,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "inutokuzu-4",
@@ -7738,8 +7432,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "inutokuzu-5",
@@ -7753,8 +7446,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "allyouneediskill-1",
@@ -7768,8 +7460,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "allyouneediskill-2",
@@ -7783,8 +7474,7 @@ export const initialBooks: Book[] = [
       "戰鬥"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "nishizawa5-short-all",
@@ -7798,8 +7488,7 @@ export const initialBooks: Book[] = [
       "搞笑"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-1",
@@ -7814,8 +7503,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-2",
@@ -7830,8 +7518,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-3",
@@ -7846,8 +7533,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-4",
@@ -7862,8 +7548,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-5",
@@ -7878,8 +7563,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-6",
@@ -7894,8 +7578,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-7",
@@ -7910,8 +7593,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-8",
@@ -7926,8 +7608,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-9",
@@ -7942,8 +7623,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-10",
@@ -7958,8 +7638,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-11",
@@ -7974,8 +7653,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-12",
@@ -7990,8 +7668,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-13",
@@ -8006,8 +7683,7 @@ export const initialBooks: Book[] = [
       "黑暗"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "jigokuraku-guide",
@@ -8021,8 +7697,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "mujitsunohana-1",
@@ -8036,8 +7711,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "mujitsunohana-2",
@@ -8051,8 +7725,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "mujitsunohana-3",
@@ -8066,8 +7739,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "kaettekita-alice-1",
@@ -8081,8 +7753,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "kaettekita-alice-2",
@@ -8096,8 +7767,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "kaettekita-alice-3",
@@ -8111,8 +7781,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "kaettekita-alice-4",
@@ -8126,8 +7795,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "kaettekita-alice-5",
@@ -8141,8 +7809,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "kaettekita-alice-6",
@@ -8156,8 +7823,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "kaettekita-alice-7",
@@ -8171,8 +7837,7 @@ export const initialBooks: Book[] = [
       "校園"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-1",
@@ -8186,8 +7851,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-2",
@@ -8201,8 +7865,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-3",
@@ -8216,8 +7879,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-4",
@@ -8231,8 +7893,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-5",
@@ -8246,8 +7907,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-6",
@@ -8261,8 +7921,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-7",
@@ -8276,8 +7935,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-8",
@@ -8291,8 +7949,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-9",
@@ -8306,8 +7963,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-10",
@@ -8321,8 +7977,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-11",
@@ -8336,8 +7991,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-12",
@@ -8351,8 +8005,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "summertime-render-13",
@@ -8366,8 +8019,7 @@ export const initialBooks: Book[] = [
       "奇幻"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "takopi-sin-1",
@@ -8382,8 +8034,7 @@ export const initialBooks: Book[] = [
       "懸疑"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "takopi-sin-2",
@@ -8398,8 +8049,7 @@ export const initialBooks: Book[] = [
       "懸疑"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shoujo-shuumatsu-1",
@@ -8413,8 +8063,7 @@ export const initialBooks: Book[] = [
       "冒險"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shoujo-shuumatsu-2",
@@ -8428,8 +8077,7 @@ export const initialBooks: Book[] = [
       "冒險"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shoujo-shuumatsu-3",
@@ -8443,8 +8091,7 @@ export const initialBooks: Book[] = [
       "冒險"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shoujo-shuumatsu-4",
@@ -8458,8 +8105,7 @@ export const initialBooks: Book[] = [
       "冒險"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shoujo-shuumatsu-5",
@@ -8473,8 +8119,7 @@ export const initialBooks: Book[] = [
       "冒險"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "shoujo-shuumatsu-6",
@@ -8488,8 +8133,7 @@ export const initialBooks: Book[] = [
       "冒險"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-1",
@@ -8500,8 +8144,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-2",
@@ -8512,8 +8155,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-3",
@@ -8524,8 +8166,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-4",
@@ -8536,8 +8177,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-5",
@@ -8548,8 +8188,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-6",
@@ -8560,8 +8199,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-7",
@@ -8572,8 +8210,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-8",
@@ -8584,8 +8221,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-9",
@@ -8596,8 +8232,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-10",
@@ -8608,8 +8243,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-11",
@@ -8620,8 +8254,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-12",
@@ -8632,8 +8265,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-13",
@@ -8644,8 +8276,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-14",
@@ -8656,8 +8287,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-15",
@@ -8668,8 +8298,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "oshinoko-16",
@@ -8680,8 +8309,7 @@ export const initialBooks: Book[] = [
     "type": "series",
     "tags": [],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "look-back-single",
@@ -8694,8 +8322,7 @@ export const initialBooks: Book[] = [
       "青春"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   },
   {
     "id": "goodbye-eri-single",
@@ -8708,7 +8335,6 @@ export const initialBooks: Book[] = [
       "青春"
     ],
     "subCategory": "",
-    "genre": "",
-    "addedAt": 1786978553313
+    "genre": ""
   }
 ];
