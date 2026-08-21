@@ -18,8 +18,8 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 
 // 當您大幅更新 initialData.ts 並希望所有人都能看到最新內容時，請提升這裡的版本號（例如 v18 -> v19）
 // 這會強制程式忽略舊的瀏覽器暫存，重新載入 initialData.ts 內的資料。
-const STORAGE_KEY = 'ai-library-books-v37'; 
-const CATEGORIES_KEY = 'ai-library-categories-tree-v37'; 
+const STORAGE_KEY = 'ai-library-books-v38'; 
+const CATEGORIES_KEY = 'ai-library-categories-tree-v38'; 
 const TAGS_KEY = 'ai-library-tags-v5';
 
 export const DEFAULT_TAGS = [

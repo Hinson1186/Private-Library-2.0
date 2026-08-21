@@ -46,7 +46,10 @@ export const initialCategories: CategoryDef[] = [
             "name": "關於我在無意間被隔壁的天使變成廢柴這件事",
             "displayName": "關於我在無意間被隔壁的天使變成廢柴這件事",
             "id": "bf9a5344-49ec-485c-9e1d-03c3f88dbe62",
-            "type": "series"
+            "type": "series",
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "children": [],
@@ -189,14 +192,21 @@ export const initialCategories: CategoryDef[] = [
             "displayName": "魔女之旅",
             "id": "elaina-cat-001",
             "type": "series",
-            "children": []
+            "children": [],
+            "tags": [
+              "冒險"
+            ]
           },
           {
             "children": [],
             "name": "約會大作戰",
             "displayName": "約會大作戰",
             "id": "date-a-live-cat-001",
-            "type": "series"
+            "type": "series",
+            "tags": [
+              "奇幻",
+              "戀愛"
+            ]
           },
           {
             "name": "無職轉生",
@@ -244,7 +254,10 @@ export const initialCategories: CategoryDef[] = [
             "name": "藍色監獄",
             "type": "series",
             "id": "manga-cat-bluelock",
-            "children": []
+            "children": [],
+            "tags": [
+              "運動"
+            ]
           },
           {
             "displayName": "進擊的巨人",
@@ -258,7 +271,11 @@ export const initialCategories: CategoryDef[] = [
             "name": "東京外星人",
             "type": "series",
             "id": "manga-cat-tokyoaliens",
-            "children": []
+            "children": [],
+            "tags": [
+              "科幻",
+              "戰鬥"
+            ]
           },
           {
             "displayName": "幼稚園WARS",
@@ -324,14 +341,21 @@ export const initialCategories: CategoryDef[] = [
             "id": "manga-cat-abyss-m",
             "displayName": "來自深淵",
             "name": "來自深淵",
-            "children": []
+            "children": [],
+            "tags": [
+              "冒險"
+            ]
           },
           {
             "id": "0d2176ec-22e2-4c1f-bdc7-8b0520f116a0",
             "type": "series",
             "name": "薰香花朵凛然綻放",
             "displayName": "薰香花朵凛然綻放",
-            "children": []
+            "children": [],
+            "tags": [
+              "戀愛",
+              "校園"
+            ]
           },
           {
             "children": [],
@@ -349,7 +373,10 @@ export const initialCategories: CategoryDef[] = [
             "type": "series",
             "name": "出租女友",
             "displayName": "出租女友",
-            "children": []
+            "children": [],
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "children": [],
@@ -373,7 +400,12 @@ export const initialCategories: CategoryDef[] = [
             "type": "series",
             "id": "black-cat-witch-cat-001",
             "displayName": "黑貓與魔女的教室",
-            "name": "黑貓與魔女的教室"
+            "name": "黑貓與魔女的教室",
+            "tags": [
+              "奇幻",
+              "戰鬥",
+              "校園"
+            ]
           },
           {
             "type": "series",
@@ -387,7 +419,11 @@ export const initialCategories: CategoryDef[] = [
             "id": "edens-zero-cat-001",
             "type": "series",
             "name": "伊甸星原",
-            "displayName": "伊甸星原"
+            "displayName": "伊甸星原",
+            "tags": [
+              "奇幻",
+              "戰鬥"
+            ]
           },
           {
             "children": [],
@@ -408,7 +444,11 @@ export const initialCategories: CategoryDef[] = [
             "type": "series",
             "id": "midnight-heart-cat-001",
             "displayName": "午夜的傾心旋律",
-            "name": "午夜的傾心旋律"
+            "name": "午夜的傾心旋律",
+            "tags": [
+              "戀愛",
+              "校園"
+            ]
           },
           {
             "children": [],
@@ -436,7 +476,10 @@ export const initialCategories: CategoryDef[] = [
             "name": "金田一少年事件簿R",
             "displayName": "金田一少年事件簿R",
             "id": "manga-cat-kindaichi",
-            "type": "series"
+            "type": "series",
+            "tags": [
+              "推理"
+            ]
           },
           {
             "children": [],
@@ -450,7 +493,11 @@ export const initialCategories: CategoryDef[] = [
             "name": "明日同學的水手服",
             "displayName": "明日同學的水手服",
             "id": "manga-cat-akebi",
-            "type": "series"
+            "type": "series",
+            "tags": [
+              "日常",
+              "校園"
+            ]
           },
           {
             "children": [],
@@ -469,7 +516,8 @@ export const initialCategories: CategoryDef[] = [
             "id": "manga-cat-nagatoro",
             "children": [],
             "tags": [
-              "戀愛"
+              "戀愛",
+              "校園"
             ]
           },
           {
@@ -501,7 +549,11 @@ export const initialCategories: CategoryDef[] = [
             "id": "manga-cat-fairy-100",
             "type": "series",
             "name": "妖精的尾巴 百年任務",
-            "displayName": "妖精的尾巴 百年任務"
+            "displayName": "妖精的尾巴 百年任務",
+            "tags": [
+              "戰鬥",
+              "奇幻"
+            ]
           },
           {
             "displayName": "給不滅的你",
@@ -522,7 +574,11 @@ export const initialCategories: CategoryDef[] = [
             "type": "series",
             "id": "manga-cat-ender",
             "displayName": "終之退魔師",
-            "name": "終之退魔師"
+            "name": "終之退魔師",
+            "tags": [
+              "奇幻",
+              "戰鬥"
+            ]
           },
           {
             "displayName": "非專業私刑",
@@ -551,6 +607,101 @@ export const initialCategories: CategoryDef[] = [
             "type": "series",
             "name": "小鼠的初戀",
             "displayName": "小鼠的初戀"
+          },
+          {
+            "children": [],
+            "displayName": "四月是你的謊言 新裝版",
+            "name": "四月是你的謊言 新裝版",
+            "type": "series",
+            "id": "manga-cat-shigatsu-shinsou"
+          },
+          {
+            "children": [],
+            "displayName": "五等分的新娘",
+            "name": "五等分的新娘",
+            "type": "series",
+            "id": "manga-cat-gotoubun"
+          },
+          {
+            "children": [],
+            "displayName": "RUBY",
+            "name": "RUBY",
+            "type": "series",
+            "id": "manga-cat-ruby"
+          },
+          {
+            "children": [],
+            "displayName": "犬與屑",
+            "name": "犬與屑",
+            "type": "series",
+            "id": "manga-cat-inutokuzu"
+          },
+          {
+            "children": [],
+            "displayName": "All You Need Is Kill",
+            "name": "All You Need Is Kill",
+            "type": "series",
+            "id": "manga-cat-allyouneed"
+          },
+          {
+            "children": [],
+            "displayName": "西沢5短篇集",
+            "name": "西沢5短篇集",
+            "type": "series",
+            "id": "manga-cat-nishizawa5"
+          },
+          {
+            "children": [],
+            "displayName": "地獄樂",
+            "name": "地獄樂",
+            "type": "series",
+            "id": "manga-cat-jigokuraku"
+          },
+          {
+            "children": [],
+            "displayName": "無實之花",
+            "name": "無實之花",
+            "type": "series",
+            "id": "manga-cat-mujitsunohana"
+          },
+          {
+            "children": [],
+            "displayName": "歸來的愛麗絲",
+            "name": "歸來的愛麗絲",
+            "type": "series",
+            "id": "manga-cat-alice"
+          },
+          {
+            "children": [],
+            "displayName": "夏日時光",
+            "name": "夏日時光",
+            "type": "series",
+            "id": "manga-cat-summertime"
+          },
+          {
+            "children": [],
+            "displayName": "章魚嗶的原罪",
+            "name": "章魚嗶的原罪",
+            "type": "series",
+            "id": "manga-cat-takopi"
+          },
+          {
+            "children": [],
+            "displayName": "少女終末旅行",
+            "name": "少女終末旅行",
+            "type": "series",
+            "id": "manga-cat-girls-last-tour"
+          },
+          {
+            "children": [],
+            "displayName": "我推的孩子",
+            "name": "我推的孩子",
+            "type": "series",
+            "id": "manga-cat-oshinoko",
+            "tags": [
+              "權謀",
+              "戀愛"
+            ]
           }
         ]
       },
@@ -6929,7 +7080,7 @@ export const initialBooks: Book[] = [
     "author": "大久保篤",
     "category": "灰仭巫覡",
     "type": "series",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/67d3ebd859294b000fa37531/800x.webp?source_format=jpg",
     "tags": [],
     "subCategory": "",
     "genre": "",
@@ -6941,7 +7092,7 @@ export const initialBooks: Book[] = [
     "author": "大久保篤",
     "category": "灰仭巫覡",
     "type": "series",
-    "coverUrl": "",
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/6891d7e609b76d00162dbc66/800x.webp?source_format=jpg",
     "tags": [],
     "subCategory": "",
     "genre": "",
@@ -7259,5 +7410,1305 @@ export const initialBooks: Book[] = [
     "subCategory": "",
     "genre": "",
     "addedAt": 1774621962283
+  },
+  {
+    "id": "shigatsu-shinsou-1",
+    "title": "四月是你的謊言 新裝版 1",
+    "author": "新川直司",
+    "category": "四月是你的謊言 新裝版",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "青春"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shigatsu-shinsou-2",
+    "title": "四月是你的謊言 新裝版 2",
+    "author": "新川直司",
+    "category": "四月是你的謊言 新裝版",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "青春"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shigatsu-shinsou-3",
+    "title": "四月是你的謊言 新裝版 3",
+    "author": "新川直司",
+    "category": "四月是你的謊言 新裝版",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "青春"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-1",
+    "title": "五等分的新娘 1",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-2",
+    "title": "五等分的新娘 2",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-3",
+    "title": "五等分的新娘 3",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-4",
+    "title": "五等分的新娘 4",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-5",
+    "title": "五等分的新娘 5",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-6",
+    "title": "五等分的新娘 6",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-7",
+    "title": "五等分的新娘 7",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-8",
+    "title": "五等分的新娘 8",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-9",
+    "title": "五等分的新娘 9",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-10",
+    "title": "五等分的新娘 10",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-11",
+    "title": "五等分的新娘 11",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-12",
+    "title": "五等分的新娘 12",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-13",
+    "title": "五等分的新娘 13",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "gotoubun-14",
+    "title": "五等分的新娘 14",
+    "author": "春場蔥",
+    "category": "五等分的新娘",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "校園",
+      "戀愛"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "manga-ruby-all",
+    "title": "RUBY 全",
+    "author": "三輪士郎",
+    "category": "RUBY",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "冒險",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "inutokuzu-1",
+    "title": "犬與屑 1",
+    "author": "朝賀庵",
+    "category": "犬與屑",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "inutokuzu-2",
+    "title": "犬與屑 2",
+    "author": "朝賀庵",
+    "category": "犬與屑",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "inutokuzu-3",
+    "title": "犬與屑 3",
+    "author": "朝賀庵",
+    "category": "犬與屑",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "inutokuzu-4",
+    "title": "犬與屑 4",
+    "author": "朝賀庵",
+    "category": "犬與屑",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "inutokuzu-5",
+    "title": "犬與屑 5",
+    "author": "朝賀庵",
+    "category": "犬與屑",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "allyouneediskill-1",
+    "title": "All You Need Is Kill 1",
+    "author": "小畑健/竹內良輔/櫻坂洋",
+    "category": "All You Need Is Kill",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "allyouneediskill-2",
+    "title": "All You Need Is Kill 2",
+    "author": "小畑健/竹內良輔/櫻坂洋",
+    "category": "All You Need Is Kill",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "戰鬥"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "nishizawa5-short-all",
+    "title": "西沢5短篇集 全",
+    "author": "西沢5ミリ",
+    "category": "西沢5短篇集",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戀愛",
+      "搞笑"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-1",
+    "title": "地獄樂 1",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-2",
+    "title": "地獄樂 2",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-3",
+    "title": "地獄樂 3",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-4",
+    "title": "地獄樂 4",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-5",
+    "title": "地獄樂 5",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-6",
+    "title": "地獄樂 6",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-7",
+    "title": "地獄樂 7",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-8",
+    "title": "地獄樂 8",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-9",
+    "title": "地獄樂 9",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-10",
+    "title": "地獄樂 10",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-11",
+    "title": "地獄樂 11",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-12",
+    "title": "地獄樂 12",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-13",
+    "title": "地獄樂 13",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻",
+      "黑暗"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "jigokuraku-guide",
+    "title": "地獄樂 解體全書",
+    "author": "賀來友治",
+    "category": "地獄樂",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "戰鬥",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "mujitsunohana-1",
+    "title": "無實之花 1",
+    "author": "隈浪さえ",
+    "category": "無實之花",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "mujitsunohana-2",
+    "title": "無實之花 2",
+    "author": "隈浪さえ",
+    "category": "無實之花",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "mujitsunohana-3",
+    "title": "無實之花 3",
+    "author": "隈浪さえ",
+    "category": "無實之花",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "kaettekita-alice-1",
+    "title": "歸來的愛麗絲 1",
+    "author": "押見修造",
+    "category": "歸來的愛麗絲",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "青春",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "kaettekita-alice-2",
+    "title": "歸來的愛麗絲 2",
+    "author": "押見修造",
+    "category": "歸來的愛麗絲",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "青春",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "kaettekita-alice-3",
+    "title": "歸來的愛麗絲 3",
+    "author": "押見修造",
+    "category": "歸來的愛麗絲",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "青春",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "kaettekita-alice-4",
+    "title": "歸來的愛麗絲 4",
+    "author": "押見修造",
+    "category": "歸來的愛麗絲",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "青春",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "kaettekita-alice-5",
+    "title": "歸來的愛麗絲 5",
+    "author": "押見修造",
+    "category": "歸來的愛麗絲",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "青春",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "kaettekita-alice-6",
+    "title": "歸來的愛麗絲 6",
+    "author": "押見修造",
+    "category": "歸來的愛麗絲",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "青春",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "kaettekita-alice-7",
+    "title": "歸來的愛麗絲 7",
+    "author": "押見修造",
+    "category": "歸來的愛麗絲",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "青春",
+      "校園"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-1",
+    "title": "夏日時光 1",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-2",
+    "title": "夏日時光 2",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-3",
+    "title": "夏日時光 3",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-4",
+    "title": "夏日時光 4",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-5",
+    "title": "夏日時光 5",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-6",
+    "title": "夏日時光 6",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-7",
+    "title": "夏日時光 7",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-8",
+    "title": "夏日時光 8",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-9",
+    "title": "夏日時光 9",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-10",
+    "title": "夏日時光 10",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-11",
+    "title": "夏日時光 11",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-12",
+    "title": "夏日時光 12",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "summertime-render-13",
+    "title": "夏日時光 13",
+    "author": "田中靖規",
+    "category": "夏日時光",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "懸疑",
+      "奇幻"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "takopi-sin-1",
+    "title": "章魚嗶的原罪 1",
+    "author": "タイザン5",
+    "category": "章魚嗶的原罪",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "黑暗",
+      "懸疑"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "takopi-sin-2",
+    "title": "章魚嗶的原罪 2",
+    "author": "タイザン5",
+    "category": "章魚嗶的原罪",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "黑暗",
+      "懸疑"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shoujo-shuumatsu-1",
+    "title": "少女終末旅行 1",
+    "author": "つくみず",
+    "category": "少女終末旅行",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "冒險"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shoujo-shuumatsu-2",
+    "title": "少女終末旅行 2",
+    "author": "つくみず",
+    "category": "少女終末旅行",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "冒險"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shoujo-shuumatsu-3",
+    "title": "少女終末旅行 3",
+    "author": "つくみず",
+    "category": "少女終末旅行",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "冒險"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shoujo-shuumatsu-4",
+    "title": "少女終末旅行 4",
+    "author": "つくみず",
+    "category": "少女終末旅行",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "冒險"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shoujo-shuumatsu-5",
+    "title": "少女終末旅行 5",
+    "author": "つくみず",
+    "category": "少女終末旅行",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "冒險"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "shoujo-shuumatsu-6",
+    "title": "少女終末旅行 6",
+    "author": "つくみず",
+    "category": "少女終末旅行",
+    "coverUrl": "",
+    "type": "series",
+    "tags": [
+      "科幻",
+      "冒險"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-1",
+    "title": "我推的孩子 1",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/089/81/0010898166.jpg&v=60f55432k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-2",
+    "title": "我推的孩子 2",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/089/81/0010898169.jpg&v=60f55432k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-3",
+    "title": "我推的孩子 3",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/090/29/0010902945.jpg&v=6139e236k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-4",
+    "title": "我推的孩子 4",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/091/93/0010919364.jpg&v=622b24d5k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-5",
+    "title": "我推的孩子 5",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/36/0010923680.jpg&v=626a6cb3k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-6",
+    "title": "我推的孩子 6",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/093/44/0010934482.jpg&v=6305fe04k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-7",
+    "title": "我推的孩子 7",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/094/71/0010947186.jpg&v=63b7f8a8k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-8",
+    "title": "我推的孩子 8",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/095/74/0010957451.jpg&v=64620a5ck&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-9",
+    "title": "我推的孩子 9",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/096/41/0010964193.jpg&v=64c0f602k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-10",
+    "title": "我推的孩子 10",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/097/02/0010970280.jpg&v=651d3ec3k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-11",
+    "title": "我推的孩子 11",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/098/11/0010981121.jpg&v=65b238b5k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-12",
+    "title": "我推的孩子 12",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/098/63/0010986306.jpg&v=660a8d08k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-13",
+    "title": "我推的孩子 13",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/099/65/0010996579.jpg&v=66a37b00k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-14",
+    "title": "我推的孩子 14",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/101/06/0011010621.jpg&v=6773d6d4k&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-15",
+    "title": "我推的孩子 15",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/102/88/0011028873.jpg&v=688c972ck&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "oshinoko-16",
+    "title": "我推的孩子 16",
+    "author": "赤坂明/橫槍萌果",
+    "category": "我推的孩子",
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/102/88/0011028875.jpg&v=688c972dk&w=348&h=348",
+    "type": "series",
+    "tags": [],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "look-back-single",
+    "title": "驀然回首",
+    "author": "藤本樹",
+    "category": "漫畫單行本",
+    "coverUrl": "",
+    "type": "single",
+    "tags": [
+      "青春"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
+  },
+  {
+    "id": "goodbye-eri-single",
+    "title": "再見繪梨",
+    "author": "藤本樹",
+    "category": "漫畫單行本",
+    "coverUrl": "",
+    "type": "single",
+    "tags": [
+      "青春"
+    ],
+    "subCategory": "",
+    "genre": "",
+    "addedAt": 1786978553313
   }
 ];
