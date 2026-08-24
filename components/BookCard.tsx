@@ -71,6 +71,55 @@ export const getTagStyles = (tag: string) => {
   return SAFE_COLORS[index];
 };
 
+export const getArtbookOriginBadge = (book: Book): { label: string; bg: string; text: string; border: string } => {
+  if (book.title.includes('我推的孩子') || book.originDomain === 'manga') {
+    return {
+      label: '漫畫',
+      bg: 'bg-emerald-500/15',
+      text: 'text-emerald-300',
+      border: 'border-emerald-500/30',
+    };
+  }
+  if (book.title.includes('餓殍') || book.originDomain === 'novel') {
+    return {
+      label: '小說',
+      bg: 'bg-indigo-500/15',
+      text: 'text-indigo-300',
+      border: 'border-indigo-500/30',
+    };
+  }
+  if (book.originDomain === 'light_novel' || book.title.includes('艾莉同學')) {
+    return {
+      label: '輕小說',
+      bg: 'bg-violet-500/15',
+      text: 'text-violet-300',
+      border: 'border-violet-500/30',
+    };
+  }
+  if (book.originDomain === 'game' || book.title.includes('ELDEN RING') || book.title.includes('原神')) {
+    return {
+      label: '遊戲',
+      bg: 'bg-pink-500/15',
+      text: 'text-pink-300',
+      border: 'border-pink-500/30',
+    };
+  }
+  if (book.originDomain === 'original') {
+    return {
+      label: '原創',
+      bg: 'bg-amber-500/15',
+      text: 'text-amber-300',
+      border: 'border-amber-500/30',
+    };
+  }
+  return {
+    label: '其他',
+    bg: 'bg-slate-700/40',
+    text: 'text-slate-300',
+    border: 'border-slate-600/40',
+  };
+};
+
 export const getFilterTagStyles = (tag: string, isSelected: boolean) => {
   const styles = getTagStyles(tag);
   if (isSelected) {
@@ -230,6 +279,14 @@ const BookCard: React.FC<BookCardProps> = ({
             </h3>
             <div className="flex items-center justify-between gap-1.5">
               <p className="text-slate-400 text-xs font-medium line-clamp-1 flex-1">{highlightText(book.author, searchTerm)}</p>
+              {bookIsArtbook && (() => {
+                const badge = getArtbookOriginBadge(book);
+                return (
+                  <span className={`shrink-0 px-2 py-0.5 text-[10.5px] font-extrabold rounded-md border leading-none shadow-sm ${badge.bg} ${badge.text} ${badge.border}`}>
+                    {badge.label}
+                  </span>
+                );
+              })()}
             </div>
             
             {/* If it's a series book, display the series tags under the author name, without arrow */}

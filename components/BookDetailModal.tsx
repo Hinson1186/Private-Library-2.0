@@ -104,6 +104,36 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
     ? allBooks.filter(b => b.seriesGroup === book.seriesGroup).sort((a, b) => (Number(a.volume) || 0) - (Number(b.volume) || 0))
     : [];
 
+  // Related artbooks when viewing regular books (manga/light novel)
+  const relatedArtbooks = !isArtbook && allBooks.length > 0
+    ? allBooks.filter(b => {
+        if (!checkIsArtbook(b, categories)) return false;
+        if (b.relatedIp) {
+          const ip = b.relatedIp.trim();
+          return ip === book.category || book.title.includes(ip) || (book.category && book.category.includes(ip));
+        }
+        return false;
+      })
+    : [];
+
+  // Related series books (when viewing artbook with relatedIp)
+  const relatedSeriesBooks = isArtbook && book.relatedIp && allBooks.length > 0
+    ? allBooks.filter(b => {
+        if (checkIsArtbook(b, categories)) return false;
+        const ip = book.relatedIp!.trim();
+        return b.category === ip || b.seriesGroup === ip || b.title === ip || (b.title && b.title.includes(ip)) || ip.includes(b.title);
+      })
+    : [];
+
+  const sortedRelatedBooks = [...relatedSeriesBooks].sort((a, b) => {
+    const volA = typeof a.volume === 'number' ? a.volume : parseFloat(String(a.volume)) || 9999;
+    const volB = typeof b.volume === 'number' ? b.volume : parseFloat(String(b.volume)) || 9999;
+    return volA - volB;
+  });
+
+  const representativeBook = sortedRelatedBooks[0];
+  const relatedBookCount = sortedRelatedBooks.length;
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEditData(prev => prev ? ({ ...prev, [name]: value }) : null);
@@ -224,7 +254,7 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
         </div>
       )}
 
-      <div className="bg-slate-900 rounded-2xl shadow-2xl w-full max-w-3xl h-[85vh] overflow-hidden flex flex-col md:flex-row border border-slate-700 animate-in fade-in zoom-in duration-200 relative">
+      <div className="bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl h-[88vh] overflow-hidden flex flex-col md:flex-row border border-slate-700 animate-in fade-in zoom-in duration-200 relative">
         {isConfirmingDelete && (
             <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-sm animate-in fade-in">
                 <div className="bg-slate-900 border border-rose-500/30 rounded-2xl p-6 shadow-2xl max-w-sm w-full">
@@ -481,31 +511,104 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                             </p>
                         </div>
 
-                        {/* Interactive Related IP Banner & Direct Jump */}
+                        {/* Interactive Related IP Banner & Series Preview Card */}
                         {book.relatedIp && (
-                          <div className="p-4 rounded-2xl bg-gradient-to-r from-fuchsia-950/40 via-indigo-950/40 to-slate-900 border border-fuchsia-500/30 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 rounded-xl bg-fuchsia-600/20 border border-fuchsia-500/40 flex items-center justify-center text-fuchsia-400 shrink-0">
-                                <Sparkles size={20} />
+                          <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-fuchsia-950/30 to-indigo-950/40 border border-fuchsia-500/30 shadow-xl overflow-hidden group/ip transition-all duration-300 hover:border-fuchsia-500/60 hover:shadow-fuchsia-950/30">
+                            {/* Card Top Header */}
+                            <div className="px-4 py-2.5 bg-fuchsia-950/60 border-b border-fuchsia-500/20 flex items-center justify-between">
+                              <div className="flex items-center gap-2 text-fuchsia-300 text-xs font-black">
+                                <Sparkles size={15} className="text-fuchsia-400 animate-pulse" />
+                                <span>原作系列作品聯動</span>
                               </div>
-                              <div>
-                                <span className="text-[10px] text-fuchsia-300 font-black uppercase tracking-wider">原作作品聯動</span>
-                                <h4 className="text-sm font-bold text-white">《{book.relatedIp}》</h4>
+                              <div className="flex items-center gap-2">
+                                <span className="text-[11px] font-bold px-2.5 py-0.5 bg-fuchsia-500/10 text-fuchsia-300 rounded-full border border-fuchsia-500/25">
+                                  {book.originDomain === 'manga' || book.title.includes('我推的孩子') ? '漫畫原作' : book.originDomain === 'light_novel' ? '輕小說原作' : book.originDomain === 'novel' || book.title.includes('餓殍') ? '小說原作' : book.originDomain === 'game' ? '遊戲原作' : '原作關聯'}
+                                </span>
+                                {relatedBookCount > 0 && (
+                                  <span className="text-[11px] font-bold text-slate-300 px-2.5 py-0.5 bg-slate-800/80 rounded-full border border-slate-700/80">
+                                    {relatedBookCount === 1 && representativeBook?.type === 'single' ? '單行本收錄' : `全 ${relatedBookCount} 冊收錄`}
+                                  </span>
+                                )}
                               </div>
                             </div>
 
-                            {onNavigateToIp && (
-                              <button
+                            {/* Card Content with First Volume Preview */}
+                            <div className="p-4 sm:p-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5">
+                              {/* Series Representative Book (Volume 1) */}
+                              <div 
                                 onClick={() => {
-                                  onClose();
-                                  onNavigateToIp(book.relatedIp!, book.originDomain);
+                                  if (onNavigateToIp) {
+                                    onClose();
+                                    onNavigateToIp(book.relatedIp!, book.originDomain);
+                                  }
                                 }}
-                                className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-fuchsia-600/25 cursor-pointer"
+                                className="relative w-24 sm:w-28 aspect-[2/3] rounded-xl overflow-hidden bg-slate-950 shadow-lg border border-slate-700 group-hover/ip:border-fuchsia-500/60 transition-all shrink-0 cursor-pointer"
+                                title={`前往《${book.relatedIp}》原作系列`}
                               >
-                                <span>前往《{book.relatedIp}》原作書架</span>
-                                <ArrowUpRight size={14} />
-                              </button>
-                            )}
+                                {representativeBook?.coverUrl ? (
+                                  <img 
+                                    src={representativeBook.coverUrl} 
+                                    alt={representativeBook.title}
+                                    className="w-full h-full object-cover group-hover/ip:scale-105 transition-transform duration-500"
+                                    referrerPolicy="no-referrer"
+                                  />
+                                ) : (
+                                  <div className="w-full h-full flex flex-col items-center justify-center bg-slate-800 text-slate-500">
+                                    <Folder size={32} />
+                                    <span className="text-[10px] mt-1">作品封面</span>
+                                  </div>
+                                )}
+                                
+                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pt-6 pb-1 px-1.5 text-center">
+                                  <span className="text-[10px] font-black text-white px-2 py-0.5 bg-fuchsia-600/90 rounded-md shadow-sm">
+                                    {representativeBook?.volume ? `第 ${representativeBook.volume} 卷` : (representativeBook?.type === 'single' ? '單行本' : '第 1 卷')}
+                                  </span>
+                                </div>
+                              </div>
+
+                              {/* Spacious IP Info & Direct Action */}
+                              <div className="flex-1 min-w-0 flex flex-col justify-between self-stretch py-0.5 gap-3">
+                                <div className="space-y-1.5 min-w-0">
+                                  {/* Title line with ample width to prevent wrapping */}
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <h3 
+                                      className="text-lg sm:text-xl font-black text-white truncate min-w-0 group-hover/ip:text-fuchsia-200 transition-colors"
+                                      title={book.relatedIp}
+                                    >
+                                      《{book.relatedIp}》
+                                    </h3>
+                                  </div>
+
+                                  {representativeBook && (
+                                    <p className="text-xs text-slate-300 font-medium truncate flex items-center gap-1.5">
+                                      <span className="text-fuchsia-400 font-bold">{representativeBook.type === 'single' ? '書名：' : '首卷：'}</span>
+                                      <span className="truncate">{representativeBook.title}</span>
+                                    </p>
+                                  )}
+
+                                  {representativeBook?.author && (
+                                    <p className="text-xs text-slate-400 font-medium truncate">
+                                      原作作者：{representativeBook.author}
+                                    </p>
+                                  )}
+                                </div>
+
+                                {onNavigateToIp && (
+                                  <div className="pt-1">
+                                    <button
+                                      onClick={() => {
+                                        onClose();
+                                        onNavigateToIp(book.relatedIp!, book.originDomain);
+                                      }}
+                                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-xl text-xs sm:text-sm font-bold transition-all shadow-lg shadow-fuchsia-600/30 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+                                    >
+                                      <span>{representativeBook?.type === 'single' ? `前往《${book.relatedIp}》` : `前往《${book.relatedIp}》原作書架`}</span>
+                                      <ArrowUpRight size={16} />
+                                    </button>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
                           </div>
                         )}
 
@@ -557,6 +660,59 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({
                                   </button>
                                 );
                               })}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Official Related Artbooks Link for Manga/Novel */}
+                        {!isArtbook && relatedArtbooks.length > 0 && (
+                          <div className="p-4 rounded-2xl bg-gradient-to-r from-fuchsia-950/40 via-indigo-950/40 to-slate-900 border border-fuchsia-500/30 shadow-lg space-y-3">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2 text-fuchsia-300 text-xs font-black">
+                                <Sparkles size={16} className="text-fuchsia-400" />
+                                <span>官方收錄畫集 ({relatedArtbooks.length} 冊)</span>
+                              </div>
+                              <span className="text-[10px] text-fuchsia-400/80 font-bold">公式插畫集</span>
+                            </div>
+
+                            <div className="space-y-2">
+                              {relatedArtbooks.map(artbook => (
+                                <div 
+                                  key={artbook.id} 
+                                  className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-slate-900/80 border border-fuchsia-500/20 hover:border-fuchsia-500/50 transition-all group"
+                                >
+                                  <div className="flex items-center gap-3 min-w-0">
+                                    <div className="w-10 h-14 rounded-lg bg-slate-950 overflow-hidden shrink-0 border border-fuchsia-500/30 shadow-md">
+                                      <img 
+                                        src={artbook.coverUrl} 
+                                        alt={artbook.title} 
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        referrerPolicy="no-referrer"
+                                      />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <div className="text-xs font-bold text-white truncate group-hover:text-fuchsia-200 transition-colors">
+                                        {artbook.title}
+                                      </div>
+                                      <div className="text-[10px] text-slate-400 mt-0.5 flex items-center gap-1.5">
+                                        <span>{artbook.author}</span>
+                                        <span className="text-fuchsia-400">•</span>
+                                        <span className="text-fuchsia-300">畫集</span>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {onSelectBook && (
+                                    <button
+                                      onClick={() => onSelectBook(artbook)}
+                                      className="px-3.5 py-2 bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 shadow-lg shadow-fuchsia-600/30 cursor-pointer hover:scale-105 active:scale-95"
+                                    >
+                                      <span>查看畫集</span>
+                                      <ArrowUpRight size={14} />
+                                    </button>
+                                  )}
+                                </div>
+                              ))}
                             </div>
                           </div>
                         )}

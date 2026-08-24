@@ -17,7 +17,7 @@ import SettingsModal from './components/SettingsModal';
 import BatchMoveModal from './components/BatchMoveModal';
 import BatchTagsModal from './components/BatchTagsModal';
 import ArtbookGalleryView from './components/ArtbookGalleryView';
-import { Dices, X, FolderOpen, BookHeart, Plus, ArrowLeft, Tag, Settings, Tags, ChevronDown, Search, ArrowRightLeft, Palette } from 'lucide-react';
+import { Dices, X, FolderOpen, BookHeart, Plus, ArrowLeft, Tag, Settings, Tags, ChevronDown, Search, ArrowRightLeft, Palette, Sparkles } from 'lucide-react';
 
 const App: React.FC = () => {
   const { 
@@ -596,6 +596,22 @@ const App: React.FC = () => {
                                                 
                                                 return (
                                                     <>
+                                                        {/* Related Artbook Quick Link */}
+                                                        {(() => {
+                                                            const matchingArtbooks = books.filter(b => isArtbook(b, categories) && b.relatedIp === selectedCategory);
+                                                            if (matchingArtbooks.length === 0) return null;
+                                                            return (
+                                                                <button
+                                                                    onClick={() => setSelectedBook(matchingArtbooks[0])}
+                                                                    className="text-xs flex items-center gap-1.5 px-3.5 py-2 rounded-full transition-all border font-bold bg-fuchsia-950/60 hover:bg-fuchsia-900/80 text-fuchsia-300 border-fuchsia-500/40 hover:border-fuchsia-400 shadow-lg shadow-fuchsia-950/40 cursor-pointer"
+                                                                    title={`查看《${selectedCategory}》官方關聯畫集`}
+                                                                >
+                                                                    <Sparkles size={14} className="text-fuchsia-400" />
+                                                                    <span>專屬畫集 ({matchingArtbooks.length})</span>
+                                                                </button>
+                                                            );
+                                                        })()}
+
                                                         {/* Manage Category Tags (only for specific series folders) */}
                                                         {isSeries && !isSeriesContainer && (
                                                             <>
@@ -756,8 +772,26 @@ const App: React.FC = () => {
         globalTags={globalTags} 
         allBooks={books}
         onNavigateToIp={(ipName) => {
-            setSelectedCategory(ipName);
-            setSelectedBook(null);
+            setIsTagManagerOpen(false);
+            const cat = findCategoryByName(categories, ipName);
+            if (cat) {
+              setSelectedCategory(ipName);
+              setSelectedBook(null);
+            } else {
+              const matchedBook = books.find(b => !isArtbook(b, categories) && (b.title === ipName || (b.title && b.title.includes(ipName)) || (ipName && ipName.includes(b.title))));
+              if (matchedBook) {
+                if (matchedBook.category) {
+                  setSelectedCategory(matchedBook.category);
+                }
+                setSelectedBook(matchedBook);
+              } else {
+                setSelectedCategory(ipName);
+                setSelectedBook(null);
+              }
+            }
+        }}
+        onSelectBook={(book) => {
+            setSelectedBook(book);
         }}
         onUpdate={updateBook} 
         onDelete={(id) => {

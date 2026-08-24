@@ -1,4 +1,4 @@
-export type OriginDomain = 'light_novel' | 'manga' | 'original' | 'game' | 'other';
+export type OriginDomain = 'light_novel' | 'novel' | 'manga' | 'original' | 'game' | 'other';
 
 export interface Book {
   id: string;

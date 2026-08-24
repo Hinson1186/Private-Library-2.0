@@ -5,7 +5,7 @@ import { isArtbook } from '../utils/categoryUtils';
 import { 
   Palette, 
   BookOpen, 
-  LayoutGrid, 
+  Book as BookIcon, 
   Brush, 
   Gamepad2, 
   Compass, 
@@ -79,7 +79,7 @@ export const ArtbookGalleryView: React.FC<ArtbookGalleryViewProps> = ({
   const filteredArtbooks = useMemo(() => {
     const lowerSearch = searchTerm.toLowerCase();
 
-    const filtered = allArtbooks.filter(book => {
+    let filtered = allArtbooks.filter(book => {
       // Domain filter
       if (activeDomain !== 'all') {
         if (activeDomain === 'other') {
@@ -110,6 +110,13 @@ export const ArtbookGalleryView: React.FC<ArtbookGalleryViewProps> = ({
       return true;
     });
 
+    // When viewing specific category tabs, sort alphabetically by title
+    if (activeDomain !== 'all') {
+      filtered = [...filtered].sort((a, b) => {
+        return (a.title || '').localeCompare(b.title || '', 'zh-Hant', { numeric: true, sensitivity: 'base' });
+      });
+    }
+
     return filtered;
   }, [allArtbooks, activeDomain, searchTerm]);
 
@@ -117,7 +124,7 @@ export const ArtbookGalleryView: React.FC<ArtbookGalleryViewProps> = ({
   const domainTabs: { id: DomainTab; label: string; icon: any; color: string }[] = [
     { id: 'all', label: '全部畫集', icon: Palette, color: 'text-fuchsia-400' },
     { id: 'light_novel', label: '輕小說關聯', icon: BookOpen, color: 'text-indigo-400' },
-    { id: 'manga', label: '漫畫關聯', icon: LayoutGrid, color: 'text-emerald-400' },
+    { id: 'manga', label: '漫畫關聯', icon: BookIcon, color: 'text-emerald-400' },
     { id: 'original', label: '繪師個人集', icon: Brush, color: 'text-amber-400' },
     { id: 'game', label: '遊戲美術集', icon: Gamepad2, color: 'text-pink-400' },
     { id: 'other', label: '其他', icon: Compass, color: 'text-sky-400' },
