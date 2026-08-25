@@ -120,23 +120,71 @@ export const ArtbookGalleryView: React.FC<ArtbookGalleryViewProps> = ({
     return filtered;
   }, [allArtbooks, activeDomain, searchTerm]);
 
-  // 6 specific domain tabs as requested
-  const domainTabs: { id: DomainTab; label: string; icon: any; color: string }[] = [
-    { id: 'all', label: '全部畫集', icon: Palette, color: 'text-fuchsia-400' },
-    { id: 'light_novel', label: '輕小說關聯', icon: BookOpen, color: 'text-indigo-400' },
-    { id: 'manga', label: '漫畫關聯', icon: BookIcon, color: 'text-emerald-400' },
-    { id: 'original', label: '繪師個人集', icon: Brush, color: 'text-amber-400' },
-    { id: 'game', label: '遊戲美術集', icon: Gamepad2, color: 'text-pink-400' },
-    { id: 'other', label: '其他', icon: Compass, color: 'text-sky-400' },
+  // 6 specific domain tabs with distinct color identities matching the book badges
+  const domainTabs: { 
+    id: DomainTab; 
+    label: string;
+    activeStyle: string;
+    inactiveStyle: string;
+    activeBadgeStyle: string;
+    inactiveBadgeStyle: string;
+  }[] = [
+    { 
+      id: 'all', 
+      label: '全部畫集',
+      activeStyle: 'bg-gradient-to-r from-fuchsia-600/35 via-purple-600/30 to-indigo-600/35 text-white border-fuchsia-500/70 shadow-lg shadow-fuchsia-500/25 ring-1 ring-fuchsia-500/50',
+      inactiveStyle: 'bg-slate-950/70 text-slate-300 border-slate-800/90 hover:border-fuchsia-600/60 hover:text-fuchsia-200 hover:bg-fuchsia-950/20',
+      activeBadgeStyle: 'bg-fuchsia-500/30 text-fuchsia-100 border border-fuchsia-400/50 shadow-sm',
+      inactiveBadgeStyle: 'bg-slate-800/90 text-slate-400 group-hover:text-fuchsia-200 group-hover:bg-fuchsia-950/40',
+    },
+    { 
+      id: 'light_novel', 
+      label: '輕小說關聯',
+      activeStyle: 'bg-gradient-to-r from-violet-600/35 via-indigo-600/30 to-purple-600/35 text-white border-violet-500/70 shadow-lg shadow-violet-500/25 ring-1 ring-violet-500/50',
+      inactiveStyle: 'bg-slate-950/70 text-violet-300/80 border-violet-900/40 hover:border-violet-500/70 hover:text-violet-100 hover:bg-violet-950/30',
+      activeBadgeStyle: 'bg-violet-500/30 text-violet-100 border border-violet-400/50 shadow-sm',
+      inactiveBadgeStyle: 'bg-violet-950/60 text-violet-300/80 border border-violet-900/40 group-hover:text-violet-100 group-hover:bg-violet-900/40',
+    },
+    { 
+      id: 'manga', 
+      label: '漫畫關聯',
+      activeStyle: 'bg-gradient-to-r from-emerald-600/35 via-teal-600/30 to-green-600/35 text-white border-emerald-500/70 shadow-lg shadow-emerald-500/25 ring-1 ring-emerald-500/50',
+      inactiveStyle: 'bg-slate-950/70 text-emerald-300/80 border-emerald-900/40 hover:border-emerald-500/70 hover:text-emerald-100 hover:bg-emerald-950/30',
+      activeBadgeStyle: 'bg-emerald-500/30 text-emerald-100 border border-emerald-400/50 shadow-sm',
+      inactiveBadgeStyle: 'bg-emerald-950/60 text-emerald-300/80 border border-emerald-900/40 group-hover:text-emerald-100 group-hover:bg-emerald-900/40',
+    },
+    { 
+      id: 'original', 
+      label: '繪師個人集',
+      activeStyle: 'bg-gradient-to-r from-amber-600/35 via-orange-600/30 to-yellow-600/35 text-white border-amber-500/70 shadow-lg shadow-amber-500/25 ring-1 ring-amber-500/50',
+      inactiveStyle: 'bg-slate-950/70 text-amber-300/80 border-amber-900/40 hover:border-amber-500/70 hover:text-amber-100 hover:bg-amber-950/30',
+      activeBadgeStyle: 'bg-amber-500/30 text-amber-100 border border-amber-400/50 shadow-sm',
+      inactiveBadgeStyle: 'bg-amber-950/60 text-amber-300/80 border border-amber-900/40 group-hover:text-amber-100 group-hover:bg-amber-900/40',
+    },
+    { 
+      id: 'game', 
+      label: '遊戲美術集',
+      activeStyle: 'bg-gradient-to-r from-pink-600/35 via-rose-600/30 to-fuchsia-600/35 text-white border-pink-500/70 shadow-lg shadow-pink-500/25 ring-1 ring-pink-500/50',
+      inactiveStyle: 'bg-slate-950/70 text-pink-300/80 border-pink-900/40 hover:border-pink-500/70 hover:text-pink-100 hover:bg-pink-950/30',
+      activeBadgeStyle: 'bg-pink-500/30 text-pink-100 border border-pink-400/50 shadow-sm',
+      inactiveBadgeStyle: 'bg-pink-950/60 text-pink-300/80 border border-pink-900/40 group-hover:text-pink-100 group-hover:bg-pink-900/40',
+    },
+    { 
+      id: 'other', 
+      label: '其他',
+      activeStyle: 'bg-gradient-to-r from-sky-600/35 via-cyan-600/30 to-blue-600/35 text-white border-sky-500/70 shadow-lg shadow-sky-500/25 ring-1 ring-sky-500/50',
+      inactiveStyle: 'bg-slate-950/70 text-sky-300/80 border-sky-900/40 hover:border-sky-500/70 hover:text-sky-100 hover:bg-sky-950/30',
+      activeBadgeStyle: 'bg-sky-500/30 text-sky-100 border border-sky-400/50 shadow-sm',
+      inactiveBadgeStyle: 'bg-sky-950/60 text-sky-300/80 border border-sky-900/40 group-hover:text-sky-100 group-hover:bg-sky-900/40',
+    },
   ];
 
   return (
     <div className="flex-1 h-full flex flex-col overflow-hidden">
-      {/* Enlarged Domain Filter Tabs in Fuchsia / Slate Theme with Shuffle Button */}
+      {/* Domain Filter Tabs with Category Themed Colors */}
       <div className="shrink-0 mb-5 bg-slate-900/60 rounded-2xl border border-slate-800/80 p-2.5 shadow-lg backdrop-blur-md">
         <div className="flex items-center gap-2.5 overflow-x-auto custom-scrollbar no-scrollbar">
           {domainTabs.map(tab => {
-            const Icon = tab.icon;
             const count = domainCounts[tab.id];
             const isActive = activeDomain === tab.id;
 
@@ -144,16 +192,13 @@ export const ArtbookGalleryView: React.FC<ArtbookGalleryViewProps> = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveDomain(tab.id)}
-                className={`flex-1 min-w-[130px] flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all border cursor-pointer ${
-                  isActive
-                    ? 'bg-gradient-to-r from-fuchsia-600/30 via-purple-600/25 to-indigo-600/30 text-white border-fuchsia-500/60 shadow-lg shadow-fuchsia-500/20 ring-1 ring-fuchsia-500/40'
-                    : 'bg-slate-950/70 text-slate-300 border-slate-800/90 hover:border-slate-700 hover:text-white hover:bg-slate-900/80'
+                className={`group flex-1 min-w-[130px] flex items-center justify-center text-center gap-2.5 px-5 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all border cursor-pointer ${
+                  isActive ? tab.activeStyle : tab.inactiveStyle
                 }`}
               >
-                <Icon size={18} className={isActive ? tab.color : 'text-slate-400'} />
-                <span>{tab.label}</span>
-                <span className={`px-2 py-0.5 rounded-full text-xs font-extrabold ${
-                  isActive ? 'bg-fuchsia-500/30 text-fuchsia-200 border border-fuchsia-500/40' : 'bg-slate-800 text-slate-400'
+                <span className="text-center">{tab.label}</span>
+                <span className={`px-2 py-0.5 rounded-full text-xs font-extrabold shrink-0 text-center transition-all ${
+                  isActive ? tab.activeBadgeStyle : tab.inactiveBadgeStyle
                 }`}>
                   {count}
                 </span>

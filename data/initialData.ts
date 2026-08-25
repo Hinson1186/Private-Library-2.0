@@ -383,7 +383,10 @@ export const initialCategories: CategoryDef[] = [
             "name": "不踹不踩不成愛",
             "displayName": "不踹不踩不成愛",
             "id": "kick-love-cat-001",
-            "type": "series"
+            "type": "series",
+            "tags": [
+              "愛情"
+            ]
           },
           {
             "type": "series",
@@ -412,7 +415,11 @@ export const initialCategories: CategoryDef[] = [
             "id": "boys-abyss-cat-001",
             "displayName": "少年的深淵",
             "name": "少年的深淵",
-            "children": []
+            "children": [],
+            "tags": [
+              "黑暗",
+              "人生"
+            ]
           },
           {
             "children": [],
@@ -486,7 +493,10 @@ export const initialCategories: CategoryDef[] = [
             "displayName": "杜鵑婚約",
             "name": "杜鵑婚約",
             "type": "series",
-            "id": "manga-cat-cuckoo"
+            "id": "manga-cat-cuckoo",
+            "tags": [
+              "戀愛"
+            ]
           },
           {
             "children": [],
@@ -535,7 +545,11 @@ export const initialCategories: CategoryDef[] = [
             "displayName": "學姊是男孩",
             "name": "學姊是男孩",
             "type": "series",
-            "id": "manga-cat-senpai-boy"
+            "id": "manga-cat-senpai-boy",
+            "tags": [
+              "戀愛",
+              "校園"
+            ]
           },
           {
             "children": [],
@@ -567,7 +581,11 @@ export const initialCategories: CategoryDef[] = [
             "name": "鏈鋸人",
             "displayName": "鏈鋸人",
             "id": "manga-cat-chainsaw",
-            "type": "series"
+            "type": "series",
+            "tags": [
+              "奇幻",
+              "戰鬥"
+            ]
           },
           {
             "children": [],
@@ -599,7 +617,11 @@ export const initialCategories: CategoryDef[] = [
             "name": "香格里拉·開拓異境~糞作獵手挑戰神作~",
             "displayName": "香格里拉·開拓異境~糞作獵手挑戰神作~",
             "id": "manga-cat-shangrila",
-            "type": "series"
+            "type": "series",
+            "tags": [
+              "冒險",
+              "戰鬥"
+            ]
           },
           {
             "children": [],
@@ -634,7 +656,10 @@ export const initialCategories: CategoryDef[] = [
             "displayName": "犬與屑",
             "name": "犬與屑",
             "type": "series",
-            "id": "manga-cat-inutokuzu"
+            "id": "manga-cat-inutokuzu",
+            "tags": [
+              "愛情"
+            ]
           },
           {
             "children": [],
@@ -655,7 +680,11 @@ export const initialCategories: CategoryDef[] = [
             "displayName": "地獄樂",
             "name": "地獄樂",
             "type": "series",
-            "id": "manga-cat-jigokuraku"
+            "id": "manga-cat-jigokuraku",
+            "tags": [
+              "戰鬥",
+              "奇幻"
+            ]
           },
           {
             "children": [],
@@ -676,7 +705,11 @@ export const initialCategories: CategoryDef[] = [
             "displayName": "夏日時光",
             "name": "夏日時光",
             "type": "series",
-            "id": "manga-cat-summertime"
+            "id": "manga-cat-summertime",
+            "tags": [
+              "奇幻",
+              "懸疑"
+            ]
           },
           {
             "children": [],
@@ -821,6 +854,29 @@ export const initialCategories: CategoryDef[] = [
 
 export const initialBooks: Book[] = [
   {
+    "id": "artbook-sao-abec-wanderers",
+    "title": "Sword Art Online刀劍神域 abec畫集 Wanderers",
+    "author": "abec / 川原礫",
+    "category": "畫集單行本",
+    "type": "single",
+    "relatedIp": "刀劍神域",
+    "originDomain": "light_novel",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66401e9aa77ba60019126932/800x.webp?source_format=jpg"
+  },
+  {
+    "id": "artbook-deemo-2",
+    "title": "DEEMO II: 美術設定集",
+    "author": "雷亞遊戲 (Rayark Inc.)",
+    "category": "畫集單行本",
+    "type": "single",
+    "originDomain": "game",
+    "volume": 1,
+    "tags": [],
+    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x768/smart/filters:sharpen(sigma):format(webp)/s.eslite.com/upload/product/o/2682204925006/20220715041710345700.jpg"
+  },
+  {
     "id": "artbook-roshidere-momoko",
     "title": "不時輕聲地以俄語遮羞的鄰座艾莉同學 ももこ畫集",
     "author": "ももこ / 燦々SUN",
@@ -829,8 +885,7 @@ export const initialBooks: Book[] = [
     "originDomain": "light_novel",
     "volume": 1,
     "tags": [],
-    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66f114fb54f41f0011ca7b3b/800x.webp?source_format=jpg",
-    "description": "《不時輕聲地以俄語遮羞的鄰座艾莉同學》插畫家 ももこ 老師首本個人官方畫集！精選收錄小說全彩插畫、店鋪限定特典、宣傳繪圖及珍貴草稿設定。"
+    "coverUrl": "https://shoplineimg.com/655b0f3c9b81d900188b35f1/66f114fb54f41f0011ca7b3b/800x.webp?source_format=jpg"
   },
   {
     "id": "artbook-oshinoko-glare-sparkle",
@@ -842,8 +897,7 @@ export const initialBooks: Book[] = [
     "originDomain": "manga",
     "volume": 1,
     "tags": [],
-    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x768/filters:format(webp)/s.eslite.com/b2b/newItem/ebook_init/main1_453023.jpg",
-    "description": "【我推的孩子】首本官方精裝插畫集！完整收錄超過130幅精美全彩插畫、各話彩頁、作者訪談與角色設定草圖。"
+    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x768/filters:format(webp)/s.eslite.com/b2b/newItem/ebook_init/main1_453023.jpg"
   },
   {
     "id": "artbook-epiao-artbook",
@@ -855,8 +909,7 @@ export const initialBooks: Book[] = [
     "originDomain": "game",
     "volume": 1,
     "tags": [],
-    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/CN1/321/18/CN13211841.jpg&v=69a1040ek&w=348&h=348",
-    "description": "國產明末歷史題材冒險遊戲《餓殍：明末千里行》官方藝術設定集！收錄全人物立繪、角色原畫設計、場景概念圖、精美插畫與未公開開發資料。"
+    "coverUrl": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/CN1/321/18/CN13211841.jpg&v=69a1040ek&w=348&h=348"
   },
   {
     "id": "artbook-elden-ring-1",
@@ -868,8 +921,7 @@ export const initialBooks: Book[] = [
     "volume": 1,
     "seriesGroup": "ELDEN RING OFFICIAL ART BOOK",
     "tags": [],
-    "coverUrl": "https://cdn.kdkw.jp/cover_1000/322201/322201000408.webp",
-    "description": "オープンワールドアクションRPG『ELDEN RING』の壮大な世界を描き出す公式画集第1巻。オープニングムービーのアート、フィールドやダンジョンのコンセプトアート、登場キャラクターや防具の設定画などを多数収録。"
+    "coverUrl": "https://cdn.kdkw.jp/cover_1000/322201/322201000408.webp"
   },
   {
     "coverUrl": "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/46/0010924694_b_02.jpg&v=62886b7ck&w=348&h=348",
@@ -8168,8 +8220,7 @@ export const initialBooks: Book[] = [
     "volume": 2,
     "seriesGroup": "ELDEN RING OFFICIAL ART BOOK",
     "tags": [],
-    "coverUrl": "https://cdn.kdkw.jp/cover_1000/322205/322205000378.webp",
-    "description": "公式画集第2巻。プレイヤーの前に立ちはだかる脅威の敵キャラクターや多種多様な武器、アイテム、アイコン用イラストなど、過酷な狭間の地を彩る緻密なアートワークを圧倒的ボリュームで収録。"
+    "coverUrl": "https://cdn.kdkw.jp/cover_1000/322205/322205000378.webp"
   },
   {
     "id": "artbook-genshin-1",
@@ -8181,8 +8232,7 @@ export const initialBooks: Book[] = [
     "volume": 1,
     "seriesGroup": "原神插畫集",
     "tags": [],
-    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x768/smart/filters:sharpen(sigma):format(webp)/s.eslite.com/upload/product/o/2682237305004/20230218135119515062.jpg",
-    "description": "台灣角川官方授權繁體中文版。收錄38幅人物立繪圖、超過80幅官方宣傳圖及慶典賀圖、36組角色情報與雙面拉頁海報，典藏精裝規格。"
+    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x768/smart/filters:sharpen(sigma):format(webp)/s.eslite.com/upload/product/o/2682237305004/20230218135119515062.jpg"
   },
   {
     "id": "artbook-genshin-2",
@@ -8194,7 +8244,6 @@ export const initialBooks: Book[] = [
     "volume": 2,
     "seriesGroup": "原神插畫集",
     "tags": [],
-    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x768/smart/filters:sharpen(sigma):format(webp)/s.eslite.com/b2b/vendor/2024011120240112112947/mainCoverImage2_1205673.jpg",
-    "description": "台灣角川官方授權繁體中文版。收錄2.0至2.8版本精彩內容，包含人物立繪、衣裝、官方宣傳圖及慶典賀圖等近200幅插畫，附雙面拉頁海報。"
+    "coverUrl": "https://s2.eslite.com/unsafe/fit-in/x768/smart/filters:sharpen(sigma):format(webp)/s.eslite.com/b2b/vendor/2024011120240112112947/mainCoverImage2_1205673.jpg"
   }
 ];

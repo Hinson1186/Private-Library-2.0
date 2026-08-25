@@ -504,7 +504,6 @@ const App: React.FC = () => {
                                                                         : 'cursor-default'
                                                                     }`}
                                                                 >
-                                                                    <Tag size={12} />
                                                                     {tag}
                                                                     {isManagingCatTags && <X size={12} className="ml-0.5 text-rose-400" />}
                                                                 </button>
@@ -528,7 +527,6 @@ const App: React.FC = () => {
                                                 const tagStyles = getFilterTagStyles(tag, true);
                                                 return (
                                                     <span key={tag} className={`px-2.5 py-1.5 text-xs font-bold rounded-md border flex items-center gap-1.5 transition-all shadow-sm ${tagStyles.className}`}>
-                                                        <Tag size={12} />
                                                         {tag}
                                                         <button 
                                                             onClick={() => toggleTag(tag)}

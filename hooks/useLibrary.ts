@@ -16,11 +16,28 @@ import {
 } from 'firebase/firestore';
 import { onAuthStateChanged, User } from 'firebase/auth';
 
-// 當您大幅更新 initialData.ts 並希望所有人都能看到最新內容時，請提升這裡的版本號（例如 v18 -> v19）
-// 這會強制程式忽略舊的瀏覽器暫存，重新載入 initialData.ts 內的資料。
-const STORAGE_KEY = 'ai-library-books-v46'; 
-const CATEGORIES_KEY = 'ai-library-categories-tree-v46'; 
-const TAGS_KEY = 'ai-library-tags-v6';
+// 版本號已重置為 v1，每次重大更迭時提升版本即可刷新使用者快取
+const STORAGE_KEY = 'ai-library-books-v1'; 
+const CATEGORIES_KEY = 'ai-library-categories-tree-v1'; 
+const TAGS_KEY = 'ai-library-tags-v1';
+
+// 清除過去舊版本 (v2 ~ v47 等) 的歷史殘留快取，釋放瀏覽器儲存空間
+try {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const keysToRemove: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && (key.startsWith('ai-library-books-v') || key.startsWith('ai-library-categories-tree-v') || key.startsWith('ai-library-tags-v'))) {
+        if (key !== STORAGE_KEY && key !== CATEGORIES_KEY && key !== TAGS_KEY) {
+          keysToRemove.push(key);
+        }
+      }
+    }
+    keysToRemove.forEach(k => localStorage.removeItem(k));
+  }
+} catch (e) {
+  console.warn('Failed to clean legacy cache:', e);
+}
 
 export const DEFAULT_TAGS = [
   "校園", "奇幻", "懸疑", "黑暗", "推理", "青春",
